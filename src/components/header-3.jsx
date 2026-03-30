@@ -41,6 +41,14 @@ export function Header() {
 
 	const navLabelClass = 'text-xs font-semibold uppercase tracking-[0.2em]';
 
+	const navMegaTriggerClass = cn(
+		'bg-transparent h-11',
+		navLabelClass,
+		'hover:bg-transparent hover:text-[#DC143C] hover:[&_svg]:text-[#DC143C]',
+		'data-[state=open]:bg-transparent data-[state=open]:text-[#DC143C] data-[state=open]:[&_svg]:text-[#DC143C]',
+		'focus-visible:bg-transparent focus-visible:text-[#DC143C] focus-visible:[&_svg]:text-[#DC143C]',
+	);
+
 	React.useEffect(() => {
 		if (open) {
 			document.body.style.overflow = 'hidden';
@@ -58,21 +66,21 @@ export function Header() {
 				<div className="grid w-full min-w-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 md:gap-5 xl:gap-6">
 					<a
 						href="/"
-						className="flex shrink-0 items-center rounded-md p-1 hover:bg-accent"
+						className="flex h-11 shrink-0 items-center rounded-md hover:bg-accent"
 					>
 						<img
 							src={typeof logoSvg === 'string' ? logoSvg : logoSvg.src}
 							alt="CRUD Site"
 							width={171}
 							height={62}
-							className="h-11 w-auto sm:h-12"
+							className="h-10 w-auto object-contain"
 						/>
 					</a>
 					<div className="flex min-w-0 justify-center justify-self-center">
 					<NavigationMenu className="hidden max-w-full md:flex">
 						<NavigationMenuList className="space-x-2 md:space-x-3 xl:space-x-4">
 							<NavigationMenuItem>
-								<NavigationMenuTrigger className={cn('bg-transparent h-11', navLabelClass)}>
+								<NavigationMenuTrigger className={navMegaTriggerClass}>
 									Work
 								</NavigationMenuTrigger>
 								<NavigationMenuContent className="bg-background p-1 pr-1.5 pb-1.5">
@@ -88,10 +96,13 @@ export function Header() {
 											{companyLinks2.map((item, i) => (
 												<li key={i}>
 													<NavigationMenuLink
-                                                        href={item.href}
-                                                        className="flex p-2 hover:bg-accent flex-row rounded-md items-center gap-x-2">
-														<item.icon className="text-foreground size-4" />
-														<span className="font-medium">{item.title}</span>
+														href={item.href}
+														className="group flex flex-row items-center gap-x-2 rounded-md p-2 hover:bg-accent"
+													>
+														<item.icon className="size-4 text-foreground transition-colors group-hover:text-[#DC143C]" />
+														<span className="font-medium transition-colors group-hover:text-[#DC143C]">
+															{item.title}
+														</span>
 													</NavigationMenuLink>
 												</li>
 											))}
@@ -100,7 +111,7 @@ export function Header() {
 								</NavigationMenuContent>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
-								<NavigationMenuTrigger className={cn('bg-transparent h-11', navLabelClass)}>
+								<NavigationMenuTrigger className={navMegaTriggerClass}>
 									Services
 								</NavigationMenuTrigger>
 								<NavigationMenuContent className="bg-background p-1 pr-1.5">
@@ -144,15 +155,15 @@ export function Header() {
 				</div>
 			</NavBody>
 
-			<MobileNav className="min-h-20 px-4">
+			<MobileNav className="min-h-20">
 				<MobileNavHeader>
-					<a href="/" className="flex shrink-0 items-center rounded-md p-1 hover:bg-accent">
+					<a href="/" className="flex h-11 shrink-0 items-center rounded-md hover:bg-accent">
 						<img
 							src={typeof logoSvg === 'string' ? logoSvg : logoSvg.src}
 							alt="CRUD Site"
 							width={171}
 							height={62}
-							className="h-11 w-auto sm:h-12"
+							className="h-10 w-auto object-contain"
 						/>
 					</a>
 					<Button
@@ -217,7 +228,8 @@ function ListItem({
 	return (
 		<NavigationMenuLink
 			className={cn(
-				'w-full flex flex-row gap-x-2 data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground rounded-sm p-2',
+				'w-full flex flex-row gap-x-2 rounded-sm p-2 hover:bg-accent focus:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent',
+				'hover:text-accent-foreground focus:text-accent-foreground data-[active=true]:text-accent-foreground',
 				className,
 			)}
 			{...props}
@@ -225,17 +237,19 @@ function ListItem({
 		>
 			<a
 				href={href}
+				className="group flex w-full flex-row gap-x-2"
 				onClick={() => {
 					onNavigate?.();
 				}}
 			>
-				<div
-                    className="bg-background/40 flex aspect-square size-12 items-center justify-center rounded-md border shadow-sm">
-					<Icon className="text-foreground size-5" />
+				<div className="flex aspect-square size-12 items-center justify-center rounded-md border border-border bg-background/40 shadow-sm transition-colors group-hover:border-[#DC143C]/35 group-hover:text-[#DC143C]">
+					<Icon className="size-5 text-foreground transition-colors group-hover:text-[#DC143C]" />
 				</div>
 				<div className="flex flex-col items-start justify-center">
-					<span className="font-medium">{title}</span>
-					<span className="text-muted-foreground text-xs">{description}</span>
+					<span className="font-medium transition-colors group-hover:text-[#DC143C]">{title}</span>
+					<span className="text-muted-foreground text-xs transition-colors group-hover:text-muted-foreground/80">
+						{description}
+					</span>
 				</div>
 			</a>
 		</NavigationMenuLink>

@@ -58,10 +58,11 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 	const { scrollY } = useScroll();
 	const [visible, setVisible] = useState<boolean>(false);
 
+	// Hysteresis: avoids flicker when oscillating near the threshold
 	useMotionValueEvent(scrollY, "change", (latest) => {
 		if (latest > 100) {
 			setVisible(true);
-		} else {
+		} else if (latest < 64) {
 			setVisible(false);
 		}
 	});
@@ -84,27 +85,39 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 	);
 };
 
+const navTransition = {
+	y: {
+		type: "spring" as const,
+		stiffness: 88,
+		damping: 24,
+		mass: 1.15,
+	},
+	marginTop: { duration: 0.95, ease: [0.22, 1, 0.36, 1] as const },
+	backdropFilter: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
+	boxShadow: { duration: 1, ease: [0.22, 1, 0.36, 1] as const },
+	layout: { duration: 0.95, ease: [0.22, 1, 0.36, 1] as const },
+	default: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+};
+
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 	return (
 		<motion.div
+			layout
 			animate={{
-				backdropFilter: visible ? "blur(12px)" : "none",
+				marginTop: visible ? 18 : 0,
+				backdropFilter: visible ? "blur(12px)" : "blur(0px)",
 				boxShadow: visible
 					? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-					: "none",
-				y: visible ? 6 : 0,
+					: "0 0 0 0 rgba(0,0,0,0)",
+				y: visible ? 4 : 0,
 			}}
-			transition={{
-				type: "spring",
-				stiffness: 220,
-				damping: 52,
-			}}
+			transition={navTransition}
 			className={cn(
-				"relative z-[60] mx-auto hidden h-20 min-h-20 flex-row items-center rounded-full bg-transparent px-4 md:flex dark:bg-transparent",
-				// Full content width at top; after scroll, equal inset from both viewport edges
+				"relative z-[60] mx-auto hidden h-20 min-h-20 flex-row items-center rounded-full bg-transparent md:flex dark:bg-transparent",
+				"transition-[max-width,width,padding-left,padding-right,background-color,margin-top] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[max-width,padding,margin]",
 				visible
-					? "w-[min(48rem,calc(100%-clamp(2rem,8vw,6rem)))] bg-white/80 dark:bg-neutral-950/80"
-					: "w-full max-w-3xl",
+					? "w-[min(48rem,calc(100%-80px))] bg-white/80 pl-[40px] pr-[40px] dark:bg-neutral-950/80"
+					: "w-full max-w-7xl px-[clamp(16px,4vw,48px)]",
 				className,
 			)}
 		>
@@ -156,23 +169,22 @@ export const MobileNav = ({
 }: MobileNavProps) => {
 	return (
 		<motion.div
+			layout
 			animate={{
-				backdropFilter: visible ? "blur(10px)" : "none",
+				marginTop: visible ? 18 : 0,
+				backdropFilter: visible ? "blur(10px)" : "blur(0px)",
 				boxShadow: visible
 					? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-					: "none",
-				y: visible ? 6 : 0,
+					: "0 0 0 0 rgba(0,0,0,0)",
+				y: visible ? 4 : 0,
 			}}
-			transition={{
-				type: "spring",
-				stiffness: 200,
-				damping: 50,
-			}}
+			transition={navTransition}
 			className={cn(
 				"relative z-50 mx-auto flex flex-col items-center justify-between bg-transparent py-2 md:hidden",
+				"transition-[max-width,width,padding-left,padding-right,background-color,margin-top] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[max-width,padding,margin]",
 				visible
-					? "w-[min(48rem,calc(100%-clamp(2rem,8vw,6rem)))] bg-white/80 dark:bg-neutral-950/80"
-					: "w-full max-w-3xl",
+					? "w-[min(48rem,calc(100%-80px))] bg-white/80 pl-[40px] pr-[40px] dark:bg-neutral-950/80"
+					: "w-full max-w-7xl px-[clamp(16px,4vw,48px)]",
 				className,
 			)}
 		>
