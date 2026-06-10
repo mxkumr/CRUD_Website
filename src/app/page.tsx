@@ -1,0 +1,26 @@
+import SmoothScroll from '@/components/site/SmoothScroll';
+import CustomCursor from '@/components/site/CustomCursor';
+import Navigation from '@/components/site/Navigation';
+import Hero from '@/components/site/Hero';
+import WorkGrid from '@/components/site/WorkGrid';
+import Capabilities from '@/components/site/Capabilities';
+import Studio from '@/components/site/Studio';
+import ContactFooter from '@/components/site/ContactFooter';
+
+export default function HomePage() {
+  return (
+    <SmoothScroll>
+      <div className="crud-site">
+        <CustomCursor />
+        <Navigation />
+        <main>
+          <Hero />
+          <WorkGrid />
+          <Capabilities />
+          <Studio />
+        </main>
+        <ContactFooter />
+      </div>
+    </SmoothScroll>
+  );
+}

@@ -1,0 +1,58 @@
+
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif } from 'next/font/google';
+import './globals.css';
+import { Toaster } from "@/components/ui/toaster";
+import { MigrationRunner } from '@/components/MigrationRunner';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-display',
+  subsets: ['latin'],
+});
+
+const inter = Inter({
+  variable: '--font-body',
+  subsets: ['latin'],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: '--font-serif',
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+});
+
+export const metadata: Metadata = {
+  title: 'CRUD — The Design Studio | Ideas to Iconic Brands',
+  description:
+    'CRUD (Create Refine Unified Designs) is a design agency crafting powerful brands through innovative design, seamless web development, and strategic digital solutions.',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="dark">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} antialiased`}
+        suppressHydrationWarning={true}
+      >
+        <MigrationRunner />
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  );
+}
