@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Magnetic from './Magnetic';
 import { useLenis } from './SmoothScroll';
@@ -57,10 +58,17 @@ export default function Navigation() {
             <button
               data-cursor="hover"
               onClick={() => go('#top')}
-              className="font-display text-xl font-bold tracking-tight text-bone"
+              className="flex items-center"
               aria-label="CRUD Studio — back to top"
             >
-              CRUD<span className="text-brand-bright">.</span>
+              <Image
+                src="/logo.png"
+                alt="CRUD Studio"
+                width={652}
+                height={248}
+                priority
+                className="h-8 w-auto md:h-9"
+              />
             </button>
           </Magnetic>
 

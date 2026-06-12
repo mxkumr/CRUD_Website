@@ -11,7 +11,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const WINDOW_MS = 60_000;
 /** Page loads, prefetches, RSC requests */
 const GET_LIMIT = 120;
-/** POSTs = server actions (incl. the paid Gemini AI flow) — keep tight */
+/** Non-GET requests — the site is static, so keep this tight */
 const MUTATION_LIMIT = 15;
 /** Hard cap on tracked IPs so the limiter itself can't be memory-bombed */
 const MAX_TRACKED_IPS = 10_000;

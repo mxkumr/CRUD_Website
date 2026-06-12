@@ -2,8 +2,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif } from 'next/font/google';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
-import { MigrationRunner } from '@/components/MigrationRunner';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -44,14 +42,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <MigrationRunner />
         {children}
-        <Toaster />
       </body>
     </html>
   );

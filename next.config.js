@@ -1,19 +1,12 @@
-import type {NextConfig} from 'next';
+/** @type {import('next').NextConfig} */
 
-/**
- * CSP notes:
- * - 'unsafe-inline' / 'unsafe-eval' for scripts are required by Next.js
- *   (inline bootstrap) and Three.js/Turbopack in dev. Tighten to a
- *   nonce-based policy if/when needed.
- * - frame-ancestors 'none' blocks clickjacking (same intent as X-Frame-Options).
- */
 const contentSecurityPolicy = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://placehold.co",
+  "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self' https://generativelanguage.googleapis.com",
+  "connect-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -29,19 +22,13 @@ const securityHeaders = [
   { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
 ];
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  experimental: {
-    serverActions: {
-      // Server action payloads are small (task lists); reject anything bloated.
-      bodySizeLimit: '100kb',
-    },
   },
   async headers() {
     return [
@@ -51,16 +38,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
