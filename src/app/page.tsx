@@ -4,6 +4,7 @@ import Navigation from '@/components/site/Navigation';
 import Hero from '@/components/site/Hero';
 import WorkGrid from '@/components/site/WorkGrid';
 import Capabilities from '@/components/site/Capabilities';
+import ShowcasePreview from '@/components/site/ShowcasePreview';
 import Studio from '@/components/site/Studio';
 import ContactFooter from '@/components/site/ContactFooter';
 
@@ -17,6 +18,7 @@ export default function HomePage() {
           <Hero />
           <WorkGrid />
           <Capabilities />
+          <ShowcasePreview />
           <Studio />
         </main>
         <ContactFooter />

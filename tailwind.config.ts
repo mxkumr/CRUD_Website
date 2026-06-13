@@ -8,25 +8,27 @@ export default {
   theme: {
     extend: {
       colors: {
+        /* Channel-based tokens so opacity modifiers (bg-ink/70) keep working
+           while the actual values are swapped per theme via CSS variables. */
         ink: {
-          DEFAULT: '#0D0D0B',
-          soft: '#151513',
-          raise: '#1C1C19'
+          DEFAULT: 'rgb(var(--c-ink) / <alpha-value>)',
+          soft: 'rgb(var(--c-ink-soft) / <alpha-value>)',
+          raise: 'rgb(var(--c-ink-raise) / <alpha-value>)'
         },
         bone: {
-          DEFAULT: '#EDEAE3',
-          dim: '#9C988E'
+          DEFAULT: 'rgb(var(--c-bone) / <alpha-value>)',
+          dim: 'rgb(var(--c-bone-dim) / <alpha-value>)'
         },
         volt: {
-          DEFAULT: '#D9FF3F',
-          dim: '#A8C82E'
+          DEFAULT: 'rgb(var(--c-volt) / <alpha-value>)',
+          dim: 'rgb(var(--c-volt-dim) / <alpha-value>)'
         },
         brand: {
-          DEFAULT: '#D32F2F',
+          DEFAULT: 'rgb(var(--c-brand) / <alpha-value>)',
           /* brighter tint for small text / thin elements on dark ink */
-          bright: '#FF5252'
+          bright: 'rgb(var(--c-brand-bright) / <alpha-value>)'
         },
-        line: 'rgba(237, 234, 227, 0.12)'
+        line: 'var(--c-line)'
       },
       fontFamily: {
         display: ['var(--font-display)', 'sans-serif'],

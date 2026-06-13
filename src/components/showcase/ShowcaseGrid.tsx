@@ -10,6 +10,7 @@ import {
   useTransform,
 } from 'framer-motion';
 import SitePreview from './SitePreview';
+import MiniPreview from './MiniPreview';
 import { industries, type Industry } from '@/lib/showcase-data';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -87,24 +88,16 @@ function IndustryCard({
         onClick={onOpen}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
         whileTap={{ scale: 0.985 }}
-        className="group relative block h-full w-full overflow-hidden rounded-[1.6rem] border border-line bg-ink-soft/70 p-6 text-left backdrop-blur-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/40 md:p-8"
+        className="group relative block h-full w-full overflow-hidden rounded-[1.6rem] border border-line bg-ink-soft/70 text-left backdrop-blur-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/40"
       >
         {/* tinted wash */}
         <div
           aria-hidden
-          className="absolute inset-0 opacity-80 transition-opacity duration-500 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 opacity-80 transition-opacity duration-500 group-hover:opacity-100"
           style={{
             background: `radial-gradient(120% 120% at 0% 0%, ${hue}1f 0%, transparent 45%), radial-gradient(120% 120% at 100% 100%, ${hue2}1a 0%, transparent 50%)`,
           }}
         />
-        {/* oversized glyph */}
-        <span
-          aria-hidden
-          className="absolute -bottom-10 -right-4 select-none font-display text-[10rem] font-bold leading-none opacity-[0.06] transition-all duration-700 group-hover:-translate-y-3 group-hover:opacity-[0.12]"
-          style={{ color: hue }}
-        >
-          {industry.glyph}
-        </span>
         {/* specular glare */}
         <motion.div
           aria-hidden
@@ -112,56 +105,65 @@ function IndustryCard({
           style={{ background: glare }}
         />
 
-        <div className="relative" style={{ transform: 'translateZ(40px)' }}>
-          {/* top row */}
-          <div className="flex items-start justify-between">
-            <span
-              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-lg backdrop-blur-md"
-              style={{ background: `${hue}1f`, color: hue, boxShadow: `0 8px 24px -12px ${hue}80` }}
-            >
-              {industry.glyph}
-            </span>
-            <span className="font-display text-xs tracking-widest text-bone-dim">
-              {industry.number}
-            </span>
+        <div className="relative flex h-full flex-col" style={{ transform: 'translateZ(40px)' }}>
+          {/* live mini-site preview */}
+          <div className="relative p-4 pb-0 md:p-5 md:pb-0">
+            <div className="pointer-events-none overflow-hidden rounded-xl shadow-lg shadow-black/30 transition-transform duration-500 group-hover:-translate-y-1">
+              <MiniPreview industryId={industry.id} compact />
+            </div>
           </div>
 
-          <p className="mt-6 font-display text-[11px] uppercase tracking-[0.25em]" style={{ color: hue }}>
-            {industry.category}
-          </p>
-          <h3 className="mt-2 font-display text-2xl font-bold leading-tight tracking-tight text-bone md:text-[1.7rem]">
-            {industry.name}
-          </h3>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-bone-dim">{industry.tagline}</p>
-
-          {/* meta chips */}
-          <div className="mt-6 flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-ink/40 px-3 py-1.5 font-display text-[11px] text-bone-dim backdrop-blur-sm">
-              <span className="text-bone">◷</span> {industry.timelineLabel}
-            </span>
-            {industry.liveHref && (
+          {/* card meta */}
+          <div className="relative flex flex-1 flex-col p-4 pt-5 md:p-6 md:pt-6">
+            <div className="flex items-start justify-between">
               <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-display text-[11px] font-semibold"
-                style={{ background: `${hue}1f`, color: hue }}
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-xl shadow-lg backdrop-blur-md"
+                style={{ background: `${hue}1f`, color: hue, boxShadow: `0 8px 24px -12px ${hue}80` }}
               >
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute h-full w-full animate-ping rounded-full" style={{ background: hue }} />
-                  <span className="relative h-1.5 w-1.5 rounded-full" style={{ background: hue }} />
-                </span>
-                Live demo
+                {industry.glyph}
               </span>
-            )}
-          </div>
+              <span className="font-display text-xs tracking-widest text-bone-dim">
+                {industry.number}
+              </span>
+            </div>
 
-          {/* open affordance */}
-          <div className="mt-6 flex items-center gap-2 overflow-hidden">
-            <span className="h-px w-0 transition-all duration-500 group-hover:w-10" style={{ background: hue }} />
-            <span
-              className="-translate-x-4 font-display text-xs uppercase tracking-widest opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
-              style={{ color: hue }}
-            >
-              Open interactive preview →
-            </span>
+            <p className="mt-4 font-display text-[11px] uppercase tracking-[0.25em]" style={{ color: hue }}>
+              {industry.category}
+            </p>
+            <h3 className="mt-1.5 font-display text-xl font-bold leading-tight tracking-tight text-bone md:text-2xl">
+              {industry.name}
+            </h3>
+            <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-bone-dim">{industry.tagline}</p>
+
+            {/* meta chips */}
+            <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-ink/40 px-3 py-1.5 font-display text-[11px] text-bone-dim backdrop-blur-sm">
+                <span className="text-bone">◷</span> {industry.timelineLabel}
+              </span>
+              {industry.liveHref && (
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-display text-[11px] font-semibold"
+                  style={{ background: `${hue}1f`, color: hue }}
+                >
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute h-full w-full animate-ping rounded-full" style={{ background: hue }} />
+                    <span className="relative h-1.5 w-1.5 rounded-full" style={{ background: hue }} />
+                  </span>
+                  Live demo
+                </span>
+              )}
+            </div>
+
+            {/* open affordance */}
+            <div className="mt-4 flex items-center gap-2 overflow-hidden">
+              <span className="h-px w-0 transition-all duration-500 group-hover:w-10" style={{ background: hue }} />
+              <span
+                className="-translate-x-4 font-display text-xs uppercase tracking-widest opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
+                style={{ color: hue }}
+              >
+                Open interactive preview →
+              </span>
+            </div>
           </div>
         </div>
       </motion.button>
@@ -276,7 +278,7 @@ function IndustryDetail({ industry, onClose }: { industry: Industry; onClose: ()
           {/* live preview */}
           <div className="flex min-h-0 flex-col gap-3 p-4 sm:p-5 lg:h-full">
             <div className="h-[360px] sm:h-[440px] lg:h-full lg:min-h-0">
-              <SitePreview site={industry.site} />
+              <SitePreview site={industry.site} industryId={industry.id} />
             </div>
             {industry.liveHref && (
               <Link

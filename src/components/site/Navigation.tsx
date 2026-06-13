@@ -5,17 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Magnetic from './Magnetic';
-import { useLenis } from './SmoothScroll';
 import { contact } from '@/lib/site-data';
 
-type NavLink = { label: string; target?: string; href?: string };
+type NavLink = { label: string; href: string };
 
 const links: NavLink[] = [
-  { label: 'Work', target: '#work' },
+  { label: 'Work', href: '/work' },
   { label: 'Showcase', href: '/showcase' },
-  { label: 'Capabilities', target: '#capabilities' },
-  { label: 'Studio', target: '#studio' },
-  { label: 'Contact', target: '#contact' },
+  { label: 'Capabilities', href: '/capabilities' },
+  { label: 'Studio', href: '/studio' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const overlayEase = [0.76, 0, 0.24, 1] as const;
@@ -24,8 +23,31 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const { scrollY } = useScroll();
-  const { scrollTo } = useLenis();
+
+  useEffect(() => {
+    const stored = (typeof window !== 'undefined' && localStorage.getItem('crud-theme')) as
+      | 'dark'
+      | 'light'
+      | null;
+    const initial = stored ?? 'dark';
+    setTheme(initial);
+    document.documentElement.classList.toggle('theme-light', initial === 'light');
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('crud-theme', next);
+      } catch {
+        /* ignore */
+      }
+      document.documentElement.classList.toggle('theme-light', next === 'light');
+      return next;
+    });
+  };
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
@@ -40,12 +62,6 @@ export default function Navigation() {
     };
   }, [open]);
 
-  const go = (target: string) => {
-    setOpen(false);
-    // wait for the overlay to start collapsing before scrolling
-    setTimeout(() => scrollTo(target, -8), open ? 350 : 0);
-  };
-
   return (
     <>
       <motion.header
@@ -59,11 +75,11 @@ export default function Navigation() {
           }`}
         >
           <Magnetic strength={0.25}>
-            <button
+            <Link
+              href="/"
               data-cursor="hover"
-              onClick={() => go('#top')}
               className="flex items-center"
-              aria-label="CRUD Studio — back to top"
+              aria-label="CRUD Studio — home"
             >
               <Image
                 src="/logo.png"
@@ -73,44 +89,74 @@ export default function Navigation() {
                 priority
                 className="h-8 w-auto md:h-9"
               />
-            </button>
+            </Link>
           </Magnetic>
 
           <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-            {links.map((link) => {
-              const inner = (
-                <>
-                  <span className="block transition-transform duration-300 group-hover:-translate-y-full">
-                    {link.label}
-                  </span>
-                  <span className="absolute left-0 top-full block text-volt transition-transform duration-300 group-hover:-translate-y-full">
-                    {link.label}
-                  </span>
-                </>
-              );
-              const className =
-                'group relative overflow-hidden font-display text-sm uppercase tracking-widest text-bone-dim transition-colors hover:text-bone';
-              return link.href ? (
-                <Link key={link.label} href={link.href} data-cursor="hover" className={className}>
-                  {inner}
-                </Link>
-              ) : (
-                <button key={link.label} data-cursor="hover" onClick={() => go(link.target!)} className={className}>
-                  {inner}
-                </button>
-              );
-            })}
+            {links.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                data-cursor="hover"
+                className="group relative overflow-hidden font-display text-sm uppercase tracking-widest text-bone-dim transition-colors hover:text-bone"
+              >
+                <span className="block transition-transform duration-300 group-hover:-translate-y-full">
+                  {link.label}
+                </span>
+                <span className="absolute left-0 top-full block text-volt transition-transform duration-300 group-hover:-translate-y-full">
+                  {link.label}
+                </span>
+              </Link>
+            ))}
           </nav>
 
           <div className="flex items-center gap-4">
             <Magnetic strength={0.3}>
               <button
+                type="button"
                 data-cursor="hover"
-                onClick={() => go('#contact')}
+                onClick={toggleTheme}
+                aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-line bg-ink-soft/80 text-bone backdrop-blur transition-colors hover:text-volt"
+              >
+                {/* Sun (shown in dark mode → click for light) */}
+                <span
+                  className={`absolute transition-all duration-500 ${
+                    theme === 'dark' ? 'rotate-0 opacity-100' : 'rotate-90 opacity-0'
+                  }`}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <circle cx="12" cy="12" r="4" fill="currentColor" />
+                    <g stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+                      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+                    </g>
+                  </svg>
+                </span>
+                {/* Moon (shown in light mode → click for dark) */}
+                <span
+                  className={`absolute transition-all duration-500 ${
+                    theme === 'light' ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
+                  }`}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path
+                      d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </Magnetic>
+
+            <Magnetic strength={0.3}>
+              <Link
+                href="/contact"
+                data-cursor="hover"
                 className="hidden rounded-full border border-line bg-bone px-5 py-2 font-display text-sm font-medium text-ink transition-colors duration-300 hover:bg-brand hover:text-bone md:block"
               >
                 Start a project
-              </button>
+              </Link>
             </Magnetic>
 
             <Magnetic strength={0.3}>
@@ -169,20 +215,14 @@ export default function Navigation() {
                       exit={{ y: '110%' }}
                       transition={{ duration: 0.6, delay: 0.08 * i + 0.15, ease: overlayEase }}
                     >
-                      {link.href ? (
-                        <Link
-                          href={link.href}
-                          data-cursor="hover"
-                          onClick={() => setOpen(false)}
-                          className={className}
-                        >
-                          {inner}
-                        </Link>
-                      ) : (
-                        <button data-cursor="hover" onClick={() => go(link.target!)} className={className}>
-                          {inner}
-                        </button>
-                      )}
+                      <Link
+                        href={link.href}
+                        data-cursor="hover"
+                        onClick={() => setOpen(false)}
+                        className={className}
+                      >
+                        {inner}
+                      </Link>
                     </motion.div>
                   </div>
                 );

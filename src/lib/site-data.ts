@@ -29,63 +29,102 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    id: 'websites',
-    index: '01',
-    title: 'Websites',
-    description:
-      'Full-stack, 3D and content-driven websites engineered to perform — from first paint to first conversion.',
-    items: ['Custom Websites', 'WordPress Development', 'Webflow Development', 'Content Strategy'],
-    hues: ['#D9FF3F', '#3FFFB5'],
-  },
-  {
     id: 'branding',
-    index: '02',
+    index: '01',
     title: 'Branding',
     description:
-      'Brand architecture, guidelines and identity systems that turn first impressions into lasting loyalty.',
-    items: ['Brand Strategy', 'Brand Positioning', 'Visual Identity', 'Logo Design'],
+      'Brand strategy, positioning and identity systems that turn first impressions into lasting loyalty.',
+    items: ['Brand Strategy', 'Positioning', 'Visual Identity', 'Logo Design'],
     hues: ['#FF7A3F', '#FF3F8E'],
   },
   {
-    id: 'uiux',
-    index: '03',
-    title: 'UI/UX Design',
+    id: 'web-development',
+    index: '02',
+    title: 'Web Development',
     description:
-      'Research-driven product design — lean UX integration from audit and discovery to scale and iteration.',
-    items: ['UI + UX Audit', 'Discovery & Ideation', 'Design Concept', 'Scale & Iterate'],
+      'Full-stack, 3D and content-driven websites engineered to perform — from first paint to first conversion.',
+    items: ['Custom Websites', 'Headless / CMS', 'E-commerce', 'Performance & SEO'],
+    hues: ['#3FFFB5', '#3F9DFF'],
+  },
+  {
+    id: 'app-development',
+    index: '03',
+    title: 'App Development',
+    description:
+      'Native-grade iOS and Android apps with fluid, delightful experiences users keep coming back to.',
+    items: ['iOS & Android', 'Cross-platform', 'API Integration', 'Store Launch'],
     hues: ['#3F9DFF', '#9D3FFF'],
   },
   {
-    id: 'content',
+    id: 'uiux-design',
     index: '04',
-    title: 'Content',
+    title: 'UI/UX Design',
     description:
-      'Motion-first storytelling that gives your brand a voice — animation, film and graphics in constant motion.',
-    items: ['Animation', 'Video', 'Photography', 'Motion Graphics'],
-    hues: ['#FFD23F', '#FF3F3F'],
+      'Research-driven product design — from audit and discovery to scalable, consistent design systems.',
+    items: ['UX Audit', 'User Research', 'Prototyping', 'Design Systems'],
+    hues: ['#9D3FFF', '#FF3F8E'],
+  },
+  {
+    id: 'software-development',
+    index: '05',
+    title: 'Software Development',
+    description:
+      'Robust, maintainable software and platforms built around your business logic and built to scale.',
+    items: ['Custom Software', 'SaaS Platforms', 'Cloud & APIs', 'Automation'],
+    hues: ['#D9FF3F', '#3FFFB5'],
+  },
+  {
+    id: 'digital-marketing',
+    index: '06',
+    title: 'Digital Marketing',
+    description:
+      'Performance campaigns, SEO and content that compound your reach and revenue month after month.',
+    items: ['SEO', 'Paid Social', 'Content', 'Analytics'],
+    hues: ['#FF3F8E', '#FF7A3F'],
+  },
+  {
+    id: 'brand-building',
+    index: '07',
+    title: 'Brand Building & Design',
+    description:
+      'Ongoing creative, guidelines and collateral that keep your brand sharp and consistent everywhere.',
+    items: ['Brand Guidelines', 'Collateral', 'Social Kits', 'Art Direction'],
+    hues: ['#FFD23F', '#FF7A3F'],
   },
 ];
+
+export type ServiceIcon =
+  | 'branding'
+  | 'web'
+  | 'app'
+  | 'uiux'
+  | 'software'
+  | 'marketing'
+  | 'brand';
 
 export type Project = {
   id: string;
   title: string;
+  /** short label shown in the top chip */
   category: string;
-  year: string;
+  /** one-line description revealed on hover */
+  blurb: string;
+  /** which vector illustration to render */
+  icon: ServiceIcon;
   /** bento sizing on desktop */
   span: 'wide' | 'tall' | 'standard';
   hues: [string, string];
-  /** live concept demo route, when one exists */
-  href?: string;
 };
 
+/** The things we do — rendered as the "Selected Works" bento. */
 export const projects: Project[] = [
-  { id: 'medinova', title: 'MediNova — Hospital Concept', category: 'Healthcare · Live Demo', year: '2026', span: 'wide', hues: ['#22D3EE', '#0D0D0B'], href: '/work/medinova' },
-  { id: 'minimal-professional', title: 'Minimal & Professional', category: 'Brand Design', year: '2024', span: 'standard', hues: ['#D9FF3F', '#0D0D0B'] },
-  { id: 'brand-building', title: 'Brand Building & Design', category: 'Brand Identity', year: '2024', span: 'standard', hues: ['#FF7A3F', '#0D0D0B'] },
-  { id: 'minimal-effective', title: 'Minimal & Effective', category: 'Web Development', year: '2024', span: 'tall', hues: ['#3F9DFF', '#0D0D0B'] },
-  { id: 'digital-medium', title: 'Digital Medium', category: 'Brand Design & Identity', year: '2023', span: 'standard', hues: ['#FF3F8E', '#0D0D0B'] },
-  { id: 'elegant-premium', title: 'Elegant & Premium', category: 'Product Design', year: '2023', span: 'standard', hues: ['#9D3FFF', '#0D0D0B'] },
-  { id: 'simple-clean', title: 'Simple & Clean', category: 'UI/UX', year: '2023', span: 'wide', hues: ['#3FFFB5', '#0D0D0B'] },
+  { id: 'branding', title: 'Branding', category: 'Identity & Strategy', blurb: 'Names, marks and brand systems that make first impressions unforgettable.', icon: 'branding', span: 'wide', hues: ['#FF7A3F', '#0D0D0B'] },
+  { id: 'web-development', title: 'Web Development', category: 'Sites & Platforms', blurb: 'Fast, scalable, content-driven websites engineered to convert.', icon: 'web', span: 'standard', hues: ['#3FFFB5', '#0D0D0B'] },
+  { id: 'app-development', title: 'App Development', category: 'iOS & Android', blurb: 'Native-grade mobile apps with delightful, fluid experiences.', icon: 'app', span: 'standard', hues: ['#3F9DFF', '#0D0D0B'] },
+  { id: 'uiux-design', title: 'UI / UX Design', category: 'Product Design', blurb: 'Research-led interfaces — from discovery and audit to scale.', icon: 'uiux', span: 'tall', hues: ['#9D3FFF', '#0D0D0B'] },
+  { id: 'software-development', title: 'Software Development', category: 'Custom Systems', blurb: 'Robust, maintainable software built around your business logic.', icon: 'software', span: 'standard', hues: ['#D9FF3F', '#0D0D0B'] },
+  { id: 'digital-marketing', title: 'Digital Marketing', category: 'Growth & Reach', blurb: 'Performance campaigns and SEO that compound your audience.', icon: 'marketing', span: 'standard', hues: ['#FF3F8E', '#0D0D0B'] },
+  { id: 'brand-building', title: 'Brand Building & Design', category: 'Visual Systems', blurb: 'Guidelines, collateral and creative that keep your brand consistent.', icon: 'brand', span: 'standard', hues: ['#FFD23F', '#0D0D0B'] },
 ];
 
 export const differentiators = [

@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Theme tokens — RGB channels so Tailwind opacity modifiers work.
+   Dark is the default; .theme-light on <html> swaps the values.
+   ============================================================ */
+.crud-site {
+  --c-ink: 13 13 11;
+  --c-ink-soft: 21 21 19;
+  --c-ink-raise: 28 28 25;
+  --c-bone: 237 234 227;
+  --c-bone-dim: 156 152 142;
+  --c-volt: 217 255 63;
+  --c-volt-dim: 168 200 46;
+  --c-brand: 211 47 47;
+  --c-brand-bright: 255 82 82;
+  --c-line: rgba(237, 234, 227, 0.12);
+  --c-stroke: rgba(237, 234, 227, 0.35);
+  --c-selection-bg: #d9ff3f;
+  --c-selection-fg: #0d0d0b;
+}
+
+/* Light theme — ink/bone roles invert (ink = light surface, bone = dark
+   ink text). The neon lime becomes a deep, legible lime so accents stay
+   clearly visible on the cream background. */
+html.theme-light .crud-site {
+  --c-ink: 245 243 236;
+  --c-ink-soft: 236 233 224;
+  --c-ink-raise: 255 255 255;
+  --c-bone: 22 22 16;
+  --c-bone-dim: 91 89 82;
+  /* primary accent tracks the logo red in light mode */
+  --c-volt: 211 47 47;
+  --c-volt-dim: 176 28 28;
+  --c-brand: 211 47 47;
+  --c-brand-bright: 176 28 28;
+  --c-line: rgba(22, 22, 16, 0.14);
+  --c-stroke: rgba(22, 22, 16, 0.32);
+  --c-selection-bg: #d32f2f;
+  --c-selection-fg: #f5f3ec;
+}
+
 @layer base {
   body {
     background-color: #0d0d0b;
@@ -9,20 +49,25 @@
   }
 }
 
+html.theme-light body {
+  background-color: #f5f3ec;
+}
+
 /* ============================================================
    CRUD Studio — marketing site theme (scoped to .crud-site)
    ============================================================ */
 .crud-site {
-  background-color: #0d0d0b;
-  color: #edeae3;
+  background-color: rgb(var(--c-ink));
+  color: rgb(var(--c-bone));
   font-family: var(--font-body), sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .crud-site ::selection {
-  background: #d9ff3f;
-  color: #0d0d0b;
+  background: var(--c-selection-bg);
+  color: var(--c-selection-fg);
 }
 
 /* Hide native cursor only when a fine pointer exists (custom cursor takes over) */
@@ -39,7 +84,7 @@
 }
 
 .crud-site .text-stroke {
-  -webkit-text-stroke: 1px rgba(237, 234, 227, 0.35);
+  -webkit-text-stroke: 1px var(--c-stroke);
   color: transparent;
 }
 

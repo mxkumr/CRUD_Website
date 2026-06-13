@@ -4,6 +4,11 @@ import { notFound, redirect } from 'next/navigation';
 import DemoSite from '@/components/showcase/DemoSite';
 import EduSite from '@/components/edu/EduSite';
 import ConstructionSite from '@/components/construction/ConstructionSite';
+import RealEstateSite from '@/components/realestate/RealEstateSite';
+import HRSite from '@/components/hr/HRSite';
+import RestaurantSite from '@/components/restaurant/RestaurantSite';
+import SaaSSite from '@/components/saas/SaaSSite';
+import MarketingSite from '@/components/marketing/MarketingSite';
 import { industries } from '@/lib/showcase-data';
 
 type Params = Promise<{ id: string }>;
@@ -15,6 +20,11 @@ type Params = Promise<{ id: string }>;
 const customDemos: Record<string, ComponentType> = {
   education: EduSite,
   construction: ConstructionSite,
+  'real-estate': RealEstateSite,
+  hr: HRSite,
+  restaurant: RestaurantSite,
+  saas: SaaSSite,
+  marketing: MarketingSite,
 };
 
 export function generateStaticParams() {

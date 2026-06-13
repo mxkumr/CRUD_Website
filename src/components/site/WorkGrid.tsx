@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { projects, studio, type Project } from '@/lib/site-data';
+import { projects, studio, type Project, type ServiceIcon } from '@/lib/site-data';
 
 const reveal = {
   hidden: { opacity: 0, y: 60 },
@@ -14,8 +14,95 @@ const reveal = {
   }),
 };
 
+/* ------------------------------------------------------------------
+   Bespoke line-art vectors for each service. Stroke uses the card's
+   accent hue; soft secondary strokes use a dim version for depth.
+   ------------------------------------------------------------------ */
+function ServiceVector({ icon, hue }: { icon: ServiceIcon; hue: string }) {
+  const dim = `${hue}66`;
+  const common = {
+    fill: 'none',
+    stroke: hue,
+    strokeWidth: 2.4,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+  };
+  const vectors: Record<ServiceIcon, React.ReactNode> = {
+    branding: (
+      <>
+        <circle cx="60" cy="60" r="30" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M60 26v68M26 60h68M37 37l46 46M83 37 37 83" />
+        <circle cx="60" cy="60" r="9" fill={hue} stroke="none" />
+      </>
+    ),
+    web: (
+      <>
+        <rect x="26" y="32" width="68" height="50" rx="6" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M26 44h68" />
+        <circle cx="34" cy="38" r="1.8" fill={hue} stroke="none" />
+        <circle cx="41" cy="38" r="1.8" fill={hue} stroke="none" />
+        <circle cx="48" cy="38" r="1.8" fill={hue} stroke="none" />
+        <path {...common} d="m50 56-7 7 7 7M70 56l7 7-7 7M62 54l-4 18" />
+      </>
+    ),
+    app: (
+      <>
+        <rect x="42" y="24" width="36" height="64" rx="8" stroke={hue} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M54 30h12" />
+        <rect x="49" y="40" width="22" height="14" rx="3" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M49 62h22M49 70h14" />
+        <circle cx="60" cy="82" r="2.4" fill={hue} stroke="none" />
+      </>
+    ),
+    uiux: (
+      <>
+        <rect x="24" y="30" width="46" height="36" rx="5" stroke={dim} strokeWidth={2.4} fill="none" />
+        <rect x="42" y="48" width="46" height="40" rx="5" stroke={hue} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M50 58h30M50 66h22M50 74h16" />
+        <path d="m64 40 16 6-6 3-3 6z" fill={hue} stroke="none" />
+      </>
+    ),
+    software: (
+      <>
+        <rect x="24" y="32" width="72" height="50" rx="6" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M24 44h72" />
+        <path {...common} d="m40 58-6 6 6 6M80 58l6 6-6 6M60 56l-4 16" />
+        <circle cx="31" cy="38" r="1.8" fill={hue} stroke="none" />
+      </>
+    ),
+    marketing: (
+      <>
+        <path {...common} d="M30 54v12l34 14V40z" />
+        <path d="M30 54H22a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h8" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M64 40c10 0 18 5 18 20s-8 20-18 20M40 80l4 14h8l-3-12" />
+        <path {...common} d="M88 50h8M86 60h10M88 70h6" />
+      </>
+    ),
+    brand: (
+      <>
+        <path {...common} d="M58 24 40 78l18-8 18 8z" />
+        <path {...common} d="m58 24 0 46" />
+        <circle cx="58" cy="84" r="6" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path d="m58 56-6 14h12z" fill={hue} stroke="none" />
+      </>
+    ),
+  };
+
+  return (
+    <svg
+      viewBox="0 0 120 120"
+      className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-rotate-3"
+      style={{ filter: `drop-shadow(0 6px 20px ${hue}40)` }}
+      aria-hidden
+    >
+      {vectors[icon]}
+    </svg>
+  );
+}
+
 function ProjectArt({ project }: { project: Project }) {
   const [hue] = project.hues;
+  const isWide = project.span === 'wide';
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* base wash */}
@@ -36,14 +123,16 @@ function ProjectArt({ project }: { project: Project }) {
         className="absolute -right-8 -top-8 h-28 w-28 rounded-full transition-transform duration-700 group-hover:-translate-x-6 group-hover:translate-y-6"
         style={{ background: `${hue}1f` }}
       />
-      {/* oversized glyph */}
-      <span
-        aria-hidden
-        className="absolute -bottom-10 -left-3 select-none font-display text-[11rem] font-bold leading-none opacity-[0.07] transition-all duration-700 group-hover:-translate-y-4 group-hover:opacity-[0.14]"
-        style={{ color: hue }}
+      {/* the vector illustration */}
+      <div
+        className={`absolute flex items-center justify-center transition-transform duration-700 ${
+          isWide
+            ? 'inset-y-6 right-8 w-1/3'
+            : 'left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-[60%]'
+        }`}
       >
-        {project.title.charAt(0)}
-      </span>
+        <ServiceVector icon={project.icon} hue={hue} />
+      </div>
       {/* scanlines for texture */}
       <div
         aria-hidden
@@ -111,11 +200,11 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
 
         {/* meta */}
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
-          <span className="rounded-full border border-line bg-ink/60 px-3 py-1 font-display text-[11px] uppercase tracking-widest text-bone-dim backdrop-blur-sm">
+          <span
+            className="rounded-full border bg-ink/60 px-3 py-1 font-display text-[11px] uppercase tracking-widest backdrop-blur-sm"
+            style={{ borderColor: `${project.hues[0]}59`, color: project.hues[0] }}
+          >
             {project.category}
-          </span>
-          <span className="font-display text-[11px] tracking-widest text-bone-dim">
-            ©{project.year}
           </span>
         </div>
 
@@ -123,17 +212,24 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
           <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-bone transition-transform duration-500 group-hover:-translate-y-1 md:text-3xl">
             {project.title}
           </h3>
-          <div className="mt-2 flex items-center gap-2 overflow-hidden">
-            <span className="block h-px w-0 bg-volt transition-all duration-500 group-hover:w-10" />
-            <span className="-translate-x-4 font-display text-xs uppercase tracking-widest text-volt opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
-              {project.href ? 'Open live demo' : 'View case study'}
+          <p className="mt-2 max-h-0 overflow-hidden text-sm leading-relaxed text-bone-dim opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
+            {project.blurb}
+          </p>
+          <div className="mt-3 flex items-center gap-2 overflow-hidden">
+            <span
+              className="block h-px w-0 transition-all duration-500 group-hover:w-10"
+              style={{ background: project.hues[0] }}
+            />
+            <span
+              className="-translate-x-4 font-display text-xs uppercase tracking-widest opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
+              style={{ color: project.hues[0] }}
+            >
+              Explore service
             </span>
           </div>
         </div>
 
-        {project.href && (
-          <Link href={project.href} aria-label={`Open ${project.title} live demo`} className="absolute inset-0 z-10" />
-        )}
+        <Link href="/capabilities" aria-label={`${project.title} — explore`} className="absolute inset-0 z-10" />
       </motion.article>
     </motion.div>
   );
@@ -145,17 +241,17 @@ export default function WorkGrid() {
       <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="mb-4 flex items-center gap-3 font-display text-xs uppercase tracking-[0.3em] text-bone-dim">
-            <span className="h-px w-8 bg-volt" /> Our proud display
+            <span className="h-px w-8 bg-volt" /> What we do
           </p>
           <h2 className="font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight text-bone md:text-7xl">
-            Selected
+            Our
             <br />
-            <span className="text-stroke">Works</span>
+            <span className="text-stroke">Services</span>
           </h2>
         </div>
         <div className="max-w-sm">
           <p className="text-base leading-relaxed text-bone-dim">
-            Explore our creations — crafted to inspire, designed to make an impact.{' '}
+            End-to-end capabilities under one roof — from first sketch to launch and beyond.{' '}
             <em className="font-serif text-bone">{studio.manifesto}</em>
           </p>
           <Link
@@ -173,7 +269,7 @@ export default function WorkGrid() {
         </div>
       </div>
 
-      <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 md:grid-flow-dense md:grid-cols-3">
         {projects.map((project, i) => (
           <WorkCard key={project.id} project={project} index={i} />
         ))}

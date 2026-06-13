@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import MiniSite from './MiniSite';
+import MiniPreview from './MiniPreview';
 import type { MiniSiteContent } from '@/lib/showcase-data';
 
 type Device = 'desktop' | 'mobile';
@@ -25,7 +25,7 @@ function PhoneIcon() {
   );
 }
 
-export default function SitePreview({ site }: { site: MiniSiteContent }) {
+export default function SitePreview({ site, industryId }: { site: MiniSiteContent; industryId: string }) {
   const [device, setDevice] = useState<Device>('desktop');
   const mobile = device === 'mobile';
 
@@ -93,7 +93,7 @@ export default function SitePreview({ site }: { site: MiniSiteContent }) {
                 : 'w-full'
             }`}
           >
-            <MiniSite site={site} mobile={mobile} />
+            <MiniPreview industryId={industryId} mobile={mobile} className="min-h-[28rem]" />
           </motion.div>
         </div>
       </div>

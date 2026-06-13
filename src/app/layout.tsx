@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 
@@ -42,7 +43,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script id="crud-theme-init" strategy="beforeInteractive">
+          {`try{if(localStorage.getItem('crud-theme')==='light')document.documentElement.classList.add('theme-light')}catch(e){}`}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} antialiased`}
         suppressHydrationWarning={true}
