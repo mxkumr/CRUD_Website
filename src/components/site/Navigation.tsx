@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Magnetic from './Magnetic';
 import { useLenis } from './SmoothScroll';
 import { contact } from '@/lib/site-data';
 
-const links = [
+type NavLink = { label: string; target?: string; href?: string };
+
+const links: NavLink[] = [
   { label: 'Work', target: '#work' },
+  { label: 'Showcase', href: '/showcase' },
   { label: 'Capabilities', target: '#capabilities' },
   { label: 'Studio', target: '#studio' },
   { label: 'Contact', target: '#contact' },
@@ -73,21 +77,29 @@ export default function Navigation() {
           </Magnetic>
 
           <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-            {links.map((link) => (
-              <button
-                key={link.label}
-                data-cursor="hover"
-                onClick={() => go(link.target)}
-                className="group relative overflow-hidden font-display text-sm uppercase tracking-widest text-bone-dim transition-colors hover:text-bone"
-              >
-                <span className="block transition-transform duration-300 group-hover:-translate-y-full">
-                  {link.label}
-                </span>
-                <span className="absolute left-0 top-full block text-volt transition-transform duration-300 group-hover:-translate-y-full">
-                  {link.label}
-                </span>
-              </button>
-            ))}
+            {links.map((link) => {
+              const inner = (
+                <>
+                  <span className="block transition-transform duration-300 group-hover:-translate-y-full">
+                    {link.label}
+                  </span>
+                  <span className="absolute left-0 top-full block text-volt transition-transform duration-300 group-hover:-translate-y-full">
+                    {link.label}
+                  </span>
+                </>
+              );
+              const className =
+                'group relative overflow-hidden font-display text-sm uppercase tracking-widest text-bone-dim transition-colors hover:text-bone';
+              return link.href ? (
+                <Link key={link.label} href={link.href} data-cursor="hover" className={className}>
+                  {inner}
+                </Link>
+              ) : (
+                <button key={link.label} data-cursor="hover" onClick={() => go(link.target!)} className={className}>
+                  {inner}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-4">
@@ -136,17 +148,9 @@ export default function Navigation() {
             transition={{ duration: 0.7, ease: overlayEase }}
           >
             <nav className="flex flex-col" aria-label="Menu">
-              {links.map((link, i) => (
-                <div key={link.label} className="overflow-hidden border-b border-line">
-                  <motion.button
-                    data-cursor="hover"
-                    onClick={() => go(link.target)}
-                    initial={{ y: '110%' }}
-                    animate={{ y: '0%' }}
-                    exit={{ y: '110%' }}
-                    transition={{ duration: 0.6, delay: 0.08 * i + 0.15, ease: overlayEase }}
-                    className="group flex w-full items-baseline gap-4 py-4 text-left md:py-6"
-                  >
+              {links.map((link, i) => {
+                const inner = (
+                  <>
                     <span className="font-display text-sm text-volt">0{i + 1}</span>
                     <span className="font-display text-5xl font-bold uppercase leading-none tracking-tight text-bone transition-transform duration-500 group-hover:translate-x-4 md:text-8xl">
                       {link.label}
@@ -154,9 +158,35 @@ export default function Navigation() {
                     <span className="ml-auto hidden font-serif text-2xl italic text-bone-dim opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block">
                       →
                     </span>
-                  </motion.button>
-                </div>
-              ))}
+                  </>
+                );
+                const className = 'group flex w-full items-baseline gap-4 py-4 text-left md:py-6';
+                return (
+                  <div key={link.label} className="overflow-hidden border-b border-line">
+                    <motion.div
+                      initial={{ y: '110%' }}
+                      animate={{ y: '0%' }}
+                      exit={{ y: '110%' }}
+                      transition={{ duration: 0.6, delay: 0.08 * i + 0.15, ease: overlayEase }}
+                    >
+                      {link.href ? (
+                        <Link
+                          href={link.href}
+                          data-cursor="hover"
+                          onClick={() => setOpen(false)}
+                          className={className}
+                        >
+                          {inner}
+                        </Link>
+                      ) : (
+                        <button data-cursor="hover" onClick={() => go(link.target!)} className={className}>
+                          {inner}
+                        </button>
+                      )}
+                    </motion.div>
+                  </div>
+                );
+              })}
             </nav>
 
             <motion.div

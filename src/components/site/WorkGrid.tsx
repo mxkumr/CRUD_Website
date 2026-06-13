@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { projects, studio, type Project } from '@/lib/site-data';
 
@@ -125,10 +126,14 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
           <div className="mt-2 flex items-center gap-2 overflow-hidden">
             <span className="block h-px w-0 bg-volt transition-all duration-500 group-hover:w-10" />
             <span className="-translate-x-4 font-display text-xs uppercase tracking-widest text-volt opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
-              View case study
+              {project.href ? 'Open live demo' : 'View case study'}
             </span>
           </div>
         </div>
+
+        {project.href && (
+          <Link href={project.href} aria-label={`Open ${project.title} live demo`} className="absolute inset-0 z-10" />
+        )}
       </motion.article>
     </motion.div>
   );
@@ -148,10 +153,24 @@ export default function WorkGrid() {
             <span className="text-stroke">Works</span>
           </h2>
         </div>
-        <p className="max-w-sm text-base leading-relaxed text-bone-dim">
-          Explore our creations — crafted to inspire, designed to make an impact.{' '}
-          <em className="font-serif text-bone">{studio.manifesto}</em>
-        </p>
+        <div className="max-w-sm">
+          <p className="text-base leading-relaxed text-bone-dim">
+            Explore our creations — crafted to inspire, designed to make an impact.{' '}
+            <em className="font-serif text-bone">{studio.manifesto}</em>
+          </p>
+          <Link
+            href="/showcase"
+            data-cursor="hover"
+            className="group mt-5 inline-flex items-center gap-2 rounded-full border border-line bg-ink/40 px-5 py-2.5 font-display text-xs font-semibold uppercase tracking-widest text-bone backdrop-blur-sm transition-colors hover:border-volt hover:text-volt"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute h-full w-full animate-ping rounded-full bg-volt opacity-75" />
+              <span className="relative h-1.5 w-1.5 rounded-full bg-volt" />
+            </span>
+            Industry solutions showcase
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
+        </div>
       </div>
 
       <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-3">

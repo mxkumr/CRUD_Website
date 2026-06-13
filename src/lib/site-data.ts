@@ -74,10 +74,13 @@ export type Project = {
   /** bento sizing on desktop */
   span: 'wide' | 'tall' | 'standard';
   hues: [string, string];
+  /** live concept demo route, when one exists */
+  href?: string;
 };
 
 export const projects: Project[] = [
-  { id: 'minimal-professional', title: 'Minimal & Professional', category: 'Brand Design', year: '2024', span: 'wide', hues: ['#D9FF3F', '#0D0D0B'] },
+  { id: 'medinova', title: 'MediNova — Hospital Concept', category: 'Healthcare · Live Demo', year: '2026', span: 'wide', hues: ['#22D3EE', '#0D0D0B'], href: '/work/medinova' },
+  { id: 'minimal-professional', title: 'Minimal & Professional', category: 'Brand Design', year: '2024', span: 'standard', hues: ['#D9FF3F', '#0D0D0B'] },
   { id: 'brand-building', title: 'Brand Building & Design', category: 'Brand Identity', year: '2024', span: 'standard', hues: ['#FF7A3F', '#0D0D0B'] },
   { id: 'minimal-effective', title: 'Minimal & Effective', category: 'Web Development', year: '2024', span: 'tall', hues: ['#3F9DFF', '#0D0D0B'] },
   { id: 'digital-medium', title: 'Digital Medium', category: 'Brand Design & Identity', year: '2023', span: 'standard', hues: ['#FF3F8E', '#0D0D0B'] },

@@ -59,7 +59,7 @@ export default function CustomCursor() {
       {/* Trailing ring / badge */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[120] flex items-center justify-center rounded-full"
+        className="pointer-events-none fixed left-0 top-0 z-[300] flex items-center justify-center rounded-full"
         style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%' }}
         animate={{
           width: ringSize,
@@ -86,7 +86,7 @@ export default function CustomCursor() {
       {/* Dot */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[121] h-1.5 w-1.5 rounded-full bg-volt"
+        className="pointer-events-none fixed left-0 top-0 z-[301] h-1.5 w-1.5 rounded-full bg-volt"
         style={{ x, y, translateX: '-50%', translateY: '-50%' }}
         animate={{ opacity: variant === 'view' ? 0 : 1 }}
       />
