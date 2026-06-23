@@ -23,6 +23,9 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  // Produces a minimal, self-contained server in .next/standalone for
+  // Node.js hosting (e.g. cPanel "Setup Node.js App").
+  output: 'standalone',
   poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: true,

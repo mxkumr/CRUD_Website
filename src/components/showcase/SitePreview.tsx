@@ -74,7 +74,7 @@ export default function SitePreview({ site, industryId }: { site: MiniSiteConten
       </div>
 
       {/* viewport */}
-      <div className="relative flex-1 overflow-hidden bg-ink">
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-ink">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-50"
@@ -83,17 +83,22 @@ export default function SitePreview({ site, industryId }: { site: MiniSiteConten
               'radial-gradient(120% 80% at 50% -10%, rgba(217,255,63,0.06), transparent 60%)',
           }}
         />
-        <div className="relative flex h-full justify-center">
+        <div className="relative flex h-full min-h-0 justify-center">
           <motion.div
             layout
             transition={{ type: 'spring', stiffness: 260, damping: 30 }}
-            className={`h-full overflow-y-auto overflow-x-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15 ${
+            className={`h-full min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15 ${
               mobile
-                ? 'my-3 w-[290px] rounded-[1.75rem] border-[6px] border-ink-raise shadow-2xl shadow-black/50'
+                ? 'mx-auto w-full max-w-[272px] rounded-[1.75rem] border-[5px] border-ink-raise shadow-2xl shadow-black/50'
                 : 'w-full'
             }`}
           >
-            <MiniPreview industryId={industryId} mobile={mobile} className="min-h-[28rem]" />
+            <MiniPreview
+              industryId={industryId}
+              mobile={mobile}
+              embedded
+              className={mobile ? 'min-h-full' : 'min-h-[28rem]'}
+            />
           </motion.div>
         </div>
       </div>

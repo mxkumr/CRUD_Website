@@ -21,6 +21,10 @@
 /build
 /.cursor
 
+# cPanel deploy bundle
+/deploy-cpanel
+/crud-studio-cpanel.zip
+
 # misc
 .DS_Store
 *.pem

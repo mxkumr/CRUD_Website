@@ -274,17 +274,17 @@ function IndustryDetail({ industry, onClose }: { industry: Industry; onClose: ()
         </div>
 
         {/* body */}
-        <div className="grid min-h-0 flex-1 grid-cols-1 overflow-y-auto lg:grid-cols-[1.12fr_0.88fr] lg:overflow-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15">
-          {/* live preview */}
-          <div className="flex min-h-0 flex-col gap-3 p-4 sm:p-5 lg:h-full">
-            <div className="h-[360px] sm:h-[440px] lg:h-full lg:min-h-0">
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 overflow-y-auto lg:grid-cols-[1.12fr_0.88fr] lg:gap-0 lg:overflow-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15">
+          {/* live preview — CTA stays in this column on desktop only */}
+          <div className="flex min-h-0 flex-col gap-3 p-4 sm:p-5 lg:h-full lg:overflow-hidden lg:p-5">
+            <div className="h-[min(320px,40vh)] overflow-hidden sm:h-[380px] lg:min-h-0 lg:flex-1">
               <SitePreview site={industry.site} industryId={industry.id} />
             </div>
             {industry.liveHref && (
               <Link
                 href={industry.liveHref}
                 data-cursor="hover"
-                className="flex shrink-0 items-center justify-center gap-2 rounded-full px-5 py-3 font-display text-xs font-bold uppercase tracking-widest text-ink transition-transform hover:scale-[1.02]"
+                className="hidden shrink-0 items-center justify-center gap-2 rounded-full px-5 py-3 font-display text-xs font-bold uppercase tracking-widest text-ink transition-transform hover:scale-[1.02] lg:flex"
                 style={{ background: hue }}
               >
                 Open the full live demo →
@@ -295,6 +295,18 @@ function IndustryDetail({ industry, onClose }: { industry: Industry; onClose: ()
           {/* details */}
           <div className="min-h-0 border-t border-white/10 px-5 py-6 sm:px-7 lg:border-l lg:border-t-0 lg:overflow-y-auto [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15">
             <p className="text-sm leading-relaxed text-bone-dim">{industry.description}</p>
+
+            {/* mobile / tablet: CTA lives here so it never collides with feature list */}
+            {industry.liveHref && (
+              <Link
+                href={industry.liveHref}
+                data-cursor="hover"
+                className="mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-display text-xs font-bold uppercase tracking-widest text-ink transition-transform hover:scale-[1.02] lg:hidden"
+                style={{ background: hue }}
+              >
+                Open the full live demo →
+              </Link>
+            )}
 
             {/* features */}
             <h3 className="mt-7 font-display text-[11px] uppercase tracking-[0.25em] text-bone-dim">

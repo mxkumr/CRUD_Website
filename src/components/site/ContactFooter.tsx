@@ -74,24 +74,52 @@ export default function ContactFooter() {
   const [message, setMessage] = useState('');
   const [interests, setInterests] = useState<string[]>([]);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const toggleInterest = (id: string) =>
     setInterests((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
     );
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`New project inquiry — ${name}`);
+    setSending(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const website = (form.elements.namedItem('website') as HTMLInputElement | null)?.value ?? '';
+
     const interestLabels = services
       .filter((s) => interests.includes(s.id))
-      .map((s) => s.title)
-      .join(', ');
-    const body = encodeURIComponent(
-      `Hi CRUD Studio,\n\n${message}\n\nInterested in: ${interestLabels || '—'}\n\n— ${name}\n${email}`,
-    );
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+      .map((s) => s.title);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          interests: interestLabels,
+          website,
+        }),
+      });
+
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok) throw new Error(data.error ?? 'Something went wrong.');
+
+      setSent(true);
+      setName('');
+      setEmail('');
+      setMessage('');
+      setInterests([]);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not send your message.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -153,11 +181,14 @@ export default function ContactFooter() {
               </span>
               <h3 className="mt-6 font-display text-3xl font-bold text-bone">Brief received.</h3>
               <p className="mt-3 max-w-sm text-bone-dim">
-                Your email draft is ready to send — we reply to every inquiry within 24 hours.
+                Thanks — we got your message and will reply within 24 hours.
               </p>
               <button
                 data-cursor="hover"
-                onClick={() => setSent(false)}
+                onClick={() => {
+                  setSent(false);
+                  setError(null);
+                }}
                 className="mt-8 font-display text-xs uppercase tracking-widest text-volt underline-offset-4 hover:underline"
               >
                 Send another
@@ -165,6 +196,16 @@ export default function ContactFooter() {
             </div>
           ) : (
             <form onSubmit={onSubmit} className="flex flex-col gap-8">
+              {/* Honeypot — hidden from users, catches bots */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden
+                className="pointer-events-none absolute h-0 w-0 opacity-0"
+              />
+
               <div>
                 <p className="mb-4 font-display text-xs uppercase tracking-[0.3em] text-bone-dim">
                   I'm interested in
@@ -196,15 +237,24 @@ export default function ContactFooter() {
               <Field label="Email address" name="email" type="email" value={email} onChange={setEmail} />
               <Field label="Tell us about your project" name="message" textarea value={message} onChange={setMessage} />
 
+              {error && (
+                <p className="rounded-xl border border-brand/40 bg-brand/10 px-4 py-3 text-sm text-bone" role="alert">
+                  {error}
+                </p>
+              )}
+
               <Magnetic strength={0.25} className="self-start">
                 <button
                   type="submit"
+                  disabled={sending}
                   data-cursor="hover"
-                  className="group relative overflow-hidden rounded-full bg-bone px-10 py-5 font-display text-sm font-semibold uppercase tracking-wider text-ink"
+                  className="group relative overflow-hidden rounded-full bg-bone px-10 py-5 font-display text-sm font-semibold uppercase tracking-wider text-ink disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <span className="relative z-10 flex items-center gap-3 transition-colors duration-300">
-                    Send the brief
-                    <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                    {sending ? 'Sending…' : 'Send the brief'}
+                    {!sending && (
+                      <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                    )}
                   </span>
                   <span className="absolute inset-0 origin-left scale-x-0 bg-volt transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 </button>

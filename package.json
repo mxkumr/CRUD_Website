@@ -10,21 +10,29 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate:pdf": "tsx scripts/generate-brochure.tsx",
+    "generate:website-pdf": "tsx scripts/generate-website-pdf.ts"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
     "framer-motion": "^12.40.0",
     "lenis": "^1.3.23",
     "next": "15.5.13",
+    "nodemailer": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "pdf-lib": "^1.17.1",
     "postcss": "^8",
+    "puppeteer": "^25.1.0",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }
