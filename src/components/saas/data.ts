@@ -1,5 +1,5 @@
 /**
- * Nebula — bespoke demo content.
+ * Nebula - bespoke demo content.
  * A fictional AI workflow product used to show the kind of
  * sleek, conversion-led SaaS website CRUD Studio builds.
  */
@@ -27,7 +27,7 @@ export const featureTabs: FeatureTab[] = [
     key: 'automate',
     label: 'Automate',
     title: 'Agents that run your busywork.',
-    desc: 'Describe a workflow in plain English and Nebula builds, runs and monitors it — across every tool you already use.',
+    desc: 'Describe a workflow in plain English and Nebula builds, runs and monitors it - across every tool you already use.',
     bullets: ['Natural-language workflow builder', 'Trigger on any event', 'Self-healing retries'],
     metric: '+312%',
     metricLabel: 'team throughput',
@@ -36,7 +36,7 @@ export const featureTabs: FeatureTab[] = [
     key: 'analyze',
     label: 'Analyze',
     title: 'Answers, not dashboards.',
-    desc: 'Ask questions of your data in chat and get charts, summaries and the “so what” — no SQL, no waiting on analysts.',
+    desc: 'Ask questions of your data in chat and get charts, summaries and the “so what” - no SQL, no waiting on analysts.',
     bullets: ['Natural-language analytics', 'Live anomaly alerts', 'Auto-generated reports'],
     metric: '18h',
     metricLabel: 'saved per week',
@@ -45,7 +45,7 @@ export const featureTabs: FeatureTab[] = [
     key: 'collaborate',
     label: 'Collaborate',
     title: 'One workspace for humans + agents.',
-    desc: 'Assign work to people or agents in the same board. Comment, review and approve — agents pick up the rest.',
+    desc: 'Assign work to people or agents in the same board. Comment, review and approve - agents pick up the rest.',
     bullets: ['Shared agent inbox', 'Human-in-the-loop approvals', 'Full audit trail'],
     metric: '1,204',
     metricLabel: 'active agents',
@@ -65,7 +65,7 @@ export const bento = [
   { title: 'Enterprise-grade security', body: 'SOC 2 Type II, SSO/SAML, granular roles and row-level data isolation.', span: true },
   { title: 'Sub-second runs', body: 'A globally distributed runtime executes agents close to your data.' },
   { title: 'Version everything', body: 'Every workflow is versioned, diffable and instantly rollback-able.' },
-  { title: 'Bring your own model', body: 'GPT, Claude, Llama or your fine-tune — switch models per step.', span: true },
+  { title: 'Bring your own model', body: 'GPT, Claude, Llama or your fine-tune - switch models per step.', span: true },
 ];
 
 export type Plan = {
@@ -87,7 +87,7 @@ export const integrations = ['Slack', 'Notion', 'GitHub', 'Salesforce', 'Stripe'
 
 export const testimonial = {
   quote:
-    'Nebula replaced a tangle of brittle scripts and three internal tools. We shipped our first production agent in an afternoon — and doubled trial signups within a month.',
+    'Nebula replaced a tangle of brittle scripts and three internal tools. We shipped our first production agent in an afternoon - and doubled trial signups within a month.',
   name: 'Ananya Rao',
   role: 'Founder & CEO',
 };

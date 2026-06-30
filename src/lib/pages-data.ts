@@ -1,5 +1,5 @@
 /**
- * CRUD Studio — long-form marketing content for the dedicated
+ * CRUD Studio - long-form marketing content for the dedicated
  * Work, Capabilities, Studio and Contact pages.
  *
  * Kept separate from `site-data.ts` (the canonical brand/source data)
@@ -26,13 +26,13 @@ export const workPage = {
   titleAccent: 'moves',
   titleBottom: 'the needle',
   lede:
-    'Every engagement starts with a business problem and ends with a measurable result. Below is a cross-section of the brands, products and platforms we have designed and engineered — and the thinking behind them.',
+    'Every engagement starts with a business problem and ends with a measurable result. Below is a cross-section of the brands, products and platforms we have designed and engineered - and the thinking behind them.',
   stats: studioStats,
   /** what makes our delivery different */
   approach: [
     {
       title: 'Outcomes, not deliverables',
-      body: 'We design backwards from the metric that matters — bookings, signups, qualified leads, revenue — then build only what moves it.',
+      body: 'We design backwards from the metric that matters - bookings, signups, qualified leads, revenue - then build only what moves it.',
     },
     {
       title: 'Senior hands, end to end',
@@ -40,7 +40,7 @@ export const workPage = {
     },
     {
       title: 'Built to be handed over',
-      body: 'Native source files, clean code and documentation come standard. You own everything — no lock-in, no hostage situations.',
+      body: 'Native source files, clean code and documentation come standard. You own everything - no lock-in, no hostage situations.',
     },
   ],
   /** delivery phases */
@@ -54,13 +54,13 @@ export const workPage = {
     {
       n: '02',
       title: 'Design',
-      body: 'Information architecture, wireframes and high-fidelity UI — designed in the open with you, iterated until it is undeniably right.',
+      body: 'Information architecture, wireframes and high-fidelity UI - designed in the open with you, iterated until it is undeniably right.',
       points: ['UX architecture', 'Visual identity', 'Interactive prototype'],
     },
     {
       n: '03',
       title: 'Build',
-      body: 'Production engineering with performance, accessibility and SEO baked in from the first commit — not bolted on at the end.',
+      body: 'Production engineering with performance, accessibility and SEO baked in from the first commit - not bolted on at the end.',
       points: ['Front-end & CMS', 'Integrations', 'QA & performance'],
     },
     {
@@ -80,7 +80,7 @@ export const workPage = {
   faqs: [
     {
       q: 'How long does a typical project take?',
-      a: 'Most marketing sites ship in 4–7 weeks depending on scope. Platforms and product builds run longer — we give you a firm timeline after discovery, with weekly checkpoints so there are no surprises.',
+      a: 'Most marketing sites ship in 4–7 weeks depending on scope. Platforms and product builds run longer - we give you a firm timeline after discovery, with weekly checkpoints so there are no surprises.',
     },
     {
       q: 'Do you work with our existing brand?',
@@ -88,7 +88,7 @@ export const workPage = {
     },
     {
       q: 'What happens after launch?',
-      a: 'You own all source files and we hand over a clean, documented codebase. Many clients keep us on a retainer for iteration, content and growth — but you are never locked in.',
+      a: 'You own all source files and we hand over a clean, documented codebase. Many clients keep us on a retainer for iteration, content and growth - but you are never locked in.',
     },
   ],
 };
@@ -103,7 +103,7 @@ export const capabilitiesPage = {
   titleAccent: 'every',
   titleBottom: 'discipline',
   lede:
-    'Strategy, brand, design, engineering and content under one roof — so your project never falls through the cracks between agencies. Here is exactly what we deliver, how we work and the tools we trust.',
+    'Strategy, brand, design, engineering and content under one roof - so your project never falls through the cracks between agencies. Here is exactly what we deliver, how we work and the tools we trust.',
 };
 
 export type CapabilityDetail = {
@@ -200,6 +200,30 @@ export const capabilityDetails: Record<string, CapabilityDetail> = {
     ],
     stack: ['Figma', 'Illustrator', 'InDesign', 'After Effects'],
   },
+  'ai-strategy': {
+    outcome: 'A clear AI roadmap and operating model so adoption moves fast - without flying blind.',
+    deliverables: [
+      'AI readiness & maturity assessment',
+      'Use-case prioritisation & ROI modelling',
+      'Governance, policy & compliance frameworks',
+      'Team enablement & change management',
+      'Vendor & stack evaluation',
+      'Transformation roadmap & milestones',
+    ],
+    stack: ['Miro', 'Notion', 'OpenAI', 'Azure AI', 'Databricks'],
+  },
+  'forward-deployment': {
+    outcome: 'Production-ready AI and automation shipped inside your team - not slid over the wall.',
+    deliverables: [
+      'Custom AI agents & copilots',
+      'LLM integration & prompt engineering',
+      'Workflow & process automation',
+      'Embedded engineering on-site or remote',
+      'Legacy system integration',
+      'Deployment, monitoring & handover',
+    ],
+    stack: ['OpenAI', 'LangChain', 'Python', 'n8n', 'Node.js', 'AWS'],
+  },
 };
 
 export const techStack = [
@@ -217,13 +241,16 @@ export const techStack = [
   'Figma',
   'Node.js',
   'Vercel',
+  'OpenAI',
+  'LangChain',
+  'Python',
 ];
 
 export const capabilityProcess = [
   {
     n: '01',
     title: 'Audit & strategy',
-    body: 'We start by understanding the business, the audience and the competition — then define a strategy with clear success metrics.',
+    body: 'We start by understanding the business, the audience and the competition - then define a strategy with clear success metrics.',
   },
   {
     n: '02',
@@ -233,7 +260,7 @@ export const capabilityProcess = [
   {
     n: '03',
     title: 'Engineer & integrate',
-    body: 'Production-grade builds with performance, accessibility and your tools — payments, CRM, CMS — wired in cleanly.',
+    body: 'Production-grade builds with performance, accessibility and your tools - payments, CRM, CMS - wired in cleanly.',
   },
   {
     n: '04',
@@ -249,11 +276,11 @@ export const capabilitiesFaqs = [
   },
   {
     q: 'Do you offer unlimited revisions?',
-    a: 'On our subscription engagements, yes — unlimited requests and revisions, with senior designers only. For fixed-scope projects we agree on revision rounds upfront so expectations are crystal clear.',
+    a: 'On our subscription engagements, yes - unlimited requests and revisions, with senior designers only. For fixed-scope projects we agree on revision rounds upfront so expectations are crystal clear.',
   },
   {
     q: 'Which platforms do you build on?',
-    a: 'We are platform-agnostic. We recommend Next.js for ambitious custom builds, Webflow or WordPress for content-led sites, and Shopify for commerce — always the right tool for your goals and team.',
+    a: 'We are platform-agnostic. We recommend Next.js for ambitious custom builds, Webflow or WordPress for content-led sites, and Shopify for commerce - always the right tool for your goals and team.',
   },
   {
     q: 'Do you provide ongoing support?',
@@ -269,11 +296,11 @@ export const studioPage = {
   eyebrow: 'The studio',
   titleTop: 'We don’t',
   titleAccent: 'digitalize',
-  titleBottom: '— we craft success',
+  titleBottom: '- we craft success',
   lede:
-    'CRUD — Create, Refine, Unified, Designs — is a design and engineering studio for founders and teams who refuse to blend in. We pair award-level craft with a relentless focus on the numbers that grow your business.',
+    'CRUD - Create, Refine, Unified, Designs - is a design and engineering studio for founders and teams who refuse to blend in. We pair award-level craft with a relentless focus on the numbers that grow your business.',
   mission:
-    'Our mission is simple: turn bold ideas into iconic brands, and iconic brands into measurable growth — through design that is as effective as it is beautiful.',
+    'Our mission is simple: turn bold ideas into iconic brands, and iconic brands into measurable growth - through design that is as effective as it is beautiful.',
   principles: [
     {
       title: 'Craft is a competitive advantage',
@@ -285,7 +312,7 @@ export const studioPage = {
     },
     {
       title: 'Partners, not vendors',
-      body: 'We embed with your team, share context openly and tell you the truth — even when it is not what you hoped to hear.',
+      body: 'We embed with your team, share context openly and tell you the truth - even when it is not what you hoped to hear.',
     },
     {
       title: 'Ship, learn, refine',
@@ -294,7 +321,7 @@ export const studioPage = {
   ],
   timeline: [
     { year: '2019', title: 'The studio is born', body: 'CRUD starts as a two-person design team obsessed with doing fewer things, better.' },
-    { year: '2021', title: 'Full-stack delivery', body: 'We add in-house engineering — strategy, design and build finally under one roof.' },
+    { year: '2021', title: 'Full-stack delivery', body: 'We add in-house engineering - strategy, design and build finally under one roof.' },
     { year: '2023', title: 'Going global', body: 'A second base in Germany opens; we begin serving clients across two continents.' },
     { year: '2026', title: 'Industry showcase', body: 'We launch a library of live, industry-specific concepts so clients can see their future site before we build it.' },
   ],
@@ -312,17 +339,17 @@ export const contactPage = {
   titleBottom: 'iconic',
   lede:
     'Tell us where you want to go and we will map the fastest, most beautiful way to get there. Every inquiry gets a reply from a senior team member within one business day.',
-  promise: 'We reply to every inquiry within 24 hours — usually much faster.',
+  promise: 'We reply to every inquiry within 24 hours - usually much faster.',
   steps: [
     {
       n: '01',
       title: 'Share your brief',
-      body: 'Send us the form below or a quick email. The more context, the sharper our first response — but even a one-liner is enough to start.',
+      body: 'Send us the form below or a quick email. The more context, the sharper our first response - but even a one-liner is enough to start.',
     },
     {
       n: '02',
       title: 'Discovery call',
-      body: 'We hop on a 30-minute call to understand your goals, scope and timeline — and to make sure we are the right fit for each other.',
+      body: 'We hop on a 30-minute call to understand your goals, scope and timeline - and to make sure we are the right fit for each other.',
     },
     {
       n: '03',
@@ -332,7 +359,7 @@ export const contactPage = {
     {
       n: '04',
       title: 'Kick-off',
-      body: 'We schedule the start, set up a shared workspace and get moving — with weekly checkpoints from day one.',
+      body: 'We schedule the start, set up a shared workspace and get moving - with weekly checkpoints from day one.',
     },
   ],
   faqs: [
@@ -346,7 +373,7 @@ export const contactPage = {
     },
     {
       q: 'Do you work with international clients?',
-      a: 'Yes — with bases in India and Germany we work comfortably across time zones, in English, with fully remote collaboration.',
+      a: 'Yes - with bases in India and Germany we work comfortably across time zones, in English, with fully remote collaboration.',
     },
     {
       q: 'What if I only need part of the work?',

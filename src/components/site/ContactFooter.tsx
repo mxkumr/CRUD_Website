@@ -181,7 +181,7 @@ export default function ContactFooter() {
               </span>
               <h3 className="mt-6 font-display text-3xl font-bold text-bone">Brief received.</h3>
               <p className="mt-3 max-w-sm text-bone-dim">
-                Thanks — we got your message and will reply within 24 hours.
+                Thanks - we got your message and will reply within 24 hours.
               </p>
               <button
                 data-cursor="hover"
@@ -196,7 +196,7 @@ export default function ContactFooter() {
             </div>
           ) : (
             <form onSubmit={onSubmit} className="flex flex-col gap-8">
-              {/* Honeypot — hidden from users, catches bots */}
+              {/* Honeypot - hidden from users, catches bots */}
               <input
                 type="text"
                 name="website"

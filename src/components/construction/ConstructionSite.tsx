@@ -19,7 +19,7 @@ import {
 } from './data';
 
 /* ============================================================
-   Apex BuildWorks — a bespoke construction-firm website.
+   Apex BuildWorks - a bespoke construction-firm website.
    Industrial concrete + steel, hi-vis orange, blueprint and
    crane motifs, animated metrics, an interactive project
    portfolio filtered by sector, a build process, safety &
@@ -265,7 +265,7 @@ function Hero() {
             transition={{ duration: 0.9, delay: 0.18, ease }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-white/80"
           >
-            25 years of commercial, residential and infrastructure construction — delivered with fixed-price
+            25 years of commercial, residential and infrastructure construction - delivered with fixed-price
             certainty, self-perform crews and daily transparency from foundation to handover.
           </motion.p>
 
@@ -308,7 +308,7 @@ function Stats() {
         <div className="mb-14 grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end">
           <div>
             <p className="mb-4 font-display text-xs font-bold uppercase tracking-[0.25em]" style={{ color: ORANGE }}>
-              01 — Track record
+              01 - Track record
             </p>
             <h2 className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight md:text-5xl" style={{ color: INK }}>
               Built to spec.
@@ -318,7 +318,7 @@ function Stats() {
           </div>
           <p className="text-base leading-relaxed" style={{ color: CONCRETE }}>
             From high-rise towers to expressway bridges, Apex BuildWorks has delivered hundreds of complex
-            projects across South India — every one to programme, to budget, and to a standard our clients
+            projects across South India - every one to programme, to budget, and to a standard our clients
             return for.
           </p>
         </div>
@@ -340,7 +340,7 @@ function Services() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 max-w-2xl">
           <p className="mb-4 font-display text-xs font-bold uppercase tracking-[0.25em]" style={{ color: ORANGE }}>
-            02 — Capabilities
+            02 - Capabilities
           </p>
           <h2 className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight md:text-5xl" style={{ color: INK }}>
             One contractor. Every discipline.
@@ -389,7 +389,7 @@ function Portfolio() {
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <p className="mb-4 font-display text-xs font-bold uppercase tracking-[0.25em]" style={{ color: ORANGE }}>
-              03 — Portfolio
+              03 - Portfolio
             </p>
             <h2 className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-white md:text-5xl">
               Proof, poured in concrete.
@@ -461,7 +461,7 @@ function Process() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 max-w-2xl">
           <p className="mb-4 font-display text-xs font-bold uppercase tracking-[0.25em]" style={{ color: ORANGE }}>
-            04 — How we build
+            04 - How we build
           </p>
           <h2 className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight md:text-5xl" style={{ color: INK }}>
             A method, not a gamble.
@@ -532,7 +532,7 @@ function Safety() {
         {/* differentiators */}
         <div>
           <p className="mb-4 font-display text-xs font-bold uppercase tracking-[0.25em]" style={{ color: ORANGE }}>
-            05 — Why Apex
+            05 - Why Apex
           </p>
           <h2 className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight md:text-5xl" style={{ color: INK }}>
             Built different.
@@ -605,7 +605,7 @@ function QuoteCTA() {
               Let&apos;s build it.
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-white/85">
-              Tell us about your project and get a clear scope, programme and guaranteed price — no obligation,
+              Tell us about your project and get a clear scope, programme and guaranteed price - no obligation,
               no surprises.
             </p>
           </div>

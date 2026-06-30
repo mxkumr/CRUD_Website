@@ -1,5 +1,5 @@
 /**
- * Light-theme tokens — mirrors the website.
+ * Light-theme tokens - mirrors the website.
  * Accent (volt/brand red) is used sparingly; structure uses ink/bone/line.
  */
 export const colors = {

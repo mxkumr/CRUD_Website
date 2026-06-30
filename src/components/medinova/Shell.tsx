@@ -8,7 +8,7 @@ import { healthPackages, hospital } from '@/lib/medinova-data';
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ============================================================
-   Demo nav — the 9 "pages" map to sections of this concept
+   Demo nav - the 9 "pages" map to sections of this concept
    ============================================================ */
 const navLinks = [
   { label: 'Home', target: '#home' },
@@ -187,7 +187,7 @@ export function Packages() {
 }
 
 /* ============================================================
-   Emergency band — red stays (universal medical signal)
+   Emergency band - red stays (universal medical signal)
    ============================================================ */
 export function EmergencyBand() {
   return (
@@ -212,14 +212,14 @@ export function EmergencyBand() {
                 <span className="absolute h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                 <span className="relative h-2.5 w-2.5 rounded-full bg-red-500" />
               </span>
-              Emergency &amp; trauma — 24×7
+              Emergency &amp; trauma - 24×7
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold text-slate-900 md:text-5xl">
               Golden hour ready.
               <span className="text-red-600"> Always.</span>
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-500">
-              Dedicated trauma bays, stroke and cardiac fast-tracks, and an ambulance network with live GPS dispatch — door-to-needle in under 20 minutes.
+              Dedicated trauma bays, stroke and cardiac fast-tracks, and an ambulance network with live GPS dispatch - door-to-needle in under 20 minutes.
             </p>
           </div>
           <a
@@ -283,7 +283,7 @@ export function MediFooter() {
       </div>
 
       <div className="mx-auto mt-14 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 md:flex-row">
-        <p className="text-xs text-slate-400">© {new Date().getFullYear()} MediNova — a fictional brand created for demonstration.</p>
+        <p className="text-xs text-slate-400">© {new Date().getFullYear()} MediNova - a fictional brand created for demonstration.</p>
         <Link
           href="/"
           className="rounded-full border border-slate-300 px-5 py-2 font-display text-xs font-bold uppercase tracking-wider text-slate-600 transition-colors hover:border-emerald-500 hover:text-emerald-700"

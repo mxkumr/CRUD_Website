@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import type { Industry } from '@/lib/showcase-data';
 
 /* ============================================================
-   MiniPreviews — scaled-down replicas of each bespoke demo
+   MiniPreviews - scaled-down replicas of each bespoke demo
    site. Used inside showcase cards and the SitePreview modal.
    ============================================================ */
 

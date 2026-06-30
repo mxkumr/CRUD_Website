@@ -1,5 +1,5 @@
 /**
- * Crestwood University — bespoke demo content.
+ * Crestwood University - bespoke demo content.
  * A fictional, prestigious institution used to show the kind of
  * collegiate website CRUD Studio builds for schools & universities.
  */
@@ -20,7 +20,7 @@ export const accolades = [
   '#3 for graduate employability',
   'Carnegie R1 research university',
   '12 Rhodes Scholars',
-  'Times Higher Ed — Gold',
+  'Times Higher Ed - Gold',
 ] as const;
 
 export type CountStat = { value: number; suffix?: string; decimals?: number; label: string };
@@ -51,7 +51,7 @@ export type Program = {
 
 export const programs: Program[] = [
   { id: 'cs', name: 'Computer Science', level: 'Undergraduate', field: 'Engineering', degree: 'B.Tech', duration: '4 years', blurb: 'Systems, AI and software engineering with a year-long capstone in industry.', seats: 120 },
-  { id: 'ai', name: 'AI & Data Science', level: 'Undergraduate', field: 'Engineering', degree: 'B.Tech', duration: '4 years', blurb: 'Machine learning, statistics and ethics — built for the intelligence age.', seats: 90 },
+  { id: 'ai', name: 'AI & Data Science', level: 'Undergraduate', field: 'Engineering', degree: 'B.Tech', duration: '4 years', blurb: 'Machine learning, statistics and ethics - built for the intelligence age.', seats: 90 },
   { id: 'bdes', name: 'Communication Design', level: 'Undergraduate', field: 'Design', degree: 'B.Des', duration: '4 years', blurb: 'Visual, motion and interaction design in a studio-led curriculum.', seats: 60 },
   { id: 'bba', name: 'Business Administration', level: 'Undergraduate', field: 'Business', degree: 'BBA', duration: '3 years', blurb: 'Finance, strategy and entrepreneurship with a global immersion term.', seats: 90 },
   { id: 'bsc', name: 'Life Sciences', level: 'Undergraduate', field: 'Sciences', degree: 'B.Sc', duration: '3 years', blurb: 'Molecular biology and genomics with full lab access from year one.', seats: 80 },
@@ -100,7 +100,7 @@ export type Voice = { quote: string; name: string; detail: string };
 
 export const voices: Voice[] = [
   {
-    quote: 'Crestwood gave me a lab, a mentor and a startup — all before I graduated. I never felt like just a roll number.',
+    quote: 'Crestwood gave me a lab, a mentor and a startup - all before I graduated. I never felt like just a roll number.',
     name: 'Aisha Rahman',
     detail: 'B.Tech AI & Data Science · ’25',
   },
@@ -118,7 +118,7 @@ export const voices: Voice[] = [
 
 export const admissionSteps = [
   { step: 'Explore', body: 'Browse programs, attend an open day or book a one-to-one with an admissions counsellor.' },
-  { step: 'Apply', body: 'Submit one application online — transcripts, statement and references in a single portal.' },
+  { step: 'Apply', body: 'Submit one application online - transcripts, statement and references in a single portal.' },
   { step: 'Interview', body: 'Shortlisted applicants meet faculty for a conversation, on campus or online.' },
   { step: 'Join', body: 'Accept your offer, choose housing and meet your cohort before week one.' },
 ];

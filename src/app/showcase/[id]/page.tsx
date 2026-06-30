@@ -34,9 +34,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { id } = await params;
   const industry = industries.find((i) => i.id === id);
-  if (!industry) return { title: 'Demo — CRUD Studio' };
+  if (!industry) return { title: 'Demo - CRUD Studio' };
   return {
-    title: `${industry.site.brand} — ${industry.name} Concept | CRUD Studio`,
+    title: `${industry.site.brand} - ${industry.name} Concept | CRUD Studio`,
     description: industry.description,
   };
 }

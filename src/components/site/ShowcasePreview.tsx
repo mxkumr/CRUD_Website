@@ -75,7 +75,7 @@ export default function ShowcasePreview() {
         </div>
         <div className="max-w-sm">
           <p className="text-base leading-relaxed text-bone-dim">
-            Live, interactive website concepts — one per industry. Click through working desktop and
+            Live, interactive website concepts - one per industry. Click through working desktop and
             mobile previews, feature sets, timelines and pricing.
           </p>
           <Link

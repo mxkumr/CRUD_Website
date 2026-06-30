@@ -93,7 +93,7 @@ export function DoctorFinder() {
         </p>
       </div>
 
-      {/* step 1 — speciality pills */}
+      {/* step 1 - speciality pills */}
       <div className="mb-10 flex flex-wrap gap-3">
         <button
           onClick={() => setSpeciality(null)}
@@ -121,7 +121,7 @@ export function DoctorFinder() {
         ))}
       </div>
 
-      {/* step 2 — doctor grid with live slots */}
+      {/* step 2 - doctor grid with live slots */}
       <motion.div layout className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {filtered.map((d) => (
@@ -130,7 +130,7 @@ export function DoctorFinder() {
         </AnimatePresence>
       </motion.div>
 
-      {/* step 3 — booking confirmation */}
+      {/* step 3 - booking confirmation */}
       <AnimatePresence>
         {booked && (
           <motion.div
@@ -161,7 +161,7 @@ export function DoctorFinder() {
                 {booked.doctor.name} · today at <span className="font-mono font-semibold text-emerald-600">{booked.slot}</span>
               </p>
               <p className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-relaxed text-slate-400">
-                This is a CRUD Studio concept demo — in production this confirms against the hospital&apos;s live HIS calendar with OTP verification.
+                This is a CRUD Studio concept demo - in production this confirms against the hospital&apos;s live HIS calendar with OTP verification.
               </p>
               <button
                 onClick={() => setBooked(null)}
@@ -202,7 +202,7 @@ export function SymptomChecker() {
               Not sure which department?
             </h2>
             <p className="mt-4 max-w-sm text-slate-500">
-              Answer one question and we route you to the right speciality instantly — the full version asks 4–6 adaptive questions.
+              Answer one question and we route you to the right speciality instantly - the full version asks 4–6 adaptive questions.
             </p>
           </div>
 
@@ -234,7 +234,7 @@ export function SymptomChecker() {
                   <p className="mt-4 text-sm text-slate-500">Recommended department</p>
                   <p className="font-display text-2xl font-bold text-slate-900">{result.speciality}</p>
                   <p className="mt-3 text-sm text-slate-500">
-                    Suggested specialist — <span className="font-semibold text-emerald-600">{result.doctor}</span>
+                    Suggested specialist - <span className="font-semibold text-emerald-600">{result.doctor}</span>
                   </p>
                   <div className="mt-6 flex gap-3">
                     <a href="#doctors" className="flex-1 rounded-full bg-emerald-600 py-3 text-center font-display text-sm font-bold uppercase tracking-wider text-white shadow-md shadow-emerald-600/20">

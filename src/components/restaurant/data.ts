@@ -1,5 +1,5 @@
 /**
- * Saffron & Smoke — bespoke demo content.
+ * Saffron & Smoke - bespoke demo content.
  * A fictional modern-Indian restaurant used to show the kind of
  * moody, reservation-first website CRUD Studio builds for hospitality.
  */
@@ -44,7 +44,7 @@ export const story = {
   title: 'Heritage on an open flame.',
   body:
     'Raised between his grandmother’s Chettinad kitchen and the tandoors of Old Delhi, Chef Iqbal built Saffron & Smoke around a single idea: that the best of Indian cooking happens over live fire. Every dish is built from regional recipes, then reimagined with modern technique and the cleanest local produce.',
-  accolades: ['Michelin recommended', '#3 in the city — Condé Nast', '“Best new restaurant” — 2025'],
+  accolades: ['Michelin recommended', '#3 in the city - Condé Nast', '“Best new restaurant” - 2025'],
 };
 
 export const gallery = ['The live-fire counter', 'Private dining room', 'Courtyard seating', 'The spice cellar', 'Cocktail bar', 'Chef’s table'];
@@ -52,7 +52,7 @@ export const gallery = ['The live-fire counter', 'Private dining room', 'Courtya
 export const reviews = [
   { quote: 'The smoked galouti alone is worth the trip. Easily the most exciting Indian food in the city.', name: 'Ritu M.', detail: 'Diner · 5★' },
   { quote: 'Service like clockwork, a room that glows, and a dal I still dream about. We’ve booked again already.', name: 'Aravind S.', detail: 'Regular · 5★' },
-  { quote: 'Booked a private dinner for twelve — flawless from the first cocktail to the last kulfi.', name: 'Nisha & Kabir', detail: 'Anniversary · 5★' },
+  { quote: 'Booked a private dinner for twelve - flawless from the first cocktail to the last kulfi.', name: 'Nisha & Kabir', detail: 'Anniversary · 5★' },
 ];
 
 export const hours = [

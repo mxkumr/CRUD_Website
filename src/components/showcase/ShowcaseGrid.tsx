@@ -33,7 +33,7 @@ function Check({ color }: { color: string }) {
 }
 
 /* ============================================================
-   Card — a "mini product" tile with Vision Pro-style depth:
+   Card - a "mini product" tile with Vision Pro-style depth:
    pointer-tracked tilt, a specular glare that follows the
    cursor, and a glassy floating surface.
    ============================================================ */
@@ -172,7 +172,7 @@ function IndustryCard({
 }
 
 /* ============================================================
-   Detail — the expanded "spatial window". Glass panel with a
+   Detail - the expanded "spatial window". Glass panel with a
    gentle pointer tilt, live preview on the left and the
    product details (features, timeline, pricing, integrations)
    on the right.
@@ -275,7 +275,7 @@ function IndustryDetail({ industry, onClose }: { industry: Industry; onClose: ()
 
         {/* body */}
         <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 overflow-y-auto lg:grid-cols-[1.12fr_0.88fr] lg:gap-0 lg:overflow-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/15">
-          {/* live preview — CTA stays in this column on desktop only */}
+          {/* live preview - CTA stays in this column on desktop only */}
           <div className="flex min-h-0 flex-col gap-3 p-4 sm:p-5 lg:h-full lg:overflow-hidden lg:p-5">
             <div className="h-[min(320px,40vh)] overflow-hidden sm:h-[380px] lg:min-h-0 lg:flex-1">
               <SitePreview site={industry.site} industryId={industry.id} />

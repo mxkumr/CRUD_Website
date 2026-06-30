@@ -5,7 +5,7 @@ import { PatientStories, TreatmentJourney, VirtualTour } from '@/components/medi
 import { EmergencyBand, MediFooter, MediNav, Packages } from '@/components/medinova/Shell';
 
 export const metadata: Metadata = {
-  title: 'MediNova — Hospital Website Concept | CRUD Studio',
+  title: 'MediNova - Hospital Website Concept | CRUD Studio',
   description:
     'A futuristic multi-speciality hospital website concept by CRUD Studio: interactive doctor finder, symptom checker, live availability, virtual tour and animated patient journeys.',
 };

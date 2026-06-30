@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import SmoothScroll from '@/components/site/SmoothScroll';
 import CustomCursor from '@/components/site/CustomCursor';
+import CrudLogo from '@/components/site/CrudLogo';
 import ShowcaseHero from '@/components/showcase/ShowcaseHero';
 import ShowcaseGrid from '@/components/showcase/ShowcaseGrid';
 import { studio } from '@/lib/site-data';
@@ -10,7 +10,7 @@ import { studio } from '@/lib/site-data';
 export const metadata: Metadata = {
   title: 'Industry Solutions Showcase | CRUD Studio',
   description:
-    'Eight live, interactive website concepts by CRUD Studio — one per industry. Explore working desktop and mobile previews, feature sets, timelines, pricing and integrations.',
+    'Eight live, interactive website concepts by CRUD Studio - one per industry. Explore working desktop and mobile previews, feature sets, timelines, pricing and integrations.',
 };
 
 export default function ShowcasePage() {
@@ -22,8 +22,8 @@ export default function ShowcasePage() {
         {/* top bar */}
         <header className="fixed inset-x-0 top-0 z-[120]">
           <div className="flex items-center justify-between border-b border-line bg-ink/60 px-5 py-4 backdrop-blur-xl md:px-10">
-            <Link href="/" data-cursor="hover" className="flex items-center" aria-label="CRUD Studio — home">
-              <Image src="/logo.png" alt="CRUD Studio" width={652} height={248} priority className="h-8 w-auto md:h-9" />
+            <Link href="/" data-cursor="hover" className="flex items-center" aria-label="CRUD Studio - home">
+              <CrudLogo />
             </Link>
             <div className="flex items-center gap-3">
               <Link

@@ -1,5 +1,5 @@
 /**
- * Haven Estates — bespoke demo content.
+ * Haven Estates - bespoke demo content.
  * A fictional property marketplace used to show the kind of
  * listing-led website CRUD Studio builds for real estate.
  */
@@ -40,7 +40,7 @@ export const listings: Listing[] = [
   { id: 'l1', title: 'Sea-View Sky Apartment', type: 'Apartment', deal: 'Sale', price: '₹2.4 Cr', location: 'Besant Nagar', beds: 3, baths: 3, area: '1,850 sqft', featured: true },
   { id: 'l2', title: 'Modern Courtyard Villa', type: 'Villa', deal: 'Sale', price: '₹4.1 Cr', location: 'ECR', beds: 4, baths: 5, area: '3,400 sqft' },
   { id: 'l3', title: 'Smart 2 BHK Residence', type: 'Apartment', deal: 'Rent', price: '₹48k/mo', location: 'OMR', beds: 2, baths: 2, area: '1,150 sqft' },
-  { id: 'l4', title: 'Garden Plot — DTCP', type: 'Plot', deal: 'Sale', price: '₹98 L', location: 'Sholinganallur', beds: 0, baths: 0, area: '2,400 sqft' },
+  { id: 'l4', title: 'Garden Plot - DTCP', type: 'Plot', deal: 'Sale', price: '₹98 L', location: 'Sholinganallur', beds: 0, baths: 0, area: '2,400 sqft' },
   { id: 'l5', title: 'Penthouse Loft', type: 'Apartment', deal: 'Sale', price: '₹6.8 Cr', location: 'Nungambakkam', beds: 4, baths: 4, area: '4,200 sqft', featured: true },
   { id: 'l6', title: 'Grade-A Office Floor', type: 'Commercial', deal: 'Rent', price: '₹3.2 L/mo', location: 'Guindy', beds: 0, baths: 4, area: '6,000 sqft' },
   { id: 'l7', title: 'Lakeside Family Villa', type: 'Villa', deal: 'Sale', price: '₹3.5 Cr', location: 'Madhavaram', beds: 4, baths: 4, area: '2,900 sqft' },
@@ -67,7 +67,7 @@ export const agents: Agent[] = [
 ];
 
 export const features = [
-  { title: 'Verified listings', body: 'Every property is physically verified — no fake photos, no bait-and-switch.' },
+  { title: 'Verified listings', body: 'Every property is physically verified - no fake photos, no bait-and-switch.' },
   { title: 'Immersive virtual tours', body: 'Walk through homes in 360° before you ever leave your sofa.' },
   { title: 'Site visits in a tap', body: 'Book a guided visit at a time that suits you, confirmed on WhatsApp.' },
   { title: 'Transparent pricing', body: 'Price history, locality trends and fair-value scores on every listing.' },

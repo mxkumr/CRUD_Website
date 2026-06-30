@@ -212,7 +212,7 @@ export default function MediHero() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Emergency open 24×7 — call {hospital.emergency}
+              Emergency open 24×7 - call {hospital.emergency}
             </span>
           </motion.div>
 

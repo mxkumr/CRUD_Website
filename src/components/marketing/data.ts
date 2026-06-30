@@ -1,5 +1,5 @@
 /**
- * Magnet — bespoke demo content.
+ * Magnet - bespoke demo content.
  * A fictional full-funnel marketing agency used to show the kind of
  * bold, results-led website CRUD Studio builds for agencies.
  */
@@ -27,7 +27,7 @@ export type ServiceCat = (typeof serviceCats)[number];
 export type Service = { no: string; title: string; body: string };
 
 export const services: Service[] = [
-  { no: '01', title: 'Performance Marketing', body: 'Paid social and search engineered for profit — not vanity metrics.' },
+  { no: '01', title: 'Performance Marketing', body: 'Paid social and search engineered for profit - not vanity metrics.' },
   { no: '02', title: 'Brand & Creative', body: 'Identity, content and campaigns people actually stop scrolling for.' },
   { no: '03', title: 'SEO & Content', body: 'Compounding organic growth that keeps paying long after the invoice.' },
   { no: '04', title: 'Web & CRO', body: 'Landing pages and funnels tuned to turn traffic into revenue.' },
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
 export const process = [
   { no: '01', title: 'Diagnose', body: 'We audit your funnel, market and data to find where the money leaks.' },
   { no: '02', title: 'Strategy', body: 'A clear, opinionated plan with targets we’re willing to be measured on.' },
-  { no: '03', title: 'Execute', body: 'Creative, media and dev sprint in lockstep — shipping every week.' },
+  { no: '03', title: 'Execute', body: 'Creative, media and dev sprint in lockstep - shipping every week.' },
   { no: '04', title: 'Scale', body: 'Double down on what works, kill what doesn’t, compound the wins.' },
 ];
 
@@ -61,7 +61,7 @@ export const clients = ['Inego', 'JolloX', 'Haven', 'MediNova', 'Nebula', 'Saffr
 
 export const testimonial = {
   quote:
-    'Magnet didn’t just run our ads — they rebuilt how we think about growth. Six months in, we’re spending more and making far more on every rupee.',
+    'Magnet didn’t just run our ads - they rebuilt how we think about growth. Six months in, we’re spending more and making far more on every rupee.',
   name: 'Vikram Shetty',
   role: 'Founder, Inego',
 };

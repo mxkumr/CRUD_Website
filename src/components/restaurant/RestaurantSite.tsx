@@ -16,7 +16,7 @@ import {
 } from './data';
 
 /* ============================================================
-   Saffron & Smoke — a bespoke fine-dining restaurant site.
+   Saffron & Smoke - a bespoke fine-dining restaurant site.
    Moody, dark and photo-led, with serif elegance, an
    interactive menu, a live reservation widget and the chef’s
    story. Reservation-first throughout.
@@ -189,7 +189,7 @@ function Reserve() {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em]" style={{ color: AMBER }}>Reservations</p>
             <h2 className="font-serif text-4xl leading-tight md:text-5xl" style={{ color: CREAM }}>A table awaits.</h2>
             <p className="mt-4 max-w-sm text-base leading-relaxed" style={{ color: SUB }}>
-              Book in seconds. We hold tables for 15 minutes — for parties of 8 or more, please call us directly.
+              Book in seconds. We hold tables for 15 minutes - for parties of 8 or more, please call us directly.
             </p>
             <div className="mt-6 space-y-2 text-sm" style={{ color: SUB }}>
               <p>📍 {place.address}</p>
@@ -220,7 +220,7 @@ function Reserve() {
             </button>
             {done && (
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-3 text-center text-sm" style={{ color: '#5BA35B' }}>
-                Table for {guests} at {time} — see you Friday!
+                Table for {guests} at {time} - see you Friday!
               </motion.p>
             )}
           </div>

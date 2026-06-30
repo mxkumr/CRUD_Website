@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   Theme tokens — RGB channels so Tailwind opacity modifiers work.
+   Theme tokens - RGB channels so Tailwind opacity modifiers work.
    Dark is the default; .theme-light on <html> swaps the values.
    ============================================================ */
 .crud-site {
@@ -22,7 +22,7 @@
   --c-selection-fg: #0d0d0b;
 }
 
-/* Light theme — ink/bone roles invert (ink = light surface, bone = dark
+/* Light theme - ink/bone roles invert (ink = light surface, bone = dark
    ink text). The neon lime becomes a deep, legible lime so accents stay
    clearly visible on the cream background. */
 html.theme-light .crud-site {
@@ -54,7 +54,7 @@ html.theme-light body {
 }
 
 /* ============================================================
-   CRUD Studio — marketing site theme (scoped to .crud-site)
+   CRUD Studio - marketing site theme (scoped to .crud-site)
    ============================================================ */
 .crud-site {
   background-color: rgb(var(--c-ink));
@@ -88,8 +88,70 @@ html.theme-light body {
   color: transparent;
 }
 
+/* Work / services bento cards - art layer adapts with theme */
+.crud-site .work-card-art__wash {
+  background:
+    radial-gradient(120% 120% at 20% 10%, var(--work-hue-glow-a) 0%, transparent 50%),
+    radial-gradient(100% 100% at 85% 90%, var(--work-hue-glow-b) 0%, transparent 55%),
+    linear-gradient(160deg, rgb(var(--c-ink-soft)) 0%, rgb(var(--c-ink-raise)) 100%);
+}
+
+html.theme-light .crud-site .work-card-art__wash {
+  background:
+    radial-gradient(120% 120% at 20% 10%, var(--work-hue-glow-a) 0%, transparent 45%),
+    radial-gradient(100% 100% at 85% 90%, var(--work-hue-glow-b) 0%, transparent 50%),
+    linear-gradient(160deg, rgb(var(--c-ink-soft)) 0%, rgb(var(--c-ink-raise)) 100%);
+}
+
+.crud-site .work-card-art__scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgba(237, 234, 227, 0.5) 3px 4px
+  );
+  opacity: 0.05;
+}
+
+html.theme-light .crud-site .work-card-art__scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgba(22, 22, 16, 0.12) 3px 4px
+  );
+  opacity: 0.06;
+}
+
+html.theme-light .crud-site .work-card-art__ring {
+  opacity: 0.55;
+}
+
+html.theme-light .crud-site .work-card-art__ring:hover,
+html.theme-light .crud-site .group:hover .work-card-art__ring {
+  opacity: 0.85;
+}
+
+html.theme-light .crud-site .work-card__category {
+  background: rgba(255, 255, 255, 0.78);
+}
+
 .crud-site .clip-line {
   clip-path: inset(0 0 0 0);
+}
+
+.crud-site .hero-vignette {
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 60%,
+    rgba(13, 13, 11, 0.55) 0%,
+    rgba(13, 13, 11, 0) 70%
+  );
+}
+
+html.theme-light .crud-site .hero-vignette {
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 45%,
+    rgba(245, 243, 236, 0.85) 0%,
+    rgba(245, 243, 236, 0) 72%
+  );
 }
 
 html.lenis,

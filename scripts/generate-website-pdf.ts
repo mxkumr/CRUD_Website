@@ -62,7 +62,7 @@ async function ensureServer(): Promise<ChildProcess | null> {
   }
 
   child.kill();
-  throw new Error(`Could not reach ${BASE_URL} — start the dev server and retry.`);
+  throw new Error(`Could not reach ${BASE_URL} - start the dev server and retry.`);
 }
 
 async function preparePage(page: Page, theme: 'light' | 'dark') {

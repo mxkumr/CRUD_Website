@@ -5,13 +5,13 @@ import { NextRequest, NextResponse } from 'next/server';
  *
  * This is best-effort, per-server-instance protection against bursts and
  * cheap script abuse. Real volumetric DoS must be absorbed at the edge
- * (Cloudflare / Vercel WAF) — no app-level code can survive that.
+ * (Cloudflare / Vercel WAF) - no app-level code can survive that.
  */
 
 const WINDOW_MS = 60_000;
 /** Page loads, prefetches, RSC requests */
 const GET_LIMIT = 120;
-/** Non-GET requests — the site is static, so keep this tight */
+/** Non-GET requests - the site is static, so keep this tight */
 const MUTATION_LIMIT = 15;
 /** Hard cap on tracked IPs so the limiter itself can't be memory-bombed */
 const MAX_TRACKED_IPS = 10_000;
@@ -30,7 +30,7 @@ function isRateLimited(key: string, limit: number): { limited: boolean; retryAft
   const now = Date.now();
 
   // Prune expired buckets opportunistically; if the map is still oversized
-  // (forged IP flood), reset it — losing counters is safer than OOM.
+  // (forged IP flood), reset it - losing counters is safer than OOM.
   if (buckets.size > MAX_TRACKED_IPS) {
     for (const [k, b] of buckets) {
       if (b.resetAt <= now) buckets.delete(k);
@@ -73,6 +73,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Skip static assets — rate limiting them only hurts legitimate users.
+  // Skip static assets - rate limiting them only hurts legitimate users.
   matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff2?)$).*)'],
 };

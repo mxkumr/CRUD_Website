@@ -87,7 +87,7 @@ export default function Capabilities() {
       </div>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-        {/* sticky dynamic preview — desktop only */}
+        {/* sticky dynamic preview - desktop only */}
         <div className="hidden lg:block">
           <div className="sticky top-28 h-[calc(100vh-9rem)] min-h-[28rem]">
             <Preview activeIndex={activeIndex} />

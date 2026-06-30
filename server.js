@@ -1,16 +1,24 @@
 /**
- * Custom server entry point for cPanel "Setup Node.js App" (Phusion Passenger).
- * Passenger sets PORT itself; locally you can run `node server.js` on 3000.
+ * Local production server (npm start).
+ * cPanel: use the server.js inside the deployment zip (Next.js standalone).
  */
-const { createServer } = require('http');
-const next = require('next');
+const { spawn } = require('child_process');
+const path = require('path');
 
-const port = process.env.PORT || 3000;
-const app = next({ dev: false });
-const handle = app.getRequestHandler();
+const standaloneServer = path.join(__dirname, '.next', 'standalone', 'server.js');
 
-app.prepare().then(() => {
-  createServer((req, res) => handle(req, res)).listen(port, () => {
-    console.log(`> Ready on port ${port}`);
+if (require('fs').existsSync(standaloneServer)) {
+  require(standaloneServer);
+} else {
+  // Fallback before standalone build exists
+  const { createServer } = require('http');
+  const next = require('next');
+  const port = process.env.PORT || 3000;
+  const app = next({ dev: false });
+  const handle = app.getRequestHandler();
+  app.prepare().then(() => {
+    createServer((req, res) => handle(req, res)).listen(port, () => {
+      console.log(`> Ready on port ${port}`);
+    });
   });
-});
+}

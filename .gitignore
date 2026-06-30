@@ -23,7 +23,7 @@
 
 # cPanel deploy bundle
 /deploy-cpanel
-/crud-studio-cpanel.zip
+*.zip
 
 # misc
 .DS_Store

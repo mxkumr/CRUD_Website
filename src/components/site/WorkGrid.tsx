@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { projects, studio, type Project, type ServiceIcon } from '@/lib/site-data';
@@ -14,12 +14,76 @@ const reveal = {
   }),
 };
 
+function useSiteTheme() {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      const observer = new MutationObserver(onStoreChange);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      return () => observer.disconnect();
+    },
+    () => (document.documentElement.classList.contains('theme-light') ? 'light' : 'dark'),
+    () => 'dark',
+  );
+}
+
+const INK_RGB: [number, number, number] = [22, 22, 16];
+
+function parseHex(hex: string): [number, number, number] | null {
+  const raw = hex.replace('#', '').trim();
+  const normalized =
+    raw.length === 3
+      ? raw
+          .split('')
+          .map((c) => c + c)
+          .join('')
+      : raw.length === 6
+        ? raw
+        : null;
+  if (!normalized) return null;
+  return [
+    parseInt(normalized.slice(0, 2), 16),
+    parseInt(normalized.slice(2, 4), 16),
+    parseInt(normalized.slice(4, 6), 16),
+  ];
+}
+
+function mixRgb(
+  a: [number, number, number],
+  b: [number, number, number],
+  weightA: number,
+): string {
+  const w = weightA / 100;
+  const channels = a.map((c, i) => Math.round(c * w + b[i] * (1 - w)));
+  return `#${channels.map((c) => c.toString(16).padStart(2, '0')).join('')}`;
+}
+
+/** Darkens a neon accent on light backgrounds; unchanged in dark mode. */
+function serviceAccent(hue: string, isLight: boolean): string {
+  const rgb = parseHex(hue);
+  if (!rgb || !isLight) return hue;
+  return mixRgb(rgb, INK_RGB, 64);
+}
+
+function serviceAccentMuted(hue: string, isLight: boolean): string {
+  const rgb = parseHex(hue);
+  if (!rgb) return isLight ? `${hue}99` : `${hue}66`;
+  if (!isLight) return `${hue}66`;
+  return mixRgb(rgb, INK_RGB, 44);
+}
+
 /* ------------------------------------------------------------------
    Bespoke line-art vectors for each service. Stroke uses the card's
    accent hue; soft secondary strokes use a dim version for depth.
    ------------------------------------------------------------------ */
-function ServiceVector({ icon, hue }: { icon: ServiceIcon; hue: string }) {
-  const dim = `${hue}66`;
+function ServiceVector({
+  icon,
+  hue,
+  dim,
+}: {
+  icon: ServiceIcon;
+  hue: string;
+  dim: string;
+}) {
   const common = {
     fill: 'none',
     stroke: hue,
@@ -86,6 +150,25 @@ function ServiceVector({ icon, hue }: { icon: ServiceIcon; hue: string }) {
         <path d="m58 56-6 14h12z" fill={hue} stroke="none" />
       </>
     ),
+    strategy: (
+      <>
+        <circle cx="60" cy="60" r="28" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M60 32v56M32 60h56" />
+        <path {...common} d="M60 60 78 42M60 60 42 78M60 60 78 78M60 60 42 42" />
+        <circle cx="60" cy="60" r="6" fill={hue} stroke="none" />
+        <path {...common} d="M60 48V32" />
+      </>
+    ),
+    fde: (
+      <>
+        <circle cx="60" cy="44" r="14" stroke={hue} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M60 58v10M48 72h24" />
+        <circle cx="34" cy="78" r="8" stroke={dim} strokeWidth={2.4} fill="none" />
+        <circle cx="86" cy="78" r="8" stroke={dim} strokeWidth={2.4} fill="none" />
+        <path {...common} d="M42 78h16M62 78h16M52 72V66M68 72V66" />
+        <circle cx="60" cy="44" r="4" fill={hue} stroke="none" />
+      </>
+    ),
   };
 
   return (
@@ -103,25 +186,26 @@ function ServiceVector({ icon, hue }: { icon: ServiceIcon; hue: string }) {
 function ProjectArt({ project }: { project: Project }) {
   const [hue] = project.hues;
   const isWide = project.span === 'wide';
+  const isLight = useSiteTheme() === 'light';
+  const accent = serviceAccent(hue, isLight);
+  const accentMuted = serviceAccentMuted(hue, isLight);
+  const artStyle = {
+    '--work-hue-glow-a': isLight ? `${hue}42` : `${hue}26`,
+    '--work-hue-glow-b': isLight ? `${hue}50` : `${hue}33`,
+  } as React.CSSProperties;
+
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      {/* base wash */}
-      <div
-        className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110"
-        style={{
-          background: `radial-gradient(120% 120% at 20% 10%, ${hue}26 0%, transparent 50%),
-                       radial-gradient(100% 100% at 85% 90%, ${hue}33 0%, transparent 55%),
-                       linear-gradient(160deg, #1C1C19 0%, #121210 100%)`,
-        }}
-      />
+    <div className="absolute inset-0 overflow-hidden" style={artStyle}>
+      {/* base wash - uses theme tokens via CSS */}
+      <div className="work-card-art__wash absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110" />
       {/* orbiting ring */}
       <div
-        className="absolute -right-16 -top-16 h-56 w-56 rounded-full border opacity-40 transition-all duration-700 group-hover:rotate-45 group-hover:opacity-80"
+        className="work-card-art__ring absolute -right-16 -top-16 h-56 w-56 rounded-full border opacity-40 transition-all duration-700 group-hover:rotate-45 group-hover:opacity-80"
         style={{ borderColor: hue, borderWidth: 1.5 }}
       />
       <div
         className="absolute -right-8 -top-8 h-28 w-28 rounded-full transition-transform duration-700 group-hover:-translate-x-6 group-hover:translate-y-6"
-        style={{ background: `${hue}1f` }}
+        style={{ background: isLight ? `${hue}30` : `${hue}1f` }}
       />
       {/* the vector illustration */}
       <div
@@ -131,23 +215,18 @@ function ProjectArt({ project }: { project: Project }) {
             : 'left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-[60%]'
         }`}
       >
-        <ServiceVector icon={project.icon} hue={hue} />
+        <ServiceVector icon={project.icon} hue={accent} dim={accentMuted} />
       </div>
       {/* scanlines for texture */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            'repeating-linear-gradient(0deg, transparent 0 3px, rgba(237,234,227,0.5) 3px 4px)',
-        }}
-      />
+      <div aria-hidden className="work-card-art__scanlines absolute inset-0" />
     </div>
   );
 }
 
 function WorkCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const isLight = useSiteTheme() === 'light';
+  const accent = serviceAccent(project.hues[0], isLight);
 
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
@@ -201,8 +280,11 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
         {/* meta */}
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
           <span
-            className="rounded-full border bg-ink/60 px-3 py-1 font-display text-[11px] uppercase tracking-widest backdrop-blur-sm"
-            style={{ borderColor: `${project.hues[0]}59`, color: project.hues[0] }}
+            className="work-card__category rounded-full border bg-ink/60 px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-widest backdrop-blur-sm"
+            style={{
+              borderColor: isLight ? `${accent}55` : `${project.hues[0]}59`,
+              color: accent,
+            }}
           >
             {project.category}
           </span>
@@ -218,18 +300,18 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
           <div className="mt-3 flex items-center gap-2 overflow-hidden">
             <span
               className="block h-px w-0 transition-all duration-500 group-hover:w-10"
-              style={{ background: project.hues[0] }}
+              style={{ background: accent }}
             />
             <span
               className="-translate-x-4 font-display text-xs uppercase tracking-widest opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
-              style={{ color: project.hues[0] }}
+              style={{ color: accent }}
             >
               Explore service
             </span>
           </div>
         </div>
 
-        <Link href="/capabilities" aria-label={`${project.title} — explore`} className="absolute inset-0 z-10" />
+        <Link href="/capabilities" aria-label={`${project.title} - explore`} className="absolute inset-0 z-10" />
       </motion.article>
     </motion.div>
   );
@@ -251,7 +333,7 @@ export default function WorkGrid() {
         </div>
         <div className="max-w-sm">
           <p className="text-base leading-relaxed text-bone-dim">
-            End-to-end capabilities under one roof — from first sketch to launch and beyond.{' '}
+            End-to-end capabilities under one roof - from first sketch to launch and beyond.{' '}
             <em className="font-serif text-bone">{studio.manifesto}</em>
           </p>
           <Link

@@ -12,10 +12,10 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "generate:pdf": "tsx scripts/generate-brochure.tsx",
-    "generate:website-pdf": "tsx scripts/generate-website-pdf.ts"
+    "generate:website-pdf": "tsx scripts/generate-website-pdf.ts",
+    "pack:cpanel": "tsx scripts/pack-cpanel.ts"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^4.5.1",
     "framer-motion": "^12.40.0",
     "lenis": "^1.3.23",
     "next": "15.5.13",
@@ -24,6 +24,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@react-pdf/renderer": "^4.5.1",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.1",
     "@types/react": "^18",

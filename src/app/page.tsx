@@ -5,6 +5,7 @@ import Hero from '@/components/site/Hero';
 import WorkGrid from '@/components/site/WorkGrid';
 import Capabilities from '@/components/site/Capabilities';
 import ShowcasePreview from '@/components/site/ShowcasePreview';
+import PremiumClients from '@/components/site/PremiumClients';
 import Studio from '@/components/site/Studio';
 import ContactFooter from '@/components/site/ContactFooter';
 
@@ -19,6 +20,7 @@ export default function HomePage() {
           <WorkGrid />
           <Capabilities />
           <ShowcasePreview />
+          <PremiumClients />
           <Studio />
         </main>
         <ContactFooter />

@@ -15,7 +15,7 @@ import {
 } from './data';
 
 /* ============================================================
-   Nebula — a bespoke AI/SaaS product site.
+   Nebula - a bespoke AI/SaaS product site.
    Dark, sleek and gradient-lit (Linear/Vercel energy): a
    product-UI hero, interactive feature tabs, a bento grid,
    a monthly/annual pricing toggle and integrations.
@@ -95,13 +95,13 @@ function Hero() {
       <div className="relative mx-auto max-w-5xl text-center">
         <motion.a href="#features" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }} className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium" style={{ background: SURFACE, border: `1px solid ${LINE}`, color: SUB }}>
           <span className="rounded-full px-2 py-0.5 text-[10px] font-bold uppercase" style={{ background: VIOLET, color: '#fff' }}>New</span>
-          Nebula 3.0 — agents that build themselves →
+          Nebula 3.0 - agents that build themselves →
         </motion.a>
         <motion.h1 initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.08, ease }} className="mx-auto mt-7 max-w-3xl font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl" style={{ color: TEXT }}>
           Ship faster with <span style={gradientText}>autonomous agents.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.16, ease }} className="mx-auto mt-6 max-w-xl text-lg leading-relaxed" style={{ color: SUB }}>
-          Nebula turns messy operations into clean, automated workflows — in minutes, not months. No glue code, no babysitting.
+          Nebula turns messy operations into clean, automated workflows - in minutes, not months. No glue code, no babysitting.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.24, ease }} className="mt-9 flex flex-wrap justify-center gap-3">
           <a href="#pricing" className="rounded-lg px-7 py-3.5 font-display text-sm font-bold text-white transition-transform hover:scale-105" style={{ background: VIOLET }}>Start free</a>

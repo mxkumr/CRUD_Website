@@ -4,7 +4,7 @@ import type { CSSProperties } from 'react';
 import type { MiniSiteContent } from '@/lib/showcase-data';
 
 /* ============================================================
-   MiniSite — a self-contained, responsive miniature of the
+   MiniSite - a self-contained, responsive miniature of the
    website CRUD Studio would build for each industry. Rendered
    inside the SitePreview browser frame as a "live" preview.
    Purely presentational; colours come from the industry data
@@ -347,7 +347,7 @@ function heroVisual(site: MiniSiteContent, t: Tokens): React.ReactNode {
             <div className="h-full w-3/4 rounded-full" style={{ background: t.accent }} />
           </div>
           <div className="mt-1 text-[9px]" style={{ color: t.sub }}>
-            74% seats filled — apply before June 30
+            74% seats filled - apply before June 30
           </div>
         </Card>
       );

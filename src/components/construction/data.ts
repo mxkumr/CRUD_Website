@@ -1,5 +1,5 @@
 /**
- * Apex BuildWorks — bespoke demo content.
+ * Apex BuildWorks - bespoke demo content.
  * A fictional turnkey construction firm used to show the kind of
  * industrial, project-led website CRUD Studio builds for builders.
  */
@@ -37,7 +37,7 @@ export type Service = { no: string; title: string; body: string };
 
 export const services: Service[] = [
   { no: '01', title: 'General Contracting', body: 'Single-point accountability from groundbreaking to handover, with self-performed core trades.' },
-  { no: '02', title: 'Design–Build', body: 'One contract for design and construction — faster delivery, fewer surprises, fixed cost.' },
+  { no: '02', title: 'Design–Build', body: 'One contract for design and construction - faster delivery, fewer surprises, fixed cost.' },
   { no: '03', title: 'Pre-Construction', body: 'Estimating, value engineering and constructability reviews before the first shovel.' },
   { no: '04', title: 'Construction Management', body: 'Programme, cost and quality control with daily reporting straight to your inbox.' },
   { no: '05', title: 'Renovation & Fit-out', body: 'Occupied-space upgrades and interiors delivered without disrupting your operations.' },
@@ -79,7 +79,7 @@ export const process: Phase[] = [
 ];
 
 export const differentiators = [
-  { title: 'Fixed-price certainty', body: 'A guaranteed maximum price locked in before we break ground — no creeping budgets.' },
+  { title: 'Fixed-price certainty', body: 'A guaranteed maximum price locked in before we break ground - no creeping budgets.' },
   { title: 'In-house engineering', body: 'Structural, MEP and BIM teams under one roof keep design and build perfectly aligned.' },
   { title: 'Self-perform crews', body: 'Our own concrete, steel and finishing teams mean schedule control, not subcontractor risk.' },
   { title: 'Daily transparency', body: 'A client dashboard with photos, progress and spend updated every single working day.' },
@@ -93,7 +93,7 @@ export const safety = {
 
 export const testimonial = {
   quote:
-    'Apex handed over Skyline Towers two weeks early and on budget. The daily reporting meant we never had to chase for an update — a genuinely rare experience in construction.',
+    'Apex handed over Skyline Towers two weeks early and on budget. The daily reporting meant we never had to chase for an update - a genuinely rare experience in construction.',
   name: 'Rajesh Menon',
   role: 'Managing Director, Skyline Group',
 };

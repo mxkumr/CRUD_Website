@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Magnetic from './Magnetic';
+import CrudLogo from './CrudLogo';
 import { contact } from '@/lib/site-data';
 
 type NavLink = { label: string; href: string };
@@ -79,16 +79,9 @@ export default function Navigation() {
               href="/"
               data-cursor="hover"
               className="flex items-center"
-              aria-label="CRUD Studio — home"
+              aria-label="CRUD Studio - home"
             >
-              <Image
-                src="/logo.png"
-                alt="CRUD Studio"
-                width={652}
-                height={248}
-                priority
-                className="h-8 w-auto md:h-9"
-              />
+              <CrudLogo priority />
             </Link>
           </Magnetic>
 

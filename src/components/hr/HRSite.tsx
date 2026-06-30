@@ -18,7 +18,7 @@ import {
 } from './data';
 
 /* ============================================================
-   TalentForge — a bespoke two-sided hiring platform.
+   TalentForge - a bespoke two-sided hiring platform.
    Friendly indigo/pink, a searchable job board, candidate &
    employer journeys, a live application-tracking dashboard
    mock, and trusted-company proof.
@@ -134,7 +134,7 @@ function Hero() {
           Your next role, <br className="hidden md:block" />matched in <span style={{ color: PINK }}>minutes.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.16, ease }} className="mx-auto mt-5 max-w-xl text-lg leading-relaxed" style={{ color: SUB }}>
-          Apply once, track everything — and let great companies come to you.
+          Apply once, track everything - and let great companies come to you.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.24, ease }} className="mx-auto mt-9 grid max-w-2xl gap-2 rounded-2xl bg-white p-3 shadow-xl shadow-slate-900/5 md:grid-cols-[1.6fr_1fr_auto]" style={{ border: `1px solid ${LINE}` }}>
           <div className="flex items-center gap-2 rounded-xl px-4 py-3" style={{ background: BG }}><span style={{ color: PINK }}>⌕</span><span className="text-sm" style={{ color: SUB }}>Role, skill or company</span></div>
@@ -199,7 +199,7 @@ function JobBoard() {
             ))}
           </AnimatePresence>
         </motion.div>
-        {filtered.length === 0 && <p className="py-10 text-center text-sm" style={{ color: SUB }}>No roles match — try another search.</p>}
+        {filtered.length === 0 && <p className="py-10 text-center text-sm" style={{ color: SUB }}>No roles match - try another search.</p>}
       </div>
     </section>
   );
@@ -244,7 +244,7 @@ function Dashboard() {
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: PINK }}>Track everything</p>
           <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl" style={{ color: INK }}>Every application, in one place.</h2>
           <p className="mt-5 max-w-md text-base leading-relaxed" style={{ color: SUB }}>
-            Watch your candidates move through each stage in real time — no spreadsheets, no chasing, no guessing where things stand.
+            Watch your candidates move through each stage in real time - no spreadsheets, no chasing, no guessing where things stand.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3">
             {['Real-time pipeline', 'Shared scorecards', 'Interview scheduling', 'Offer management'].map((f) => (

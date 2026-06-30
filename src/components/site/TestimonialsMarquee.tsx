@@ -21,7 +21,7 @@ export default function TestimonialsMarquee({
   return (
     <div className={`relative ${className}`}>
       {label && (
-        <p className="mb-5 flex items-center gap-3 px-5 font-display text-xs uppercase tracking-[0.3em] text-bone-dim md:px-10">
+        <p className="mb-6 flex items-center gap-3 px-5 font-display text-xs uppercase tracking-[0.3em] text-bone-dim md:px-10">
           <span className="h-px w-8 bg-volt" /> {label}
         </p>
       )}

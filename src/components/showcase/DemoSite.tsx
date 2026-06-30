@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import type { Industry } from '@/lib/showcase-data';
 
 /* ============================================================
-   DemoSite — a full, standalone, themed landing page built
+   DemoSite - a full, standalone, themed landing page built
    for a single industry. Same idea as the MediNova demo, but
    data-driven so every showcase card has its own live page.
    Light theme by default; dark for SaaS & Marketing.
@@ -410,7 +410,7 @@ function HeroVisual({ industry, t }: { industry: Industry; t: Tokens }) {
             <div className="h-full w-3/4 rounded-full" style={{ background: t.accent }} />
           </div>
           <div className="mt-2 text-sm" style={{ color: t.sub }}>
-            74% seats filled — apply before June 30.
+            74% seats filled - apply before June 30.
           </div>
         </Card>
       );
@@ -894,7 +894,7 @@ function Footer({ industry, t }: { industry: Industry; t: Tokens }) {
           </span>
         </div>
         <p className="text-xs" style={{ color: t.sub }}>
-          © 2026 {site.brand} — a fictional brand created by CRUD Studio for demonstration.
+          © 2026 {site.brand} - a fictional brand created by CRUD Studio for demonstration.
         </p>
         <div className="flex gap-3">
           <Link

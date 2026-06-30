@@ -1,5 +1,5 @@
 /**
- * CRUD Studio — Industry Solutions Showcase
+ * CRUD Studio - Industry Solutions Showcase
  * ------------------------------------------------------------
  * Eight ready-to-pitch website concepts, one per industry.
  * Each entry powers an interactive "mini product" card on
@@ -85,7 +85,7 @@ export const industries: Industry[] = [
     category: 'Healthcare',
     tagline: 'Appointment-first hospital experiences that build trust on the first scroll.',
     description:
-      'A multi-speciality hospital platform with live doctor availability, online booking, an AI symptom checker and a patient portal — engineered to convert anxious visitors into booked appointments.',
+      'A multi-speciality hospital platform with live doctor availability, online booking, an AI symptom checker and a patient portal - engineered to convert anxious visitors into booked appointments.',
     hues: ['#22D3EE', '#0EA5E9'],
     glyph: '✚',
     timelineLabel: '6 weeks',
@@ -110,12 +110,12 @@ export const industries: Industry[] = [
         'A hospital website should lower anxiety, not add to it. MediNova puts the next available specialist, your records and emergency care a tap away.',
       valueProps: [
         { title: 'Book in two minutes', body: 'Real-time slot availability across every speciality, with instant confirmation on WhatsApp.' },
-        { title: 'Care that follows you', body: 'Records, reports and care plans live in one patient portal — accessible anywhere, anytime.' },
+        { title: 'Care that follows you', body: 'Records, reports and care plans live in one patient portal - accessible anywhere, anytime.' },
         { title: 'Always-on emergency', body: 'One-tap ambulance dispatch and golden-hour-ready trauma response, every hour of every day.' },
       ],
       showcase: { title: 'Find your specialist', subtitle: 'Top doctors with live availability today.' },
       testimonial: {
-        quote: 'Patients now book online instead of calling — our front-desk load dropped by half and no-shows are down.',
+        quote: 'Patients now book online instead of calling - our front-desk load dropped by half and no-shows are down.',
         name: 'Dr. Prasad E',
         role: 'Medical Director',
       },
@@ -131,7 +131,7 @@ export const industries: Industry[] = [
       hero: {
         eyebrow: 'Multi-speciality • 24×7',
         title: 'Healthcare, engineered for humans.',
-        sub: 'Book a specialist in under two minutes — records, slots and care plans in one place.',
+        sub: 'Book a specialist in under two minutes - records, slots and care plans in one place.',
         cta: 'Book appointment',
         secondary: 'Find a doctor',
       },
@@ -179,9 +179,9 @@ export const industries: Industry[] = [
     liveHref: '/showcase/saas',
     page: {
       intro:
-        'Your product is fast. Your website should be faster — at turning curiosity into signups. Every section here is engineered to convert.',
+        'Your product is fast. Your website should be faster - at turning curiosity into signups. Every section here is engineered to convert.',
       valueProps: [
-        { title: 'Built to convert', body: 'A magnetic hero, undeniable social proof and a frictionless signup path — no wasted scroll.' },
+        { title: 'Built to convert', body: 'A magnetic hero, undeniable social proof and a frictionless signup path - no wasted scroll.' },
         { title: 'Show, don’t tell', body: 'An interactive product demo lets prospects feel the value before they ever sign in.' },
         { title: 'Scales with you', body: 'Headless CMS, billing and an auth-ready dashboard shell. Ship features, not rebuilds.' },
       ],
@@ -191,7 +191,7 @@ export const industries: Industry[] = [
         name: 'Ananya R',
         role: 'Founder, Nebula',
       },
-      closing: { title: 'Ship faster.', sub: 'Start free, scale when you’re ready — no credit card, no friction.' },
+      closing: { title: 'Ship faster.', sub: 'Start free, scale when you’re ready - no credit card, no friction.' },
     },
     site: {
       layout: 'dashboard',
@@ -203,7 +203,7 @@ export const industries: Industry[] = [
       hero: {
         eyebrow: 'AI workflow engine',
         title: 'Ship faster with autonomous agents.',
-        sub: 'Nebula turns messy operations into clean, automated workflows — in minutes, not months.',
+        sub: 'Nebula turns messy operations into clean, automated workflows - in minutes, not months.',
         cta: 'Start free',
         secondary: 'Live demo',
       },
@@ -250,11 +250,11 @@ export const industries: Industry[] = [
     liveHref: '/showcase/education',
     page: {
       intro:
-        'Parents decide in minutes. A warm, credible site answers every question — and captures the enquiry — before they pick up the phone.',
+        'Parents decide in minutes. A warm, credible site answers every question - and captures the enquiry - before they pick up the phone.',
       valueProps: [
         { title: 'Admissions made simple', body: 'A guided enquiry funnel captures qualified leads and routes them to your team instantly.' },
         { title: 'Programs that shine', body: 'Rich course pages, faculty profiles and campus stories that build genuine trust.' },
-        { title: 'One parent portal', body: 'Fees, calendars and updates behind a single login — fewer calls, happier families.' },
+        { title: 'One parent portal', body: 'Fees, calendars and updates behind a single login - fewer calls, happier families.' },
       ],
       showcase: { title: 'Explore our programs', subtitle: 'Future-ready courses taught by world-class faculty.' },
       testimonial: {
@@ -322,7 +322,7 @@ export const industries: Industry[] = [
     liveHref: '/showcase/construction',
     page: {
       intro:
-        'Big projects start with trust. Show the work, the process and the proof — and win bigger, better-qualified bids.',
+        'Big projects start with trust. Show the work, the process and the proof - and win bigger, better-qualified bids.',
       valueProps: [
         { title: 'Proof over promises', body: 'A cinematic project portfolio that lets your craftsmanship close the deal.' },
         { title: 'Qualified enquiries only', body: 'A smart quote flow filters tyre-kickers and routes serious leads straight to your CRM.' },
@@ -334,7 +334,7 @@ export const industries: Industry[] = [
         name: 'Zora Constructions',
         role: 'Managing Partner',
       },
-      closing: { title: 'Let’s build it.', sub: 'Request a quote and get a clear scope, timeline and cost — no surprises.' },
+      closing: { title: 'Let’s build it.', sub: 'Request a quote and get a clear scope, timeline and cost - no surprises.' },
     },
     site: {
       layout: 'projects',
@@ -346,7 +346,7 @@ export const industries: Industry[] = [
       hero: {
         eyebrow: 'Commercial & residential',
         title: 'We build landmarks, on time.',
-        sub: '25 years of turnkey construction — from foundation to handover, delivered without surprises.',
+        sub: '25 years of turnkey construction - from foundation to handover, delivered without surprises.',
         cta: 'Request a quote',
         secondary: 'View projects',
       },
@@ -372,7 +372,7 @@ export const industries: Industry[] = [
     category: 'Property',
     tagline: 'Listing platforms that move properties faster than the market.',
     description:
-      'A property marketplace with filterable listings, map search, virtual tours, an EMI calculator and site-visit booking — designed to turn browsers into qualified leads.',
+      'A property marketplace with filterable listings, map search, virtual tours, an EMI calculator and site-visit booking - designed to turn browsers into qualified leads.',
     hues: ['#0EA5E9', '#10B981'],
     glyph: '⬡',
     timelineLabel: '7 weeks',
@@ -394,15 +394,15 @@ export const industries: Industry[] = [
     liveHref: '/showcase/real-estate',
     page: {
       intro:
-        'Buyers browse with their hearts and decide with their heads. Give them both — beautifully — and turn browsers into booked site visits.',
+        'Buyers browse with their hearts and decide with their heads. Give them both - beautifully - and turn browsers into booked site visits.',
       valueProps: [
         { title: 'Search that feels effortless', body: 'Smart filters, map search and saved listings that keep buyers coming back.' },
         { title: 'See it before the visit', body: 'Virtual tours and rich galleries turn casual scrollers into serious enquiries.' },
         { title: 'Plan with confidence', body: 'A built-in EMI calculator and verified agents make the biggest decision easier.' },
       ],
-      showcase: { title: 'Featured listings', subtitle: 'Handpicked homes — verified and visit-ready.' },
+      showcase: { title: 'Featured listings', subtitle: 'Handpicked homes - verified and visit-ready.' },
       testimonial: {
-        quote: 'Buyers shortlist homes online and walk in already convinced — our visits convert far better now.',
+        quote: 'Buyers shortlist homes online and walk in already convinced - our visits convert far better now.',
         name: 'Haven Estates',
         role: 'Sales Head',
       },
@@ -418,7 +418,7 @@ export const industries: Industry[] = [
       hero: {
         eyebrow: '12,400+ verified listings',
         title: 'Find a place to love.',
-        sub: 'Smart search, virtual tours and EMI planning — your next home, without the runaround.',
+        sub: 'Smart search, virtual tours and EMI planning - your next home, without the runaround.',
         cta: 'Search homes',
         secondary: 'Talk to an agent',
       },
@@ -466,15 +466,15 @@ export const industries: Industry[] = [
     liveHref: '/showcase/hr',
     page: {
       intro:
-        'Great hiring is a two-way street. Make it effortless for candidates and employers alike — and watch time-to-hire collapse.',
+        'Great hiring is a two-way street. Make it effortless for candidates and employers alike - and watch time-to-hire collapse.',
       valueProps: [
         { title: 'Apply in one click', body: 'A delightful candidate flow with saved profiles and genuine one-tap applications.' },
         { title: 'Track everything', body: 'A real-time dashboard for candidates and an ATS-ready portal for employers.' },
-        { title: 'Match, don’t search', body: 'Smart role matching surfaces the right jobs — and the right people — faster.' },
+        { title: 'Match, don’t search', body: 'Smart role matching surfaces the right jobs - and the right people - faster.' },
       ],
       showcase: { title: 'Latest openings', subtitle: 'Hundreds of roles from companies people love.' },
       testimonial: {
-        quote: 'Time-to-hire dropped to under three days — the application tracking is a genuine game-changer.',
+        quote: 'Time-to-hire dropped to under three days - the application tracking is a genuine game-changer.',
         name: 'TalentForge',
         role: 'Head of Talent',
       },
@@ -490,7 +490,7 @@ export const industries: Industry[] = [
       hero: {
         eyebrow: '24,000+ open roles',
         title: 'Your next role, matched in minutes.',
-        sub: 'Apply once, track everything — and let great companies come to you.',
+        sub: 'Apply once, track everything - and let great companies come to you.',
         cta: 'Find jobs',
         secondary: 'Post a job',
       },
@@ -516,7 +516,7 @@ export const industries: Industry[] = [
     category: 'Hospitality',
     tagline: 'Mouth-watering sites that fill tables and online carts.',
     description:
-      'An appetising restaurant experience with a visual digital menu, table reservations, online ordering and review highlights — built to drive bookings and repeat orders.',
+      'An appetising restaurant experience with a visual digital menu, table reservations, online ordering and review highlights - built to drive bookings and repeat orders.',
     hues: ['#EF4444', '#F59E0B'],
     glyph: '◗',
     timelineLabel: '4 weeks',
@@ -538,7 +538,7 @@ export const industries: Industry[] = [
     liveHref: '/showcase/restaurant',
     page: {
       intro:
-        'People eat with their eyes first. Make every dish — and every booking — irresistible, on the busiest night of the week.',
+        'People eat with their eyes first. Make every dish - and every booking - irresistible, on the busiest night of the week.',
       valueProps: [
         { title: 'A menu that sells', body: 'Mouth-watering photography and a fast, scannable menu built for cravings.' },
         { title: 'Tables, filled', body: 'Real-time reservations and online ordering that hold up when the kitchen is slammed.' },
@@ -546,11 +546,11 @@ export const industries: Industry[] = [
       ],
       showcase: { title: 'From the kitchen', subtitle: 'Live-fire favourites, made to order.' },
       testimonial: {
-        quote: 'The site loads fast and the ordering flow is so simple — online orders climbed steadily after launch.',
+        quote: 'The site loads fast and the ordering flow is so simple - online orders climbed steadily after launch.',
         name: 'Tic To Go',
         role: 'Owner',
       },
-      closing: { title: 'A table awaits.', sub: 'Reserve, order in, or plan a private event — we’ll handle the rest.' },
+      closing: { title: 'A table awaits.', sub: 'Reserve, order in, or plan a private event - we’ll handle the rest.' },
     },
     site: {
       layout: 'menu',
@@ -618,7 +618,7 @@ export const industries: Industry[] = [
       ],
       showcase: { title: 'What we do', subtitle: 'Full-funnel growth, under one roof.' },
       testimonial: {
-        quote: 'Branding, website, campaigns — all handled under one roof, and the leads keep compounding.',
+        quote: 'Branding, website, campaigns - all handled under one roof, and the leads keep compounding.',
         name: 'H2H',
         role: 'Brand Lead',
       },
@@ -634,7 +634,7 @@ export const industries: Industry[] = [
       hero: {
         eyebrow: 'Growth • Brand • Performance',
         title: 'We make brands impossible to ignore.',
-        sub: 'Full-funnel marketing that compounds — strategy, creative and media under one roof.',
+        sub: 'Full-funnel marketing that compounds - strategy, creative and media under one roof.',
         cta: 'Start a project',
         secondary: 'See the work',
       },

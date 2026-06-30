@@ -94,7 +94,7 @@ export default function ShowcaseHero() {
 
       <div className="relative mx-auto max-w-6xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
-          {/* left — editorial intro */}
+          {/* left - editorial intro */}
           <div>
             <div className="mb-6 flex items-center gap-3">
               <span className="relative flex h-2 w-2">
@@ -115,7 +115,7 @@ export default function ShowcaseHero() {
             </h1>
 
             <RevealLine delay={0.5} className="mt-8 max-w-2xl text-lg leading-relaxed text-bone-dim">
-              Eight live, interactive concepts — one for every kind of business we love building for.
+              Eight live, interactive concepts - one for every kind of business we love building for.
               Open any card to explore a working preview on desktop and mobile, the feature set, the
               timeline and a transparent price band.
             </RevealLine>
@@ -166,7 +166,7 @@ export default function ShowcaseHero() {
             </motion.div>
           </div>
 
-          {/* right — interactive concept index / launchpad */}
+          {/* right - interactive concept index / launchpad */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

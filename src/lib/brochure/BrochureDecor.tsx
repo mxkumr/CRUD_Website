@@ -12,7 +12,7 @@ const d = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: colors.line,
   },
-  /** Subtle dot field — echoes HeroCanvas particles */
+  /** Subtle dot field - echoes HeroCanvas particles */
   dotField: {
     position: 'absolute',
     flexDirection: 'row',
@@ -68,9 +68,9 @@ const d = StyleSheet.create({
   },
 });
 
-function DotField({ style, count = 20, fixed }: { style?: object; count?: number; fixed?: boolean }) {
+function DotField({ style, count = 20, fixed }: { style?: React.ComponentProps<typeof View>['style']; count?: number; fixed?: boolean }) {
   return (
-    <View style={[d.dotField, style]} fixed={fixed}>
+    <View style={style ? [d.dotField, style] : d.dotField} fixed={fixed}>
       {Array.from({ length: count }).map((_, i) => (
         <View key={i} style={d.particle} />
       ))}
@@ -78,7 +78,7 @@ function DotField({ style, count = 20, fixed }: { style?: object; count?: number
   );
 }
 
-/** Per-page chrome — line borders, dots, dashed rings (no heavy color fills) */
+/** Per-page chrome - line borders, dots, dashed rings (no heavy color fills) */
 export function PageChrome({ hue = '#3F9DFF' }: { hue?: string }) {
   return (
     <>
@@ -90,7 +90,7 @@ export function PageChrome({ hue = '#3F9DFF' }: { hue?: string }) {
   );
 }
 
-/** Cover — dark left band + bento tiles on cream side */
+/** Cover - dark left band + bento tiles on cream side */
 export function CoverChrome() {
   return (
     <>

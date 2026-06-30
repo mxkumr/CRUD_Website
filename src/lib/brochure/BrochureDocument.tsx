@@ -109,7 +109,7 @@ const s = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 1.2,
   },
-  /* Stat strip — matches site StatStrip grid */
+  /* Stat strip - matches site StatStrip grid */
   statGrid: {
     flexDirection: 'row',
     borderWidth: 1,
@@ -305,7 +305,7 @@ const techStack = [
 
 export function BrochureDocument({ logoSrc }: { logoSrc: string }) {
   return (
-    <Document title="CRUD Studio — Ideas to Iconic Brands" author="CRUD Studio" subject="Marketing Brochure">
+    <Document title="CRUD Studio - Ideas to Iconic Brands" author="CRUD Studio" subject="Marketing Brochure">
 
       {/* 1 COVER */}
       <Page size="A4" orientation="landscape" style={s.coverPage}>
@@ -333,7 +333,7 @@ export function BrochureDocument({ logoSrc }: { logoSrc: string }) {
         <PageChrome hue="#3FFFB5" />
         <View style={s.row}>
           <View style={[s.col, { paddingRight: 20 }]}>
-            <SectionTitle eyebrow="The studio" title="We don't digitalize —" accent="we craft success" />
+            <SectionTitle eyebrow="The studio" title="We don't digitalize -" accent="we craft success" />
             <Text style={s.lede}>{studio.about}</Text>
             <Text style={s.body}>{studioPage.mission}</Text>
           </View>
@@ -389,7 +389,7 @@ export function BrochureDocument({ logoSrc }: { logoSrc: string }) {
         <PageChrome hue="#3F9DFF" />
         <SectionTitle eyebrow="What we do" title="One studio," accent="every" end=" discipline" />
         <Text style={[s.body, { marginBottom: 12, maxWidth: 520 }]}>
-          End-to-end capabilities under one roof — from first sketch to launch and beyond.
+          End-to-end capabilities under one roof - from first sketch to launch and beyond.
         </Text>
         <View style={s.serviceGrid}>
           {services.map((svc) => (

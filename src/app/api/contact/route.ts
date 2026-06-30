@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       website?: string;
     };
 
-    // Honeypot — bots fill hidden fields; pretend success.
+    // Honeypot - bots fill hidden fields; pretend success.
     if (website) return NextResponse.json({ ok: true });
 
     const trimmedName = name?.trim() ?? '';

@@ -18,7 +18,7 @@ import {
 } from './data';
 
 /* ============================================================
-   Haven Estates — a bespoke property marketplace.
+   Haven Estates - a bespoke property marketplace.
    Light, airy and listing-led: a search hero, filterable
    listings, neighbourhood explorer, a live EMI calculator
    and verified agents.
@@ -167,7 +167,7 @@ function Hero() {
           Find a place to <span style={{ color: SKY }}>love.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.16, ease }} className="mt-5 max-w-xl text-lg leading-relaxed" style={{ color: SUB }}>
-          Smart search, immersive virtual tours and EMI planning — your next home, without the runaround.
+          Smart search, immersive virtual tours and EMI planning - your next home, without the runaround.
         </motion.p>
 
         {/* search card */}

@@ -1,5 +1,5 @@
 /**
- * TalentForge — bespoke demo content.
+ * TalentForge - bespoke demo content.
  * A fictional two-sided hiring platform used to show the kind of
  * recruitment website CRUD Studio builds for HR & staffing.
  */
@@ -47,7 +47,7 @@ export const jobs: Job[] = [
 ];
 
 export const candidateSteps = [
-  { title: 'Build your profile', body: 'One profile, saved forever — résumé parsed automatically into a polished candidate page.' },
+  { title: 'Build your profile', body: 'One profile, saved forever - résumé parsed automatically into a polished candidate page.' },
   { title: 'Apply in one click', body: 'No re-typing the same details. Tap apply and you’re in the running.' },
   { title: 'Track everything', body: 'See every application, interview and offer move in real time on your dashboard.' },
 ];
@@ -55,7 +55,7 @@ export const candidateSteps = [
 export const employerSteps = [
   { title: 'Post in minutes', body: 'A guided job builder with AI-written descriptions and salary benchmarks.' },
   { title: 'Screen smarter', body: 'Auto-ranked candidates, structured scorecards and a shared hiring inbox.' },
-  { title: 'Hire faster', body: 'Schedule, offer and onboard — all without leaving TalentForge.' },
+  { title: 'Hire faster', body: 'Schedule, offer and onboard - all without leaving TalentForge.' },
 ];
 
 export const companies = ['Nebula', 'Haven', 'Magnet', 'Crestwood', 'Apex', 'Saffron', 'MediNova', 'Vertex'];

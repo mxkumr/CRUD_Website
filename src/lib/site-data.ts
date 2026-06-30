@@ -1,5 +1,5 @@
 /**
- * CRUD Studio — content extracted from the original site (thecrudstudio.com)
+ * CRUD Studio - content extracted from the original site (thecrudstudio.com)
  * on 2026-06-10. Single source of truth for the marketing site.
  */
 
@@ -11,7 +11,7 @@ export const studio = {
   heroLede:
     'We create powerful brands through innovative design, seamless web development, and strategic digital solutions that connect and engage.',
   manifesto:
-    "We don't just digitalize products — we create success stories.",
+    "We don't just digitalize products - we create success stories.",
   about:
     'CRUD (Create Refine Unified Designs) is a dynamic design agency providing end-to-end solutions in brand building, web development, graphic design, and digital marketing. We transform ideas into powerful brands with a seamless blend of creativity and innovation.',
   ctaLine: 'From Vision to Reality: Bringing Your Boldest Ideas to Life.',
@@ -42,7 +42,7 @@ export const services: Service[] = [
     index: '02',
     title: 'Web Development',
     description:
-      'Full-stack, 3D and content-driven websites engineered to perform — from first paint to first conversion.',
+      'Full-stack, 3D and content-driven websites engineered to perform - from first paint to first conversion.',
     items: ['Custom Websites', 'Headless / CMS', 'E-commerce', 'Performance & SEO'],
     hues: ['#3FFFB5', '#3F9DFF'],
   },
@@ -60,7 +60,7 @@ export const services: Service[] = [
     index: '04',
     title: 'UI/UX Design',
     description:
-      'Research-driven product design — from audit and discovery to scalable, consistent design systems.',
+      'Research-driven product design - from audit and discovery to scalable, consistent design systems.',
     items: ['UX Audit', 'User Research', 'Prototyping', 'Design Systems'],
     hues: ['#9D3FFF', '#FF3F8E'],
   },
@@ -91,6 +91,24 @@ export const services: Service[] = [
     items: ['Brand Guidelines', 'Collateral', 'Social Kits', 'Art Direction'],
     hues: ['#FFD23F', '#FF7A3F'],
   },
+  {
+    id: 'ai-strategy',
+    index: '08',
+    title: 'AI Strategy & Transformation',
+    description:
+      'Roadmaps, governance and operating models that prepare every organisation to adopt AI responsibly - and at scale.',
+    items: ['AI Readiness Audit', 'Use-case Roadmaps', 'Governance & Policy', 'Change Management'],
+    hues: ['#A78BFA', '#6366F1'],
+  },
+  {
+    id: 'forward-deployment',
+    index: '09',
+    title: 'Forward Deployment Engineering',
+    description:
+      'Embedded engineers who ship AI workflows, automations and production systems inside your team - from prototype to rollout.',
+    items: ['AI Agents & LLMs', 'Workflow Automation', 'On-site Integration', 'Production Deployment'],
+    hues: ['#00E5FF', '#7B3FFF'],
+  },
 ];
 
 export type ServiceIcon =
@@ -100,7 +118,9 @@ export type ServiceIcon =
   | 'uiux'
   | 'software'
   | 'marketing'
-  | 'brand';
+  | 'brand'
+  | 'strategy'
+  | 'fde';
 
 export type Project = {
   id: string;
@@ -116,15 +136,17 @@ export type Project = {
   hues: [string, string];
 };
 
-/** The things we do — rendered as the "Selected Works" bento. */
+/** The things we do - rendered as the "Selected Works" bento. */
 export const projects: Project[] = [
   { id: 'branding', title: 'Branding', category: 'Identity & Strategy', blurb: 'Names, marks and brand systems that make first impressions unforgettable.', icon: 'branding', span: 'wide', hues: ['#FF7A3F', '#0D0D0B'] },
   { id: 'web-development', title: 'Web Development', category: 'Sites & Platforms', blurb: 'Fast, scalable, content-driven websites engineered to convert.', icon: 'web', span: 'standard', hues: ['#3FFFB5', '#0D0D0B'] },
   { id: 'app-development', title: 'App Development', category: 'iOS & Android', blurb: 'Native-grade mobile apps with delightful, fluid experiences.', icon: 'app', span: 'standard', hues: ['#3F9DFF', '#0D0D0B'] },
-  { id: 'uiux-design', title: 'UI / UX Design', category: 'Product Design', blurb: 'Research-led interfaces — from discovery and audit to scale.', icon: 'uiux', span: 'tall', hues: ['#9D3FFF', '#0D0D0B'] },
+  { id: 'uiux-design', title: 'UI / UX Design', category: 'Product Design', blurb: 'Research-led interfaces - from discovery and audit to scale.', icon: 'uiux', span: 'tall', hues: ['#9D3FFF', '#0D0D0B'] },
   { id: 'software-development', title: 'Software Development', category: 'Custom Systems', blurb: 'Robust, maintainable software built around your business logic.', icon: 'software', span: 'standard', hues: ['#D9FF3F', '#0D0D0B'] },
   { id: 'digital-marketing', title: 'Digital Marketing', category: 'Growth & Reach', blurb: 'Performance campaigns and SEO that compound your audience.', icon: 'marketing', span: 'standard', hues: ['#FF3F8E', '#0D0D0B'] },
   { id: 'brand-building', title: 'Brand Building & Design', category: 'Visual Systems', blurb: 'Guidelines, collateral and creative that keep your brand consistent.', icon: 'brand', span: 'standard', hues: ['#FFD23F', '#0D0D0B'] },
+  { id: 'ai-strategy', title: 'AI Strategy & Transformation', category: 'Future Readiness', blurb: 'Roadmaps and governance that prepare every organisation to adopt AI at scale.', icon: 'strategy', span: 'standard', hues: ['#A78BFA', '#0D0D0B'] },
+  { id: 'forward-deployment', title: 'Forward Deployment Engineering', category: 'AI & Automation', blurb: 'Embedded engineers who ship AI agents, automations and production systems inside your team.', icon: 'fde', span: 'wide', hues: ['#00E5FF', '#0D0D0B'] },
 ];
 
 export const differentiators = [
@@ -141,7 +163,7 @@ export const differentiators = [
 export const pillars = [
   {
     title: 'Exceptional Talent',
-    body: 'Your projects are handled by middle and senior designers with proven expertise — every design crafted with precision and creativity that elevates your brand.',
+    body: 'Your projects are handled by middle and senior designers with proven expertise - every design crafted with precision and creativity that elevates your brand.',
   },
   {
     title: 'Seamless Collaboration',
@@ -149,7 +171,7 @@ export const pillars = [
   },
   {
     title: 'Unlimited Possibilities',
-    body: 'Unlimited requests, revisions and brand profiles — flexibility that adapts to your evolving business without compromise.',
+    body: 'Unlimited requests, revisions and brand profiles - flexibility that adapts to your evolving business without compromise.',
   },
   {
     title: 'Risk-Free Guarantee',
@@ -178,7 +200,7 @@ export type ClientTestimonial = {
   quote: string;
 };
 
-/** Client testimonials — businesses worked with, mostly in and around Chennai. */
+/** Client testimonials - businesses worked with, mostly in and around Chennai. */
 export const clientTestimonials: ClientTestimonial[] = [
   {
     name: 'Adgro Hair',
@@ -220,7 +242,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     name: 'H2H',
     role: 'Brand Client',
     quote:
-      'Branding, website, everything handled under one roof. They respond quickly even for small changes — very rare to find that.',
+      'Branding, website, everything handled under one roof. They respond quickly even for small changes - very rare to find that.',
   },
   {
     name: 'Inego',
@@ -238,7 +260,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     name: 'Little Flower',
     role: 'Education',
     quote:
-      'Parents find admission details easily now and enquiries went up within weeks. Very patient team — they handled all our corrections happily.',
+      'Parents find admission details easily now and enquiries went up within weeks. Very patient team - they handled all our corrections happily.',
   },
   {
     name: 'Mithran Traders',
@@ -250,7 +272,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     name: "Refai's Clinic",
     role: 'Healthcare',
     quote:
-      'Neat clinic website with timings, directions and booking — delivered within the promised date. Patients from Chromepet side locate us easily now.',
+      'Neat clinic website with timings, directions and booking - delivered within the promised date. Patients from Chromepet side locate us easily now.',
   },
   {
     name: 'Subashini Fertility Clinic',
@@ -274,7 +296,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     name: 'Tote Bag',
     role: 'Lifestyle Brand',
     quote:
-      'Product photos, catalogue, enquiry flow — everything arranged so neatly that bulk order enquiries nearly doubled. Worth every rupee.',
+      'Product photos, catalogue, enquiry flow - everything arranged so neatly that bulk order enquiries nearly doubled. Worth every rupee.',
   },
   {
     name: 'Varahi Lakshmi Silks',
@@ -293,6 +315,91 @@ export const clientTestimonials: ClientTestimonial[] = [
     role: 'Construction',
     quote:
       'Our completed projects are showcased beautifully and clients trust us faster after seeing the site. Enquiries are more serious and better qualified now.',
+  },
+];
+
+export type PremiumClient = {
+  id: string;
+  name: string;
+  category: string;
+  url: string;
+  domain: string;
+  /** Local static homepage screenshot in /public/clients */
+  screenshot: string;
+  description: string;
+  /** Client rating of CRUD Studio (out of 5) */
+  rating: number;
+  /** Short praise for CRUD Studio's work */
+  praise: string;
+  hues: [string, string];
+};
+
+/** Flagship client work - live site previews on the marketing homepage. */
+export const premiumClients: PremiumClient[] = [
+  {
+    id: 'inego',
+    name: 'IN-EGO',
+    category: 'Fashion · E-commerce',
+    url: 'https://inego.in',
+    domain: 'inego.in',
+    screenshot: '/clients/inego.jpg',
+    description:
+      'A full WooCommerce menswear store with sale campaigns, variant-rich catalogues and a checkout flow that converts Instagram traffic into orders.',
+    rating: 4.9,
+    praise: 'Our store converts Instagram traffic beautifully - smooth checkout, brand vibe intact.',
+    hues: ['#1A1A1A', '#C9A962'],
+  },
+  {
+    id: 'dr-refai',
+    name: 'Dr. Refai Showkathali',
+    category: 'Healthcare · Cardiology',
+    url: 'https://drrefai.com',
+    domain: 'drrefai.com',
+    screenshot: '/clients/dr-refai.jpg',
+    description:
+      'An advanced interventional cardiology platform with appointment booking, procedure highlights and patient-trust storytelling for Apollo Main Hospital.',
+    rating: 4.8,
+    praise: 'Delivered on time - a site that builds patient trust from the very first scroll.',
+    hues: ['#0D9488', '#0F766E'],
+  },
+  {
+    id: 'subashini-hospitals',
+    name: 'Subashini Hospitals',
+    category: 'Healthcare · Multispeciality',
+    url: 'https://subhashinihospitals.in',
+    domain: 'subhashinihospitals.in',
+    screenshot: '/clients/subashini-hospitals.jpg',
+    description:
+      'A multispeciality hospital presence for Puttur and Nagari - health packages, speciality clinics, emergency contacts and decades of trusted care.',
+    rating: 4.7,
+    praise: 'Warm, professional design that makes our care easy to find and trust online.',
+    hues: ['#2563EB', '#1D4ED8'],
+  },
+  {
+    id: 'little-flower-jia',
+    name: 'Little Flower JIA',
+    category: 'Education · International School',
+    url: 'https://littleflowerjia.in',
+    domain: 'littleflowerjia.in',
+    screenshot: '/clients/little-flower-jia.jpg',
+    description:
+      'A student-centred school site with admissions, academics, campus life and a clear path for parents exploring international curriculum.',
+    rating: 4.9,
+    praise: 'Parents find admissions easily now - patient team through every single revision.',
+    hues: ['#7C3AED', '#5B21B6'],
+  },
+  {
+    id: 'little-flower-fugen',
+    name: 'Little Flower Fugen',
+    category: 'Education · Programme Campus',
+    url: 'https://littleflowerfugen.in',
+    domain: 'littleflowerfugen.in',
+    screenshot: '/clients/little-flower-fugen.jpg',
+    description:
+      'The Fugen programme microsite - a focused campus presence with programme details, holistic learning pillars and seamless enquiry flows.',
+    rating: 4.8,
+    praise: 'Captured our campus story perfectly and enquiries picked up within weeks.',
+    hues: ['#EA580C', '#C2410C'],
   },
 ];
 

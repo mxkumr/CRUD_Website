@@ -18,7 +18,7 @@ import {
 } from './data';
 
 /* ============================================================
-   Magnet — a bespoke marketing-agency site.
+   Magnet - a bespoke marketing-agency site.
    Bold, dark and high-energy with a lime accent: a massive
    typographic hero, marquees, animated results, an
    interactive case-study filter and a punchy CTA.
@@ -124,7 +124,7 @@ function Hero() {
         </motion.h1>
         <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }} className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <p className="max-w-md text-lg leading-relaxed" style={{ color: SUB }}>
-            Strategy, creative and media under one roof — engineered to compound. We don’t do awareness for awareness’ sake; we do revenue.
+            Strategy, creative and media under one roof - engineered to compound. We don’t do awareness for awareness’ sake; we do revenue.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="#contact" className="rounded-full px-8 py-4 font-display text-sm font-bold uppercase tracking-wider transition-transform hover:scale-105" style={{ background: LIME, color: BG }}>Start a project</a>

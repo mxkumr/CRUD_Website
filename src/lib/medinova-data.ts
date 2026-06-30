@@ -1,12 +1,12 @@
 /**
- * MediNova — fictional multi-speciality hospital used as a live portfolio
+ * MediNova - fictional multi-speciality hospital used as a live portfolio
  * demo on the CRUD Studio site (/work/medinova). All data is illustrative.
  */
 
 export const hospital = {
   name: 'MediNova',
   tagline: 'Healthcare, engineered for humans.',
-  lede: 'A 480-bed multi-speciality campus where precision medicine meets compassionate care — open every hour of every day.',
+  lede: 'A 480-bed multi-speciality campus where precision medicine meets compassionate care - open every hour of every day.',
   phone: '+91 44 4000 9000',
   emergency: '108',
 } as const;
@@ -51,15 +51,15 @@ export type Doctor = {
 };
 
 export const doctors: Doctor[] = [
-  { id: 'arya-menon', name: 'Dr. Arya Menon', speciality: 'cardiology', role: 'Director — Interventional Cardiology', experience: 18, rating: 4.9, languages: ['English', 'Tamil', 'Malayalam'], slots: ['09:30', '11:00', '16:15'], initials: 'AM', hue: '#059669' },
-  { id: 'vikram-rao', name: 'Dr. Vikram Rao', speciality: 'cardiology', role: 'Senior Consultant — Cardiac Surgery', experience: 22, rating: 4.8, languages: ['English', 'Telugu', 'Hindi'], slots: ['10:15', '14:30'], initials: 'VR', hue: '#10B981' },
-  { id: 'sana-iqbal', name: 'Dr. Sana Iqbal', speciality: 'neurology', role: 'Lead — Stroke & Neurocritical Care', experience: 14, rating: 4.9, languages: ['English', 'Urdu', 'Hindi'], slots: ['09:00', '12:45', '17:30'], initials: 'SI', hue: '#0D9488' },
-  { id: 'dev-narayanan', name: 'Dr. Dev Narayanan', speciality: 'neurology', role: 'Consultant — Movement Disorders', experience: 11, rating: 4.7, languages: ['English', 'Tamil'], slots: ['11:30', '15:00'], initials: 'DN', hue: '#2DD4BF' },
-  { id: 'meera-pillai', name: 'Dr. Meera Pillai', speciality: 'orthopaedics', role: 'Head — Robotic Joint Replacement', experience: 16, rating: 4.9, languages: ['English', 'Malayalam', 'Tamil'], slots: ['08:45', '13:15', '16:45'], initials: 'MP', hue: '#0EA5E9' },
-  { id: 'rahul-sethi', name: 'Dr. Rahul Sethi', speciality: 'orthopaedics', role: 'Consultant — Sports Medicine', experience: 9, rating: 4.8, languages: ['English', 'Hindi', 'Punjabi'], slots: ['10:00', '14:00'], initials: 'RS', hue: '#38BDF8' },
-  { id: 'lakshmi-venkat', name: 'Dr. Lakshmi Venkat', speciality: 'oncology', role: 'Director — Medical Oncology', experience: 20, rating: 4.9, languages: ['English', 'Tamil', 'Kannada'], slots: ['09:15', '12:00'], initials: 'LV', hue: '#16A34A' },
-  { id: 'arjun-das', name: 'Dr. Arjun Das', speciality: 'paediatrics', role: 'Senior Consultant — Neonatology', experience: 13, rating: 4.8, languages: ['English', 'Bengali', 'Hindi'], slots: ['09:45', '11:45', '15:30'], initials: 'AD', hue: '#14B8A6' },
-  { id: 'farah-khan', name: 'Dr. Farah Khan', speciality: 'gastro', role: 'Lead — Advanced Endoscopy', experience: 15, rating: 4.9, languages: ['English', 'Hindi', 'Marathi'], slots: ['10:30', '13:45'], initials: 'FK', hue: '#0891B2' },
+  { id: 'arya-menon', name: 'Dr. Arya Menon', speciality: 'cardiology', role: 'Director - Interventional Cardiology', experience: 18, rating: 4.9, languages: ['English', 'Tamil', 'Malayalam'], slots: ['09:30', '11:00', '16:15'], initials: 'AM', hue: '#059669' },
+  { id: 'vikram-rao', name: 'Dr. Vikram Rao', speciality: 'cardiology', role: 'Senior Consultant - Cardiac Surgery', experience: 22, rating: 4.8, languages: ['English', 'Telugu', 'Hindi'], slots: ['10:15', '14:30'], initials: 'VR', hue: '#10B981' },
+  { id: 'sana-iqbal', name: 'Dr. Sana Iqbal', speciality: 'neurology', role: 'Lead - Stroke & Neurocritical Care', experience: 14, rating: 4.9, languages: ['English', 'Urdu', 'Hindi'], slots: ['09:00', '12:45', '17:30'], initials: 'SI', hue: '#0D9488' },
+  { id: 'dev-narayanan', name: 'Dr. Dev Narayanan', speciality: 'neurology', role: 'Consultant - Movement Disorders', experience: 11, rating: 4.7, languages: ['English', 'Tamil'], slots: ['11:30', '15:00'], initials: 'DN', hue: '#2DD4BF' },
+  { id: 'meera-pillai', name: 'Dr. Meera Pillai', speciality: 'orthopaedics', role: 'Head - Robotic Joint Replacement', experience: 16, rating: 4.9, languages: ['English', 'Malayalam', 'Tamil'], slots: ['08:45', '13:15', '16:45'], initials: 'MP', hue: '#0EA5E9' },
+  { id: 'rahul-sethi', name: 'Dr. Rahul Sethi', speciality: 'orthopaedics', role: 'Consultant - Sports Medicine', experience: 9, rating: 4.8, languages: ['English', 'Hindi', 'Punjabi'], slots: ['10:00', '14:00'], initials: 'RS', hue: '#38BDF8' },
+  { id: 'lakshmi-venkat', name: 'Dr. Lakshmi Venkat', speciality: 'oncology', role: 'Director - Medical Oncology', experience: 20, rating: 4.9, languages: ['English', 'Tamil', 'Kannada'], slots: ['09:15', '12:00'], initials: 'LV', hue: '#16A34A' },
+  { id: 'arjun-das', name: 'Dr. Arjun Das', speciality: 'paediatrics', role: 'Senior Consultant - Neonatology', experience: 13, rating: 4.8, languages: ['English', 'Bengali', 'Hindi'], slots: ['09:45', '11:45', '15:30'], initials: 'AD', hue: '#14B8A6' },
+  { id: 'farah-khan', name: 'Dr. Farah Khan', speciality: 'gastro', role: 'Lead - Advanced Endoscopy', experience: 15, rating: 4.9, languages: ['English', 'Hindi', 'Marathi'], slots: ['10:30', '13:45'], initials: 'FK', hue: '#0891B2' },
 ] as const;
 
 export type JourneyStep = {
@@ -87,9 +87,9 @@ export type TourStop = {
 };
 
 export const tourStops: TourStop[] = [
-  { id: 'atrium', name: 'Healing Atrium', description: 'Daylight-flooded arrival with single-desk check-in — no queues, no counters maze.', stat: '4-min average check-in', hue: '#14B8A6' },
+  { id: 'atrium', name: 'Healing Atrium', description: 'Daylight-flooded arrival with single-desk check-in - no queues, no counters maze.', stat: '4-min average check-in', hue: '#14B8A6' },
   { id: 'icu', name: 'Smart ICU', description: 'AI-monitored intensive care with glass-walled family visibility and noise-controlled pods.', stat: '1:1 nurse ratio', hue: '#0D9488' },
-  { id: 'or', name: 'Hybrid OR', description: 'Robotic surgery theatres with intraoperative imaging — surgery and scans in one room.', stat: '12 robotic suites', hue: '#0891B2' },
+  { id: 'or', name: 'Hybrid OR', description: 'Robotic surgery theatres with intraoperative imaging - surgery and scans in one room.', stat: '12 robotic suites', hue: '#0891B2' },
   { id: 'wards', name: 'Recovery Wards', description: 'Single rooms with circadian lighting, family couches and bedside ordering.', stat: '480 beds', hue: '#16A34A' },
 ] as const;
 
@@ -107,7 +107,7 @@ export type PatientStory = {
 export const patientStories: PatientStory[] = [
   { id: 'ramesh', name: 'Ramesh K.', age: 58, condition: 'Triple-vessel heart disease', before: 'Could not climb a single flight of stairs without stopping. Angina daily.', after: 'Walks 5 km every morning, back at work full-time, zero episodes in 14 months.', days: 6, speciality: 'Cardiology' },
   { id: 'priya', name: 'Priya S.', age: 34, condition: 'Acute ischemic stroke', before: 'Arrived within the golden hour with right-side paralysis and slurred speech.', after: 'Full speech recovered in 3 weeks. Running her design practice again.', days: 9, speciality: 'Neurology' },
-  { id: 'joseph', name: 'Joseph M.', age: 67, condition: 'Bilateral knee arthritis', before: 'Wheelchair-dependent for 2 years. Constant pain, sleep broken every night.', after: 'Robotic bilateral knee replacement — walking unaided at week 4.', days: 5, speciality: 'Orthopaedics' },
+  { id: 'joseph', name: 'Joseph M.', age: 67, condition: 'Bilateral knee arthritis', before: 'Wheelchair-dependent for 2 years. Constant pain, sleep broken every night.', after: 'Robotic bilateral knee replacement - walking unaided at week 4.', days: 5, speciality: 'Orthopaedics' },
 ] as const;
 
 export type HealthPackage = {

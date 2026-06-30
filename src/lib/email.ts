@@ -34,7 +34,7 @@ export async function sendContactEmail(payload: ContactPayload) {
 
   const to = process.env.CONTACT_TO ?? contact.email;
   const from = process.env.SMTP_FROM ?? process.env.SMTP_USER!;
-  const interestLine = payload.interests.length ? payload.interests.join(', ') : '—';
+  const interestLine = payload.interests.length ? payload.interests.join(', ') : '-';
 
   const text = [
     'New project inquiry from the CRUD Studio website',
@@ -61,7 +61,7 @@ export async function sendContactEmail(payload: ContactPayload) {
     from,
     to,
     replyTo: payload.email,
-    subject: `New project inquiry — ${payload.name}`,
+    subject: `New project inquiry - ${payload.name}`,
     text,
     html,
   });

@@ -7,7 +7,7 @@ import { patientStories, tourStops, treatmentJourney } from '@/lib/medinova-data
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ============================================================
-   Animated treatment journey — scroll-driven timeline
+   Animated treatment journey - scroll-driven timeline
    ============================================================ */
 export function TreatmentJourney() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -269,7 +269,7 @@ function StoryCard({ story, index }: { story: (typeof patientStories)[number]; i
 
       <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-400">
         <span>
-          Hospital stay — <span className="font-bold text-slate-700">{story.days} days</span>
+          Hospital stay - <span className="font-bold text-slate-700">{story.days} days</span>
         </span>
         <span className={after ? 'text-emerald-600' : 'text-slate-400'}>{after ? '● Recovered' : '● At admission'}</span>
       </div>

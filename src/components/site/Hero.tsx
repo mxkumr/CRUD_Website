@@ -41,8 +41,9 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const headlineY = useTransform(scrollYProgress, [0, 1], ['0%', '38%']);
-  const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const headlineY = useTransform(scrollYProgress, [0, 1], ['0%', '-12%']);
+  const headlineScale = useTransform(scrollYProgress, [0, 0.55], [1, 0.97]);
+  const fade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <section
@@ -55,15 +56,11 @@ export default function Hero() {
       {/* radial vignette so type stays readable over the canvas */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 55% at 50% 60%, rgba(13,13,11,0.55) 0%, rgba(13,13,11,0) 70%)',
-        }}
+        className="hero-vignette pointer-events-none absolute inset-0"
       />
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 pt-28 md:px-10">
-        <motion.div style={{ y: headlineY, opacity: fade }}>
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-5 pb-10 pt-28 md:px-10 md:pb-14">
+        <motion.div style={{ y: headlineY, opacity: fade, scale: headlineScale }}>
           <div className="mb-6 flex items-center gap-3">
             <span className="h-2 w-2 animate-pulse rounded-full bg-volt" />
             <RevealLine delay={0.1} className="font-display text-xs uppercase tracking-[0.3em] text-bone-dim">
@@ -120,7 +117,7 @@ export default function Hero() {
 
       {/* client testimonials marquee */}
       <motion.div
-        className="relative z-10 border-t border-line py-8"
+        className="relative z-20 shrink-0 border-t border-line bg-ink/95 py-8 backdrop-blur-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.1 }}
@@ -130,7 +127,7 @@ export default function Hero() {
 
       {/* differentiators marquee */}
       <motion.div
-        className="relative z-10 border-t border-line py-5"
+        className="relative z-20 shrink-0 border-t border-line bg-ink/95 py-5 backdrop-blur-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}

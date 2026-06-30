@@ -23,7 +23,7 @@ import {
 } from './data';
 
 /* ============================================================
-   Crestwood University — a bespoke collegiate website.
+   Crestwood University - a bespoke collegiate website.
    Navy + gold, serif display, crest, interactive program
    explorer, animated rankings, research, campus life,
    admissions pathway, news & events, big university footer.
@@ -244,7 +244,7 @@ function Hero() {
             transition={{ duration: 0.9, delay: 0.18, ease }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-white/80"
           >
-            For six decades, Crestwood has educated the people who go on to redefine their fields — through
+            For six decades, Crestwood has educated the people who go on to redefine their fields - through
             world-class faculty, a future-ready curriculum and a campus built for big ideas.
           </motion.p>
 
@@ -405,7 +405,7 @@ function ProgramExplorer() {
 
         {filtered.length === 0 && (
           <p className="py-10 text-center text-sm" style={{ color: SUB }}>
-            No programs in this combination yet — try another field.
+            No programs in this combination yet - try another field.
           </p>
         )}
       </div>
