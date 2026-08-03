@@ -1,7 +1,7 @@
 /**
  * CRUD Studio - Industry Solutions Showcase
  * ------------------------------------------------------------
- * Eight ready-to-pitch website concepts, one per industry.
+ * Nine ready-to-pitch website concepts across industries.
  * Each entry powers an interactive "mini product" card on
  * /showcase: a live in-browser preview (desktop + mobile),
  * feature highlights, an estimated timeline, an estimated
@@ -26,7 +26,8 @@ export type MiniSiteContent = {
     | 'listings'
     | 'jobs'
     | 'menu'
-    | 'agency';
+    | 'agency'
+    | 'shop';
   /** light or dark chrome for the previewed site */
   theme: 'light' | 'dark';
   brand: string;
@@ -648,6 +649,78 @@ export const industries: Industry[] = [
         { value: '6.4×', label: 'Avg ROAS' },
         { value: '+212%', label: 'Lead growth' },
         { value: '180+', label: 'Brands' },
+      ],
+    },
+  },
+
+  /* ---------------------------------------------------------- 09 */
+  {
+    id: 'fashion',
+    number: '09',
+    name: 'Fashion / Ecommerce',
+    category: 'Retail',
+    tagline: 'Gen Z fashion storefronts that sell the vibe before the SKU.',
+    description:
+      'A high-fashion ecommerce concept with Cinzel typography, men and women collections, a filtered shop and product detail pages engineered for conversion and scroll culture.',
+    hues: ['#E11D6A', '#121212'],
+    glyph: '◈',
+    timelineLabel: '5 weeks',
+    timeline: [
+      { label: 'Discovery', detail: 'Brand mood, catalogue, UX map', weeks: 1 },
+      { label: 'Design', detail: 'Lookbook, shop UX, PDP system', weeks: 2 },
+      { label: 'Build', detail: 'Catalogue, filters, checkout UI', weeks: 1 },
+      { label: 'Launch', detail: 'Payments, SEO, go-live', weeks: 1 },
+    ],
+    features: [
+      'Home, shop & product pages',
+      'Men & women collections',
+      'Category & gender filters',
+      'Size / colour selectors',
+      'Lookbook storytelling',
+      'Add-to-bag micro-interactions',
+    ],
+    integrations: ['Shopify', 'Razorpay', 'Stripe', 'Klaviyo', 'Instagram Shopping', 'Meta Pixel'],
+    liveHref: '/showcase/fashion',
+    page: {
+      intro:
+        'Fashion sites should feel like a moodboard you can buy from. LUNÉ proves the scroll can convert.',
+      valueProps: [
+        { title: 'Editorial first', body: 'Cinzel headlines and full-bleed drops that feel like a magazine, not a catalogue dump.' },
+        { title: 'Shop that filters fast', body: 'Men, women, categories and badges — find the piece without killing the vibe.' },
+        { title: 'PDPs that close', body: 'Colour, size, details and related pieces on one product page built to add-to-bag.' },
+      ],
+      showcase: { title: 'From the drop', subtitle: 'Afterglow pieces for men & women.' },
+      testimonial: {
+        quote: 'The storefront looks like a campaign and still shops like an app — our team finally stopped apologising for the old theme.',
+        name: 'Aria V.',
+        role: 'Brand Director',
+      },
+      closing: { title: 'Wear the moment.', sub: 'Launch a fashion brand site that feels as loud as the clothes.' },
+    },
+    site: {
+      layout: 'shop',
+      theme: 'light',
+      brand: 'LUNÉ',
+      domain: 'lune.studio',
+      accent: '#E11D6A',
+      nav: ['Home', 'Shop', 'Women', 'Men'],
+      hero: {
+        eyebrow: 'SS26 · Drop 01',
+        title: 'Wear the moment.',
+        sub: 'Editorial streetwear for men & women — sharp cuts, loud energy, zero boring basics.',
+        cta: 'Shop the drop',
+        secondary: 'Shop women',
+      },
+      items: [
+        { title: 'Aurora Crop Blazer', sub: 'Women · Outerwear', meta: '$189' },
+        { title: 'Pulse Oversized Hoodie', sub: 'Men · Tops', meta: '$128' },
+        { title: 'Velvet Archive Midi', sub: 'Women · Dresses', meta: '$168' },
+        { title: 'Rift Leather Jacket', sub: 'Men · Outerwear', meta: '$420' },
+      ],
+      stats: [
+        { value: '12', label: 'SKUs live' },
+        { value: '2', label: 'Collections' },
+        { value: '4.9★', label: 'Drop rating' },
       ],
     },
   },

@@ -7,41 +7,47 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import archiver from 'archiver';
 
 const ROOT = process.cwd();
 const STAGING = path.join(ROOT, '.deploy-staging');
 const OUT_ZIP = path.join(ROOT, 'crud-studio-cpanel.zip');
 
-const DEPLOY_README = `CRUD Studio — cPanel deployment
-================================
+const DEPLOY_README = `CRUD Studio — cPanel / CloudLinux deployment
+==============================================
+
+IMPORTANT (CloudLinux NodeJS Selector)
+--------------------------------------
+- Do NOT use "public_html" as the application root — cPanel will reject it.
+- Do NOT upload or keep a "node_modules" folder in the app root — CloudLinux
+  creates its own virtual env and a node_modules symlink. Delete it if present.
 
 BEFORE UPLOAD
 -------------
-1. In cPanel File Manager, BACK UP your current public_html folder.
-2. DELETE old WordPress files from public_html (wp-admin, wp-content, index.php, etc.).
-   The main site must NOT be WordPress — this is a Node.js Next.js app.
+1. Back up your current site in File Manager.
+2. Remove old WordPress files from public_html if replacing that site.
 
 UPLOAD
 ------
-1. Upload crud-studio-cpanel.zip to your home directory (not public_html yet).
-2. Extract the zip.
-3. Move ALL extracted files into public_html:
+1. In File Manager, create folder: crud-studio  (in your home dir, NOT public_html)
+2. Upload crud-studio-cpanel.zip there and Extract.
+3. Confirm these files are directly inside crud-studio/:
      server.js
      package.json
-     node_modules/
      .next/
      public/
      .env.example
+   There must be NO node_modules/ folder.
 
 NODE.JS APP (cPanel → Setup Node.js App)
 ----------------------------------------
-  Node version:     20.x
+  Node version:     20.20.2  (or closest 20.x available)
   Application mode: Production
-  Application root: public_html
+  Application root: crud-studio
   Application URL:  thecrudstudio.com
   Startup file:     server.js
 
-4. Click "Run NPM Install" (usually not needed — node_modules included).
+4. Click "Run NPM Install" — required; CloudLinux installs deps into its virtual env.
 5. Add environment variables (see .env.example) for the contact form SMTP.
 6. Click RESTART.
 
@@ -58,13 +64,19 @@ ENV VARS (contact form)
 VERIFY
 ------
   https://thecrudstudio.com should load the full CRUD Studio site.
-  If blank: check Node.js app is Running and startup file is server.js.
+  If blank: check Node.js app is Running, startup file is server.js, and NPM Install completed.
 
 Built: ${new Date().toISOString()}
 `;
 
 function rmrf(dir: string) {
   fs.rmSync(dir, { recursive: true, force: true });
+}
+
+function copyFile(src: string, dest: string) {
+  // Read/write avoids Windows file-share locks from copyFileSync during dev-server runs.
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, fs.readFileSync(src));
 }
 
 function copyDir(src: string, dest: string) {
@@ -75,7 +87,7 @@ function copyDir(src: string, dest: string) {
     if (entry.isDirectory()) {
       copyDir(from, to);
     } else {
-      fs.copyFileSync(from, to);
+      copyFile(from, to);
     }
   }
 }
@@ -93,19 +105,44 @@ function copyPublic(src: string, dest: string) {
           if (f.endsWith('.pdf')) continue;
           const ff = path.join(from, f);
           if (fs.statSync(ff).isDirectory()) copyDir(ff, path.join(to, f));
-          else fs.copyFileSync(ff, path.join(to, f));
+          else copyFile(ff, path.join(to, f));
         }
       } else {
         copyDir(from, to);
       }
     } else {
-      fs.copyFileSync(from, to);
+      copyFile(from, to);
     }
   }
 }
 
-function main() {
+async function createZip(sourceDir: string, outPath: string, attempts = 3): Promise<void> {
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      await new Promise<void>((resolve, reject) => {
+        const output = fs.createWriteStream(outPath);
+        const archive = archiver('zip', { zlib: { level: 9 } });
+
+        output.on('close', () => resolve());
+        output.on('error', reject);
+        archive.on('error', reject);
+        archive.pipe(output);
+        archive.directory(sourceDir, false);
+        void archive.finalize();
+      });
+      return;
+    } catch (err) {
+      if (fs.existsSync(outPath)) fs.unlinkSync(outPath);
+      if (i === attempts) throw err;
+      console.warn(`Zip attempt ${i} failed, retrying…`);
+      await new Promise((r) => setTimeout(r, 800));
+    }
+  }
+}
+
+async function main() {
   console.log('Building production bundle…');
+  console.log('Tip: stop "npm run dev" first if zip creation fails on Windows.\n');
   execSync('npm run build', { cwd: ROOT, stdio: 'inherit' });
 
   const standalone = path.join(ROOT, '.next', 'standalone');
@@ -124,6 +161,10 @@ function main() {
   copyDir(staticDir, path.join(STAGING, '.next', 'static'));
   copyPublic(publicDir, path.join(STAGING, 'public'));
 
+  // CloudLinux NodeJS Selector rejects apps with a real node_modules folder —
+  // it creates its own virtual env and symlinks node_modules. Run NPM Install on cPanel.
+  rmrf(path.join(STAGING, 'node_modules'));
+
   fs.writeFileSync(path.join(STAGING, 'DEPLOY.txt'), DEPLOY_README);
   fs.copyFileSync(path.join(ROOT, '.env.example'), path.join(STAGING, '.env.example'));
 
@@ -137,23 +178,20 @@ function main() {
   if (fs.existsSync(OUT_ZIP)) fs.unlinkSync(OUT_ZIP);
 
   console.log('Creating zip…');
-  const isWin = process.platform === 'win32';
-  if (isWin) {
-    const stagingWin = STAGING.replace(/\//g, '\\');
-    const zipWin = OUT_ZIP.replace(/\//g, '\\');
-    execSync(
-      `powershell -NoProfile -Command "Compress-Archive -Path '${stagingWin}\\*' -DestinationPath '${zipWin}' -Force"`,
-      { stdio: 'inherit' },
-    );
-  } else {
-    execSync(`cd "${STAGING}" && zip -r "${OUT_ZIP}" .`, { stdio: 'inherit' });
-  }
+  await createZip(STAGING, OUT_ZIP);
 
   rmrf(STAGING);
 
+  if (!fs.existsSync(OUT_ZIP)) {
+    throw new Error(`Zip was not created: ${OUT_ZIP}`);
+  }
+
   const sizeMb = (fs.statSync(OUT_ZIP).size / (1024 * 1024)).toFixed(1);
   console.log(`\nDone → ${OUT_ZIP} (${sizeMb} MB)`);
-  console.log('Upload to cPanel, extract into public_html, configure Node.js app (see DEPLOY.txt).');
+  console.log('Upload to cPanel → extract into crud-studio/ → Setup Node.js App → Run NPM Install (see DEPLOY.txt).');
 }
 
-main();
+main().catch((err) => {
+  console.error(err instanceof Error ? err.message : err);
+  process.exit(1);
+});

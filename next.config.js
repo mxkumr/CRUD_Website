@@ -4,7 +4,7 @@ const contentSecurityPolicy = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://images.unsplash.com",
   "font-src 'self' data:",
   "connect-src 'self'",
   "object-src 'none'",
@@ -27,6 +27,15 @@ const nextConfig = {
   // Node.js hosting (e.g. cPanel "Setup Node.js App").
   output: 'standalone',
   poweredByHeader: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+    ],
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

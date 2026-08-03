@@ -431,6 +431,28 @@ function heroVisual(site: MiniSiteContent, t: Tokens): React.ReactNode {
           </div>
         </Card>
       );
+    case 'shop':
+      return (
+        <Card t={t} className="!p-0 overflow-hidden shadow-sm">
+          <div className="h-24" style={{ backgroundImage: gradientFor(1, t.accent) }} />
+          <div className="flex items-center justify-between p-2.5">
+            <div>
+              <div className="text-[8px] font-bold uppercase tracking-widest" style={{ color: t.accent }}>
+                Drop 01
+              </div>
+              <div className="mt-0.5 text-[11px] font-bold" style={{ color: t.text }}>
+                {site.items[0].title}
+              </div>
+              <div className="text-[9px]" style={{ color: t.sub }}>
+                {site.items[0].sub}
+              </div>
+            </div>
+            <span className="rounded-md px-2 py-1 text-[9px] font-bold" style={{ background: t.accent, color: t.accentText }}>
+              {site.items[0].meta}
+            </span>
+          </div>
+        </Card>
+      );
     default:
       return null;
   }
@@ -656,6 +678,32 @@ function bodySection(site: MiniSiteContent, t: Tokens, mobile: boolean): React.R
                 </div>
                 <div className="mt-0.5 text-[9px]" style={{ color: t.sub }}>
                   {it.sub}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </>
+      );
+
+    case 'shop':
+      return (
+        <>
+          <StatStrip site={site} t={t} />
+          <SectionTitle t={t}>From the drop</SectionTitle>
+          <div className={`grid gap-2.5 px-4 pb-5 ${cols}`}>
+            {site.items.map((it, i) => (
+              <Card key={it.title} t={t} className="!p-0 overflow-hidden">
+                <div className="h-14" style={{ backgroundImage: gradientFor(i, t.accent) }} />
+                <div className="p-2.5">
+                  <div className="text-[11px] font-bold" style={{ color: t.text }}>
+                    {it.title}
+                  </div>
+                  <div className="mt-0.5 text-[9px]" style={{ color: t.sub }}>
+                    {it.sub}
+                  </div>
+                  <div className="mt-1.5 text-[11px] font-bold" style={{ color: t.accent }}>
+                    {it.meta}
+                  </div>
                 </div>
               </Card>
             ))}

@@ -1,7 +1,7 @@
 
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif } from 'next/font/google';
+import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif, Cinzel } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
@@ -31,6 +31,12 @@ const instrumentSerif = Instrument_Serif({
   style: ['normal', 'italic'],
 });
 
+const cinzel = Cinzel({
+  variable: '--font-cinzel',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
 export const metadata: Metadata = {
   title: 'CRUD - The Design Studio | Ideas to Iconic Brands',
   description:
@@ -50,7 +56,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} ${cinzel.variable} antialiased`}
         suppressHydrationWarning={true}
       >
         {children}

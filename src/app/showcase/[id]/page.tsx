@@ -9,6 +9,7 @@ import HRSite from '@/components/hr/HRSite';
 import RestaurantSite from '@/components/restaurant/RestaurantSite';
 import SaaSSite from '@/components/saas/SaaSSite';
 import MarketingSite from '@/components/marketing/MarketingSite';
+import FashionSite from '@/components/fashion/FashionSite';
 import { industries } from '@/lib/showcase-data';
 
 type Params = Promise<{ id: string }>;
@@ -25,6 +26,7 @@ const customDemos: Record<string, ComponentType> = {
   restaurant: RestaurantSite,
   saas: SaaSSite,
   marketing: MarketingSite,
+  fashion: FashionSite,
 };
 
 export function generateStaticParams() {
