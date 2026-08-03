@@ -150,7 +150,7 @@ export const capabilityDetails: Record<string, CapabilityDetail> = {
       'App Store & Play Store launch',
       'Analytics & crash monitoring',
     ],
-    stack: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase'],
+    stack: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Supabase'],
   },
   'uiux-design': {
     outcome: 'Research-led product design that turns first-time users into power users.',

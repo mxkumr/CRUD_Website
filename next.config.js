@@ -28,6 +28,9 @@ const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   images: {
+    // cPanel / Passenger cannot run the Next image optimizer (_next/image → 400).
+    // Serve originals directly so logos and Unsplash assets work in production.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

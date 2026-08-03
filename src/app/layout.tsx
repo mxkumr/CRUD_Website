@@ -38,7 +38,7 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: 'CRUD - The Design Studio | Ideas to Iconic Brands',
+  title: 'CRUD Studio | Ideas to Iconic Brands',
   description:
     'CRUD (Create Refine Unified Designs) is a design agency crafting powerful brands through innovative design, seamless web development, and strategic digital solutions.',
 };

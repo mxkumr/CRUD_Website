@@ -23,15 +23,17 @@ export default function CrudLogo({
   priority?: boolean;
 }) {
   const theme = useSiteTheme();
+  // logo-dark = white mark for dark backgrounds; logo-light = dark mark for light backgrounds
   const src = theme === 'light' ? '/logo-light.png' : '/logo-dark.png';
 
   return (
     <Image
       src={src}
-      alt="CRUD. The Design Studio"
-      width={652}
-      height={248}
+      alt="CRUD Studio"
+      width={513}
+      height={186}
       priority={priority}
+      unoptimized
       className={`h-9 w-auto md:h-11 ${className}`}
     />
   );
