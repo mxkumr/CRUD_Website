@@ -11,6 +11,7 @@ import SaaSSite from '@/components/saas/SaaSSite';
 import MarketingSite from '@/components/marketing/MarketingSite';
 import FashionSite from '@/components/fashion/FashionSite';
 import { industries } from '@/lib/showcase-data';
+import { pageMetadata } from '@/lib/seo';
 
 type Params = Promise<{ id: string }>;
 
@@ -36,11 +37,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { id } = await params;
   const industry = industries.find((i) => i.id === id);
-  if (!industry) return { title: 'Demo - CRUD Studio' };
-  return {
-    title: `${industry.site.brand} - ${industry.name} Concept | CRUD Studio`,
+  if (!industry) {
+    return pageMetadata({
+      title: 'Demo',
+      description: 'Industry website concept by CRUD Studio.',
+      path: `/showcase/${id}`,
+      noIndex: true,
+    });
+  }
+  return pageMetadata({
+    title: `${industry.site.brand} — ${industry.name} Concept`,
     description: industry.description,
-  };
+    path: `/showcase/${id}`,
+  });
 }
 
 export default async function ShowcaseDemoPage({ params }: { params: Params }) {

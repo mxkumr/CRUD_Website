@@ -27,6 +27,12 @@ const nextConfig = {
   // Node.js hosting (e.g. cPanel "Setup Node.js App").
   output: 'standalone',
   poweredByHeader: false,
+  // Keep production bundles lean — never ship browser source maps publicly.
+  productionBrowserSourceMaps: false,
+  compress: true,
+  experimental: {
+    optimizePackageImports: ['framer-motion'],
+  },
   images: {
     // cPanel / Passenger cannot run the Next image optimizer (_next/image → 400).
     // Serve originals directly so logos and Unsplash assets work in production.

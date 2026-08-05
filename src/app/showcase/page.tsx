@@ -6,12 +6,14 @@ import CrudLogo from '@/components/site/CrudLogo';
 import ShowcaseHero from '@/components/showcase/ShowcaseHero';
 import ShowcaseGrid from '@/components/showcase/ShowcaseGrid';
 import { studio } from '@/lib/site-data';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Industry Solutions Showcase | CRUD Studio',
+export const metadata: Metadata = pageMetadata({
+  title: 'Industry Solutions Showcase',
   description:
-    'Eight live, interactive website concepts by CRUD Studio - one per industry. Explore working desktop and mobile previews, feature sets, timelines, pricing and integrations.',
-};
+    'Nine live, interactive website concepts by CRUD Studio — one per industry. Explore working desktop and mobile previews, feature sets, timelines, pricing and integrations.',
+  path: '/showcase',
+});
 
 export default function ShowcasePage() {
   return (
@@ -19,7 +21,6 @@ export default function ShowcasePage() {
       <div className="crud-site min-h-screen">
         <CustomCursor />
 
-        {/* top bar */}
         <header className="fixed inset-x-0 top-0 z-[120]">
           <div className="flex items-center justify-between border-b border-line bg-ink/60 px-5 py-4 backdrop-blur-xl md:px-10">
             <Link href="/" data-cursor="hover" className="flex items-center" aria-label="CRUD Studio - home">
@@ -49,7 +50,6 @@ export default function ShowcasePage() {
           <ShowcaseGrid />
         </main>
 
-        {/* closing CTA */}
         <footer className="relative border-t border-line px-5 py-20 md:px-10 md:py-28">
           <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div>

@@ -115,7 +115,7 @@ export default function ShowcaseHero() {
             </h1>
 
             <RevealLine delay={0.5} className="mt-8 max-w-2xl text-lg leading-relaxed text-bone-dim">
-              Eight live, interactive concepts - one for every kind of business we love building for.
+              Nine live, interactive concepts - one for every kind of business we love building for.
               Open any card to explore a working preview on desktop and mobile, the feature set, the
               timeline and a transparent price band.
             </RevealLine>

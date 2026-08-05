@@ -1,0 +1,25 @@
+# CRUD Studio
+
+> Design and engineering studio crafting brands, websites, and digital products.
+> Create. Refine. Unified. Designs.
+
+## Site
+- Homepage: https://thecrudstudio.com/
+- Work: https://thecrudstudio.com/work
+- Industry showcase: https://thecrudstudio.com/showcase
+- Capabilities: https://thecrudstudio.com/capabilities
+- Studio: https://thecrudstudio.com/studio
+- Contact: https://thecrudstudio.com/contact
+
+## What we do
+Brand identity, web development, UI/UX, app development, software, digital marketing,
+AI strategy, and forward deployment engineering for clients in India, Germany, and beyond.
+
+## Contact
+- Email: thecrudstudio@gmail.com
+- India: (+91) 99406 34910
+- Germany: (+49) 1521 407 4301
+
+## Optional
+- Sitemap: https://thecrudstudio.com/sitemap.xml
+- Robots: https://thecrudstudio.com/robots.txt

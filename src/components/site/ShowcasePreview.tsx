@@ -87,7 +87,7 @@ export default function ShowcasePreview() {
               <span className="absolute h-full w-full animate-ping rounded-full bg-volt opacity-75" />
               <span className="relative h-1.5 w-1.5 rounded-full bg-volt" />
             </span>
-            View all 8 concepts
+            View all 9 concepts
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </div>

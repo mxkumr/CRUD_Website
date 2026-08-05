@@ -163,12 +163,12 @@ function Hero({
       <div className={`relative grid items-center gap-5 ${mobile ? 'grid-cols-1' : 'grid-cols-[1.1fr_1fr]'}`}>
         <div>
           <Eyebrow t={t}>{site.hero.eyebrow}</Eyebrow>
-          <h1
+          <h2
             className={`mt-3 font-bold leading-[1.05] tracking-tight ${mobile ? 'text-[20px]' : 'text-[24px]'}`}
             style={{ color: t.text, fontFamily: 'var(--font-display), sans-serif' }}
           >
             {site.hero.title}
-          </h1>
+          </h2>
           <p className="mt-2.5 max-w-[34ch] text-[11px] leading-relaxed" style={{ color: t.sub }}>
             {site.hero.sub}
           </p>
