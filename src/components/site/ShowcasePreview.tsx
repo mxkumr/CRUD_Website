@@ -36,7 +36,7 @@ function ShowcaseCard({ industry, index }: { industry: (typeof industries)[numbe
         <div className="relative flex flex-1 flex-col p-5 pt-4">
           <div className="flex items-center justify-between">
             <span className="font-display text-xs tracking-[0.3em]" style={{ color: h1 }}>
-              {industry.number}
+              {String(index + 1).padStart(2, '0')}
             </span>
             <span className="rounded-full border border-line bg-ink/50 px-3 py-1 font-display text-[10px] uppercase tracking-widest text-bone-dim backdrop-blur-sm">
               {industry.category}
@@ -87,7 +87,7 @@ export default function ShowcasePreview() {
               <span className="absolute h-full w-full animate-ping rounded-full bg-volt opacity-75" />
               <span className="relative h-1.5 w-1.5 rounded-full bg-volt" />
             </span>
-            View all 9 concepts
+            View all 10 concepts
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </div>

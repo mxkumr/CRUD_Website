@@ -123,7 +123,7 @@ function IndustryCard({
                 {industry.glyph}
               </span>
               <span className="font-display text-xs tracking-widest text-bone-dim">
-                {industry.number}
+                {String(index + 1).padStart(2, '0')}
               </span>
             </div>
 

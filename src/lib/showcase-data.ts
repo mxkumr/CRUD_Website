@@ -1,7 +1,7 @@
 /**
  * CRUD Studio - Industry Solutions Showcase
  * ------------------------------------------------------------
- * Nine ready-to-pitch website concepts across industries.
+ * Ten ready-to-pitch website concepts across industries.
  * Each entry powers an interactive "mini product" card on
  * /showcase: a live in-browser preview (desktop + mobile),
  * feature highlights, an estimated timeline, an estimated
@@ -27,7 +27,8 @@ export type MiniSiteContent = {
     | 'jobs'
     | 'menu'
     | 'agency'
-    | 'shop';
+    | 'shop'
+    | 'cafe';
   /** light or dark chrome for the previewed site */
   theme: 'light' | 'dark';
   brand: string;
@@ -721,6 +722,78 @@ export const industries: Industry[] = [
         { value: '12', label: 'SKUs live' },
         { value: '2', label: 'Collections' },
         { value: '4.9★', label: 'Drop rating' },
+      ],
+    },
+  },
+
+  /* ---------------------------------------------------------- 10 */
+  {
+    id: 'cafe',
+    number: '10',
+    name: 'Café / Specialty Coffee',
+    category: 'Hospitality',
+    tagline: 'Quiet, precise café sites that make people want a seat.',
+    description:
+      'A specialty café concept with full-bleed photography, a curated menu, day-part storytelling and a table reservation flow — designed to feel calm, local and conversion-ready.',
+    hues: ['#2F6F5E', '#1C1B19'],
+    glyph: '◎',
+    timelineLabel: '4 weeks',
+    timeline: [
+      { label: 'Discovery', detail: 'Brand mood, menu, location story', weeks: 1 },
+      { label: 'Design', detail: 'Home, menu UX, visit flow', weeks: 1 },
+      { label: 'Build', detail: 'Menu, booking, photography', weeks: 1 },
+      { label: 'Launch', detail: 'Local SEO, maps, go-live', weeks: 1 },
+    ],
+    features: [
+      'Home, menu & visit pages',
+      'Coffee / kitchen / bakery filters',
+      'Day-part storytelling',
+      'Hours & location block',
+      'Table reservation form',
+      'Editorial photography layout',
+    ],
+    integrations: ['Google Maps', 'WhatsApp', 'Razorpay', 'Resy / custom booking', 'Instagram', 'Mailchimp'],
+    liveHref: '/showcase/cafe',
+    page: {
+      intro:
+        'A café website should smell like the room — calm, specific, and easy to act on. Solstice is that brief, built.',
+      valueProps: [
+        { title: 'Mood before menu', body: 'Full-bleed photography and typography that feel like the space, not a template.' },
+        { title: 'A menu people finish', body: 'Short, filtered categories with prices and notes — scannable on a phone in line.' },
+        { title: 'Visit, sorted', body: 'Hours, address and a table request form that turns browsers into booked seats.' },
+      ],
+      showcase: { title: 'On the bar', subtitle: 'Signature pours and day-part plates.' },
+      testimonial: {
+        quote: 'Guests now check the menu online before they walk in — and weekend table requests actually show up organised.',
+        name: 'Ananya R.',
+        role: 'Café Owner',
+      },
+      closing: { title: 'Save them a seat.', sub: 'Launch a café site as considered as your coffee.' },
+    },
+    site: {
+      layout: 'cafe',
+      theme: 'light',
+      brand: 'Solstice',
+      domain: 'solsticecafe.com',
+      accent: '#2F6F5E',
+      nav: ['Home', 'Menu', 'Visit'],
+      hero: {
+        eyebrow: 'Specialty café · Alwarpet',
+        title: 'Coffee with the day.',
+        sub: 'Small-lot espresso, a short kitchen menu, and a room built for lingering.',
+        cta: 'See the menu',
+        secondary: 'Plan a visit',
+      },
+      items: [
+        { title: 'House Espresso', sub: 'Coffee', meta: '₹180' },
+        { title: 'Oat Flat White', sub: 'Coffee', meta: '₹260' },
+        { title: 'Skillet Shakshuka', sub: 'Kitchen', meta: '₹420' },
+        { title: 'Cardamom Morning Bun', sub: 'Bakery', meta: '₹180' },
+      ],
+      stats: [
+        { value: '7:30', label: 'Doors open' },
+        { value: '10', label: 'Menu items' },
+        { value: '4.9', label: 'Guest rating' },
       ],
     },
   },

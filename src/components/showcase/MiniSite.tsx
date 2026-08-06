@@ -453,6 +453,28 @@ function heroVisual(site: MiniSiteContent, t: Tokens): React.ReactNode {
           </div>
         </Card>
       );
+    case 'cafe':
+      return (
+        <Card t={t} className="!p-0 overflow-hidden shadow-sm">
+          <div className="h-20" style={{ backgroundImage: gradientFor(2, t.accent) }} />
+          <div className="p-2.5">
+            <div className="text-[8px] font-bold uppercase tracking-widest" style={{ color: t.accent }}>
+              Today on bar
+            </div>
+            <div className="mt-1 text-[11px] font-bold" style={{ color: t.text }}>
+              {site.items[0].title}
+            </div>
+            <div className="mt-0.5 flex items-center justify-between">
+              <span className="text-[9px]" style={{ color: t.sub }}>
+                {site.items[0].sub}
+              </span>
+              <span className="text-[10px] font-bold" style={{ color: t.accent }}>
+                {site.items[0].meta}
+              </span>
+            </div>
+          </div>
+        </Card>
+      );
     default:
       return null;
   }
@@ -707,6 +729,37 @@ function bodySection(site: MiniSiteContent, t: Tokens, mobile: boolean): React.R
                 </div>
               </Card>
             ))}
+          </div>
+        </>
+      );
+
+    case 'cafe':
+      return (
+        <>
+          <StatStrip site={site} t={t} />
+          <SectionTitle t={t}>On the bar</SectionTitle>
+          <div className="px-4 pb-5">
+            <Card t={t} className="!p-0">
+              {site.items.map((it, i) => (
+                <div
+                  key={it.title}
+                  className="flex items-center justify-between px-3 py-2.5"
+                  style={{ borderTop: i ? `1px solid ${t.border}` : undefined }}
+                >
+                  <div>
+                    <div className="text-[11px] font-semibold" style={{ color: t.text }}>
+                      {it.title}
+                    </div>
+                    <div className="text-[9px]" style={{ color: t.sub }}>
+                      {it.sub}
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-bold" style={{ color: t.accent }}>
+                    {it.meta}
+                  </span>
+                </div>
+              ))}
+            </Card>
           </div>
         </>
       );

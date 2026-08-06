@@ -66,7 +66,7 @@ export function organizationJsonLd() {
     name: siteConfig.name,
     alternateName: 'Create Refine Unified Designs',
     url: SITE_URL,
-    logo: `${SITE_URL}/logo-dark.png`,
+    logo: `${SITE_URL}/icon-192.png?v=3`,
     email: siteConfig.email,
     description: siteConfig.description,
     sameAs: [

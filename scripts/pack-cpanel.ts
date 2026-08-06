@@ -66,6 +66,16 @@ VERIFY
   https://thecrudstudio.com should load the full CRUD Studio site.
   If blank: check Node.js app is Running, startup file is server.js, and NPM Install completed.
 
+FAVICON / GOOGLE LOGO
+---------------------
+  After upload, ALSO delete any old favicon.ico sitting in public_html
+  (Apache can serve that instead of the Node app icon — that was the
+  Firebase Studio logo). Confirm these show the black CRUD circle:
+    https://thecrudstudio.com/favicon.ico?v=3
+    https://thecrudstudio.com/icon-48.png?v=3
+  Google Search can keep the old icon for days. In Search Console →
+  URL Inspection → request indexing on the homepage to speed it up.
+
 Built: ${new Date().toISOString()}
 `;
 

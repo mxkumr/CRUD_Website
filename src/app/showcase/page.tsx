@@ -11,7 +11,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Industry Solutions Showcase',
   description:
-    'Nine live, interactive website concepts by CRUD Studio — one per industry. Explore working desktop and mobile previews, feature sets, timelines, pricing and integrations.',
+    'Ten live, interactive website concepts by CRUD Studio — one per industry. Explore working desktop and mobile previews, feature sets, timelines, pricing and integrations.',
   path: '/showcase',
 });
 

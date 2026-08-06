@@ -53,9 +53,11 @@ function AnimatedNumber({ value, delay = 0 }: { value: string; delay?: number })
   return <>{display}</>;
 }
 
+const conceptCount = String(industries.length);
+
 const stats = [
-  { value: '8', label: 'Industry concepts' },
-  { value: '8', label: 'Live demos' },
+  { value: conceptCount, label: 'Industry concepts' },
+  { value: conceptCount, label: 'Live demos' },
   { value: '2', label: 'Device previews' },
   { value: '4–7', label: 'Weeks to launch' },
 ];
@@ -115,7 +117,7 @@ export default function ShowcaseHero() {
             </h1>
 
             <RevealLine delay={0.5} className="mt-8 max-w-2xl text-lg leading-relaxed text-bone-dim">
-              Nine live, interactive concepts - one for every kind of business we love building for.
+              Ten live, interactive concepts - one for every kind of business we love building for.
               Open any card to explore a working preview on desktop and mobile, the feature set, the
               timeline and a transparent price band.
             </RevealLine>
@@ -178,7 +180,9 @@ export default function ShowcaseHero() {
                 <p className="font-display text-[11px] uppercase tracking-[0.25em] text-bone-dim">
                   The index
                 </p>
-                <span className="font-display text-[11px] tracking-widest text-bone-dim">08 / 08</span>
+                <span className="font-display text-[11px] tracking-widest text-bone-dim">
+                  {String(industries.length).padStart(2, '0')} / {String(industries.length).padStart(2, '0')}
+                </span>
               </div>
               <ul>
                 {industries.map((ind, i) => {
@@ -212,7 +216,7 @@ export default function ShowcaseHero() {
                         <span
                           className="font-display text-xs tracking-widest text-bone-dim transition-all duration-300 group-hover:opacity-0"
                         >
-                          {ind.number}
+                          {String(i + 1).padStart(2, '0')}
                         </span>
                         <span
                           className="-ml-5 translate-x-2 font-display text-sm opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"

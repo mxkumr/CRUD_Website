@@ -10,6 +10,7 @@ import RestaurantSite from '@/components/restaurant/RestaurantSite';
 import SaaSSite from '@/components/saas/SaaSSite';
 import MarketingSite from '@/components/marketing/MarketingSite';
 import FashionSite from '@/components/fashion/FashionSite';
+import CafeSite from '@/components/cafe/CafeSite';
 import { industries } from '@/lib/showcase-data';
 import { pageMetadata } from '@/lib/seo';
 
@@ -28,6 +29,7 @@ const customDemos: Record<string, ComponentType> = {
   saas: SaaSSite,
   marketing: MarketingSite,
   fashion: FashionSite,
+  cafe: CafeSite,
 };
 
 export function generateStaticParams() {

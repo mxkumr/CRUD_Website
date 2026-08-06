@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif, Cinzel } from 'next/font/google';
+import { Geist, Geist_Mono, Space_Grotesk, Inter, Instrument_Serif, Cinzel, Fraunces, Sora } from 'next/font/google';
 import { organizationJsonLd, SITE_URL, siteConfig, websiteJsonLd } from '@/lib/seo';
 import './globals.css';
 
@@ -33,6 +33,19 @@ const instrumentSerif = Instrument_Serif({
 
 const cinzel = Cinzel({
   variable: '--font-cinzel',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const fraunces = Fraunces({
+  variable: '--font-cafe-display',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+});
+
+const sora = Sora({
+  variable: '--font-cafe-body',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
@@ -85,12 +98,17 @@ export const metadata: Metadata = {
     },
   },
   icons: {
+    // Cache-bust so Google/browsers drop the old Firebase Studio favicon.
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon.ico?v=3', sizes: '48x48' },
+      { url: '/icon-48.png?v=3', type: 'image/png', sizes: '48x48' },
+      { url: '/icon-192.png?v=3', type: 'image/png', sizes: '192x192' },
+      { url: '/icon.png?v=3', type: 'image/png', sizes: '512x512' },
     ],
-    apple: [{ url: '/icon.png' }],
+    apple: [{ url: '/apple-icon.png?v=3', sizes: '180x180' }],
+    shortcut: '/favicon.ico?v=3',
   },
+  manifest: '/site.webmanifest',
   category: 'design',
 };
 
@@ -113,7 +131,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} ${cinzel.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable} ${cinzel.variable} ${fraunces.variable} ${sora.variable} antialiased`}
         suppressHydrationWarning={true}
       >
         {children}
