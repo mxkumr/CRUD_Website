@@ -110,7 +110,13 @@ function Header() {
           Concept demo by CRUD Studio
         </p>
         <Link href="/showcase" className="rounded-full border border-white/25 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90 hover:bg-white/10">
-          ← All demos
+          ← All industries
+        </Link>
+        <Link
+          href="/contact"
+          className="rounded-full bg-white px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black hover:opacity-90"
+        >
+          Build something like this →
         </Link>
       </div>
       <header className={`fixed inset-x-0 top-7 z-[50] transition-all duration-300 ${scrolled ? 'shadow-lg shadow-slate-900/5' : ''}`} style={{ background: scrolled ? '#FFFFFFF2' : '#FFFFFF', backdropFilter: 'blur(8px)', borderBottom: `1px solid ${LINE}` }}>
@@ -449,7 +455,7 @@ function Closing() {
         <div className="mx-auto mt-14 flex max-w-6xl flex-col items-center justify-between gap-4 border-t pt-6 md:flex-row" style={{ borderColor: LINE }}>
           <p className="text-xs" style={{ color: SUB }}>© 2026 {brand.full}.</p>
           <div className="flex gap-3">
-            <Link href="/showcase" className="rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ borderColor: LINE, color: SUB }}>← All demos</Link>
+            <Link href="/showcase" className="rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ borderColor: LINE, color: SUB }}>← All industries</Link>
             <Link href="/" className="rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white" style={{ background: INK }}>Designed by CRUD →</Link>
           </div>
         </div>

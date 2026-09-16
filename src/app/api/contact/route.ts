@@ -6,11 +6,13 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, message, interests, website } = body as {
+    const { name, email, message, interests, region, budget, website } = body as {
       name?: string;
       email?: string;
       message?: string;
       interests?: string[];
+      region?: string;
+      budget?: string;
       website?: string;
     };
 
@@ -23,6 +25,10 @@ export async function POST(req: NextRequest) {
     const interestList = Array.isArray(interests)
       ? interests.filter((i): i is string => typeof i === 'string').slice(0, 12)
       : [];
+    const trimmedRegion =
+      typeof region === 'string' ? region.trim().slice(0, 80) : undefined;
+    const trimmedBudget =
+      typeof budget === 'string' ? budget.trim().slice(0, 80) : undefined;
 
     if (!trimmedName || !trimmedEmail || !trimmedMessage) {
       return NextResponse.json({ error: 'Name, email and message are required.' }, { status: 400 });
@@ -41,6 +47,8 @@ export async function POST(req: NextRequest) {
       email: trimmedEmail,
       message: trimmedMessage,
       interests: interestList,
+      region: trimmedRegion,
+      budget: trimmedBudget,
     });
 
     return NextResponse.json({ ok: true });

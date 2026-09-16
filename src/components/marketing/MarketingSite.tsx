@@ -86,7 +86,13 @@ function Header() {
     <>
       <div className="fixed inset-x-0 top-0 z-[60] flex items-center justify-center gap-3 px-4 py-1.5" style={{ background: '#000' }}>
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em]" style={{ color: LIME }}>Concept demo by CRUD Studio</p>
-        <Link href="/showcase" className="rounded-full border border-white/25 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90 hover:bg-white/10">← All demos</Link>
+        <Link href="/showcase" className="rounded-full border border-white/25 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90 hover:bg-white/10">← All industries</Link>
+        <Link
+          href="/contact"
+          className="rounded-full bg-white px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black hover:opacity-90"
+        >
+          Build something like this →
+        </Link>
       </div>
       <header className="fixed inset-x-0 top-7 z-[50] transition-all duration-300" style={{ background: scrolled ? `${BG}E6` : 'transparent', backdropFilter: scrolled ? 'blur(10px)' : 'none', borderBottom: scrolled ? `1px solid ${LINE}` : '1px solid transparent' }}>
         <div className="flex items-center justify-between px-5 py-4 md:px-10">
@@ -290,7 +296,7 @@ function Closing() {
         <div className="mx-auto mt-14 flex max-w-6xl flex-col items-center justify-between gap-4 border-t pt-6 md:flex-row" style={{ borderColor: LINE }}>
           <p className="text-xs" style={{ color: SUB }}>© 2026 {agency.name}.</p>
           <div className="flex gap-3">
-            <Link href="/showcase" className="rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ borderColor: LINE, color: SUB }}>← All demos</Link>
+            <Link href="/showcase" className="rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ borderColor: LINE, color: SUB }}>← All industries</Link>
             <Link href="/" className="rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ background: LIME, color: BG }}>Designed by CRUD →</Link>
           </div>
         </div>

@@ -48,18 +48,23 @@ NODE.JS APP (cPanel → Setup Node.js App)
   Startup file:     server.js
 
 4. Click "Run NPM Install" — required; CloudLinux installs deps into its virtual env.
-5. Add environment variables (see .env.example) for the contact form SMTP.
+5. Add environment variables (see .env.example) for the contact form (Resend preferred).
 6. Click RESTART.
 
-ENV VARS (contact form)
------------------------
-  SMTP_HOST=mail.thecrudstudio.com
-  SMTP_PORT=587
-  SMTP_SECURE=false
-  SMTP_USER=hello@thecrudstudio.com
-  SMTP_PASS=your-mailbox-password
-  SMTP_FROM="CRUD Studio <hello@thecrudstudio.com>"
+ENV VARS (contact form — Resend)
+--------------------------------
+  RESEND_API_KEY=re_xxxxxxxx
+  RESEND_FROM="CRUD Studio <hello@thecrudstudio.com>"
   CONTACT_TO=thecrudstudio@gmail.com
+
+  # Optional SMTP fallback if Resend is not set:
+  # SMTP_HOST=mail.thecrudstudio.com
+  # SMTP_PORT=587
+  # SMTP_SECURE=false
+  # SMTP_USER=hello@thecrudstudio.com
+  # SMTP_PASS=your-mailbox-password
+  # SMTP_FROM="CRUD Studio <hello@thecrudstudio.com>"
+  # CONTACT_TO=thecrudstudio@gmail.com
 
 VERIFY
 ------

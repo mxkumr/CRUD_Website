@@ -10,7 +10,7 @@ export type Stat = { value: string; label: string; sub?: string };
 
 /** Headline numbers reused across pages. */
 export const studioStats: Stat[] = [
-  { value: '250+', label: 'Projects shipped', sub: 'Across web, brand & product' },
+  { value: '100+', label: 'Projects shipped', sub: 'Across web, brand & product' },
   { value: '19', label: 'Industries served', sub: 'From healthcare to fintech' },
   { value: '2', label: 'Continents', sub: 'India & Germany' },
   { value: '7-day', label: 'Money-back promise', sub: 'Risk-free, every time' },

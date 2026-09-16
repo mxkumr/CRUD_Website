@@ -211,8 +211,8 @@ function ProjectArt({ project }: { project: Project }) {
       <div
         className={`absolute flex items-center justify-center transition-transform duration-700 ${
           isWide
-            ? 'inset-y-6 right-8 w-1/3'
-            : 'left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-[60%]'
+            ? 'inset-y-4 right-6 w-1/4'
+            : 'left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-[60%]'
         }`}
       >
         <ServiceVector icon={project.icon} hue={accent} dim={accentMuted} />
@@ -269,8 +269,8 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className={`group relative h-full w-full overflow-hidden rounded-2xl border border-line bg-ink-soft ${
-          project.span === 'tall' ? 'min-h-[28rem] md:min-h-full' : 'min-h-[18rem] md:min-h-[22rem]'
+        className={`group relative h-full w-full overflow-hidden rounded-xl border border-line bg-ink-soft ${
+          project.span === 'tall' ? 'min-h-[16rem] md:min-h-full' : 'min-h-[11rem] md:min-h-[13rem]'
         }`}
       >
         <motion.div className="absolute inset-0" style={{ x: artX, y: artY, scale: 1.06 }}>
@@ -278,9 +278,9 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
         </motion.div>
 
         {/* meta */}
-        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
+        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-3.5 md:p-4">
           <span
-            className="work-card__category rounded-full border bg-ink/60 px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-widest backdrop-blur-sm"
+            className="work-card__category rounded-full border bg-ink/60 px-2.5 py-0.5 font-display text-[10px] font-semibold uppercase tracking-widest backdrop-blur-sm"
             style={{
               borderColor: isLight ? `${accent}55` : `${project.hues[0]}59`,
               color: accent,
@@ -290,20 +290,20 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
           </span>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 p-5" style={{ transform: 'translateZ(40px)' }}>
-          <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-bone transition-transform duration-500 group-hover:-translate-y-1 md:text-3xl">
+        <div className="absolute inset-x-0 bottom-0 p-3.5 md:p-4" style={{ transform: 'translateZ(40px)' }}>
+          <h3 className="font-display text-lg font-bold leading-tight tracking-tight text-bone transition-transform duration-500 group-hover:-translate-y-1 md:text-xl">
             {project.title}
           </h3>
-          <p className="mt-2 max-h-0 overflow-hidden text-sm leading-relaxed text-bone-dim opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
+          <p className="mt-1.5 max-h-0 overflow-hidden text-xs leading-relaxed text-bone-dim opacity-0 transition-all duration-500 group-hover:max-h-20 group-hover:opacity-100">
             {project.blurb}
           </p>
-          <div className="mt-3 flex items-center gap-2 overflow-hidden">
+          <div className="mt-2 flex items-center gap-2 overflow-hidden">
             <span
-              className="block h-px w-0 transition-all duration-500 group-hover:w-10"
+              className="block h-px w-0 transition-all duration-500 group-hover:w-8"
               style={{ background: accent }}
             />
             <span
-              className="-translate-x-4 font-display text-xs uppercase tracking-widest opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
+              className="-translate-x-4 font-display text-[10px] uppercase tracking-widest opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
               style={{ color: accent }}
             >
               Explore service
@@ -351,7 +351,7 @@ export default function WorkGrid() {
         </div>
       </div>
 
-      <div className="grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 md:grid-flow-dense md:grid-cols-3">
+      <div className="grid auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2 md:grid-flow-dense md:grid-cols-3">
         {projects.map((project, i) => (
           <WorkCard key={project.id} project={project} index={i} />
         ))}

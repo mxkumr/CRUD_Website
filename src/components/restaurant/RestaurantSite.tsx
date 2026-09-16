@@ -77,7 +77,13 @@ function Header() {
     <>
       <div className="fixed inset-x-0 top-0 z-[60] flex items-center justify-center gap-3 px-4 py-1.5" style={{ background: '#000' }}>
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em]" style={{ color: AMBER }}>Concept demo by CRUD Studio</p>
-        <Link href="/showcase" className="rounded-full border border-white/25 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90 hover:bg-white/10">← All demos</Link>
+        <Link href="/showcase" className="rounded-full border border-white/25 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90 hover:bg-white/10">← All industries</Link>
+        <Link
+          href="/contact"
+          className="rounded-full bg-white px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black hover:opacity-90"
+        >
+          Build something like this →
+        </Link>
       </div>
       <header className="fixed inset-x-0 top-7 z-[50] transition-all duration-500" style={{ background: scrolled ? `${BG}E6` : 'transparent', backdropFilter: scrolled ? 'blur(10px)' : 'none', borderBottom: scrolled ? `1px solid ${LINE}` : '1px solid transparent' }}>
         <div className="flex items-center justify-between px-5 py-4 md:px-10">
@@ -324,7 +330,7 @@ function Visit() {
             {['Menu', 'Reserve', 'Private events', 'Gift cards', 'Instagram'].map((l) => (<a key={l} href="#" className="transition-colors hover:text-white">{l}</a>))}
           </div>
           <div className="flex gap-3">
-            <Link href="/showcase" className="rounded-full border border-white/20 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white/70 hover:text-white">← All demos</Link>
+            <Link href="/showcase" className="rounded-full border border-white/20 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white/70 hover:text-white">← All industries</Link>
             <Link href="/" className="rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ background: AMBER, color: BG }}>Designed by CRUD →</Link>
           </div>
           <p className="text-xs" style={{ color: 'rgba(168,153,138,0.6)' }}>© 2026 {place.name}.</p>

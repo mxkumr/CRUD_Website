@@ -147,7 +147,13 @@ function Header() {
           Concept demo by CRUD Studio
         </p>
         <Link href="/showcase" className="rounded-full border border-white/25 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/90 transition-colors hover:bg-white/10">
-          ← All demos
+          ← All industries
+        </Link>
+        <Link
+          href="/contact"
+          className="rounded-full bg-white px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black hover:opacity-90"
+        >
+          Build something like this →
         </Link>
       </div>
 
@@ -780,7 +786,7 @@ function Footer() {
           <p className="text-xs text-white/45">© 2026 {uni.full}. All rights reserved.</p>
           <div className="flex gap-3">
             <Link href="/showcase" className="rounded-full border border-white/20 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white/70 transition-colors hover:text-white">
-              ← All demos
+              ← All industries
             </Link>
             <Link href="/" className="rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-wider" style={{ background: GOLD, color: NAVY_DEEP }}>
               Designed by CRUD →
