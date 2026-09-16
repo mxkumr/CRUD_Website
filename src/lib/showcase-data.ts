@@ -332,9 +332,10 @@ export const industries: Industry[] = [
       ],
       showcase: { title: 'Recent projects', subtitle: 'A portfolio built on trust and on-time delivery.' },
       testimonial: {
-        quote: 'Our completed projects are showcased beautifully and clients trust us faster after seeing the site.',
-        name: 'Zora Constructions',
-        role: 'Managing Partner',
+        quote:
+          'Five-star satisfaction from day one. The site brought serious enquiries, so we asked CRUD to take over our full digital work as long-term collaborators.',
+        name: 'Er M. Rajmohan, B.E',
+        role: 'Managing Director · Zora Construction',
       },
       closing: { title: 'Let’s build it.', sub: 'Request a quote and get a clear scope, timeline and cost - no surprises.' },
     },

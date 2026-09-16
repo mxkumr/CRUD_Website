@@ -311,10 +311,10 @@ export const clientTestimonials: ClientTestimonial[] = [
       "Elegant, minimal and very 'us'. The team has a good eye for detail and the whole process was completely stress-free.",
   },
   {
-    name: 'Zora Constructions',
-    role: 'Construction',
+    name: 'Zora Construction',
+    role: 'Construction · Karur',
     quote:
-      'Our completed projects are showcased beautifully and clients trust us faster after seeing the site. Enquiries are more serious and better qualified now.',
+      'Five-star satisfaction from day one. The site brought serious enquiries, so we asked CRUD to take over our full digital work as long-term collaborators.',
   },
 ];
 
@@ -336,6 +336,20 @@ export type PremiumClient = {
 
 /** Flagship client work - live site previews on the marketing homepage. */
 export const premiumClients: PremiumClient[] = [
+  {
+    id: 'zora-constructions',
+    name: 'Zora Construction',
+    category: 'Construction · Karur',
+    url: 'https://www.zoraconstructions.com',
+    domain: 'zoraconstructions.com',
+    screenshot: '/clients/zora-constructions.jpg',
+    description:
+      'A design-and-build construction website for Karur’s leading builders: passive cooling, engineer-led delivery, portfolio and enquiry flows that turned five-star satisfaction into a full digital collaboration.',
+    rating: 5.0,
+    praise:
+      'So satisfied they asked us to take over their full digital work: website, brand and ongoing growth.',
+    hues: ['#2563EB', '#0F172A'],
+  },
   {
     id: 'inego',
     name: 'IN-EGO',

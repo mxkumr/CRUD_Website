@@ -294,7 +294,7 @@ function StatStrip() {
 }
 
 const clientNames = [
-  'Adgro Hair', "Refai's Clinic", 'Subashini Fertility', 'Zora Constructions',
+  'Adgro Hair', "Refai's Clinic", 'Subashini Fertility', 'Zora Construction',
   'Little Flower', 'Tic To Go', 'Inego', 'H2H', 'Varahi Lakshmi Silks', 'Taraa Groups',
 ];
 
